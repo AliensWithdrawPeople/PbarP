@@ -29,37 +29,41 @@ void prelim_coll::Loop(std::string new_file_name)
    const double max_coll_pbarp_vertex_rho = 1.; // cm
    const double max_track_z = 10.; // cm
 
+   const double min_de_dx = 6e3; 
+   const double max_de_dx = 3e4;
+
    const double min_energy_depo_for_coll_pbarp = 200; // MeV
    const int min_vertex_track_number = 2;
    const double max_vertex_rho = 2.5; // cm
    const double min_vertex_rho = 1.5; // cm
    // For annihilation PbarP.
-   const double max_track_energy_deposition = 1.5; // MeV
+   const double max_track_energy_deposition = 300; // MeV
 
    Long64_t nentries = fChain->GetEntriesFast();
    TFile *new_file = new TFile(new_file_name.c_str(), "recreate");
    auto new_tree = new TTree("prelim", "prelim_coll_PbarP");
-   new_tree->Branch("evnum", &evnum, "evnum/I");
-   new_tree->Branch("ebeam", &ebeam, "ebeam/F");
-   new_tree->Branch("emeas", &emeas, "emeas/F");
-   new_tree->Branch("demeas", &demeas, "demeas/F");
-   new_tree->Branch("runnum", &runnum, "runnum/I");
+   new_tree->Branch("evnum", &evnum);
+   new_tree->Branch("ebeam", &ebeam);
+   new_tree->Branch("emeas", &emeas);
+   new_tree->Branch("demeas", &demeas);
+   new_tree->Branch("runnum", &runnum);
    
-   new_tree->Branch("xbeam", &xbeam, "xbeam/F");
-   new_tree->Branch("ybeam", &ybeam, "ybeam/F");
-   new_tree->Branch("runnum", &runnum, "runnum/I");
-   new_tree->Branch("is_coll", &is_coll, "is_coll/I");
-   new_tree->Branch("is_bhabha", &is_bhabha, "is_bhabha/I");
-   new_tree->Branch("ecaltot", &ecaltot, "ecaltot/F");
-   new_tree->Branch("ecalneu", &ecalneu, "ecalneu/F");
+   new_tree->Branch("xbeam", &xbeam);
+   new_tree->Branch("ybeam", &ybeam);
+   new_tree->Branch("runnum", &runnum);
+   new_tree->Branch("is_coll", &is_coll);
+   new_tree->Branch("is_bhabha", &is_bhabha);
+   new_tree->Branch("ecaltot", &ecaltot);
+   new_tree->Branch("ecalneu", &ecalneu);
    
    std::vector<int> vtrk_vec = {};
    std::vector<std::vector<int>> vind_vec = {};
    std::vector<float> vrho_vec = {};
-   new_tree->Branch("nv", &nv, "nv/I");
-   new_tree->Branch("vtrk", &vtrk_vec, "vtrk/I");
-   new_tree->Branch("vind", &vind_vec, "vind_2d/I");
-   new_tree->Branch("vxyz", &vrho_vec, "vxyz_2d/D");
+   new_tree->Branch("nv", &nv);
+   new_tree->Branch("vtrk", &vtrk_vec);
+   // [ ]: Do I need vind_vec if I only seek for one vertex with 2 tracks and I push track_ids to vectors with track info.
+   // new_tree->Branch("vind", &vind_vec);
+   new_tree->Branch("vrho", &vrho_vec);
    
    std::vector<int> tnhit_vec = {};
    std::vector<float> tlength_vec = {};
@@ -77,29 +81,28 @@ void prelim_coll::Loop(std::string new_file_name)
    std::vector<int> tcharge_vec = {};
    std::vector<float> ten_vec = {};
 
-   new_tree->Branch("nt", &nt, "nt/I");
-   new_tree->Branch("tnhit", &tnhit_vec, "tnhit/I");
-   new_tree->Branch("tlength", &tlength_vec, "tlength/F");
-   new_tree->Branch("tphi", &tphi_vec, "tphi/F");
-   new_tree->Branch("tth", &tth_vec, "tth/F");
-   new_tree->Branch("tptot", &tptot_vec, "tptot/F");
-   new_tree->Branch("tphiv", &tphiv_vec, "tphiv/F");
-   new_tree->Branch("tthv", &tthv_vec, "tthv/F");
-   new_tree->Branch("tptotv", &tptotv_vec, "tptotv/F");
-   new_tree->Branch("trho", &trho_vec, "trho/F");
-   new_tree->Branch("tdedx", &tdedx_vec, "tdedx/F");
-   new_tree->Branch("tz", &tz_vec, "tz/F");
-   new_tree->Branch("tt0", &tt0_vec, "tt0/F");
-   new_tree->Branch("tant", &tant_vec, "tant/F");
-   new_tree->Branch("tcharge", &tcharge_vec, "tcharge/I");
-   new_tree->Branch("ten", &ten_vec, "ten/F");
+   new_tree->Branch("nt", &nt);
+   new_tree->Branch("tnhit", &tnhit_vec);
+   new_tree->Branch("tlength", &tlength_vec);
+   new_tree->Branch("tphi", &tphi_vec);
+   new_tree->Branch("tth", &tth_vec);
+   new_tree->Branch("tptot", &tptot_vec);
+   new_tree->Branch("tphiv", &tphiv_vec);
+   new_tree->Branch("tthv", &tthv_vec);
+   new_tree->Branch("tptotv", &tptotv_vec);
+   new_tree->Branch("trho", &trho_vec);
+   new_tree->Branch("tdedx", &tdedx_vec);
+   new_tree->Branch("tz", &tz_vec);
+   new_tree->Branch("tt0", &tt0_vec);
+   new_tree->Branch("tant", &tant_vec);
+   new_tree->Branch("tcharge", &tcharge_vec);
+   new_tree->Branch("ten", &ten_vec);
 
    // [(tuple_id, pos_track_id, neg_track_id)]
    std::vector<std::tuple<int, int, int>> candidates = {};
 
-   // FIXME: Adjust dE/dx selection criterion.
-   auto check_dedx = [](double dedx, double mom) {
-      return 3e4 > dedx && dedx > 6e3;
+   auto check_dedx = [&min_de_dx, &max_de_dx](double dedx, double mom) {
+      return max_de_dx > dedx && dedx > min_de_dx;
    };
 
    auto get_rho = [](double x, double y) {
@@ -169,7 +172,7 @@ void prelim_coll::Loop(std::string new_file_name)
 
       for(int i = 0; i < nv; i++)
       {
-         if(vtrk[i] != 2 && get_rho(vxyz[i][0], vxyz[i][1]) > max_coll_pbarp_vertex_rho)
+         if(vtrk[i] != 2 || get_rho(vxyz[i][0], vxyz[i][1]) > max_coll_pbarp_vertex_rho)
          { continue; }
                   
          auto track1 = vind[i][0];
@@ -182,10 +185,10 @@ void prelim_coll::Loop(std::string new_file_name)
          fill_vertex_vecs(std::get<0>(candidates[0]));
          fill_track_vecs(std::get<1>(candidates[0]));
          fill_track_vecs(std::get<2>(candidates[0]));
-         nt = tnhit_vec.size();
          nv = vtrk_vec.size();
          new_tree->Fill();
       }
+      clear_vecs();
    }
 
    new_file->Write();

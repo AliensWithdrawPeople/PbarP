@@ -46,15 +46,16 @@ for energy_point_name, files in coll_events_files:
             tree = coll_events.arrays('event_id', library='pd') # type: ignore
         entries = len(tree)
         season = file.name.split('_')[0]
-        luminosity, luminosity_err = lumi_data[season][str(energy_point)]
-        res[(season, energy_point)] = eval_xsection(entries, luminosity, luminosity_err)
+        luminosity, luminosity_err = lumi_data[season][str(energy_point)][1]
+        mean_energy, mean_energy_stat_err = lumi_data[season][str(energy_point)][0]
+        res[(season, energy_point)] = (mean_energy, *eval_xsection(entries, luminosity, luminosity_err))
 
 
-res_filtered = dict(filter(lambda item: item[0][0] == 'season2022', res.items()))
+res_filtered = dict(filter(lambda item: item[0][0] == 'season2021', res.items()))
 
-xsec = [val[0] for _, val in res_filtered.items()]
-xsec_err = [val[1] for _, val in res_filtered.items()]
-energy = [key[1] for key, _ in res_filtered.items()]
-print('energy =', energy)
-print('xsection =', xsec)
-print('xsection_error =', xsec_err)
+xsec = [val[1] for _, val in res_filtered.items()]
+xsec_err = [val[2] for _, val in res_filtered.items()]
+energy = [val[0] for _, val in res_filtered.items()]
+print('energy =', energy, '# MeV')
+print('xsection =', xsec, '# nb')
+print('xsection_error =', xsec_err, '# nb')

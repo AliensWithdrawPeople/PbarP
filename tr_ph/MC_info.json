@@ -1,0 +1,14 @@
+{
+    "run4396" : {
+        "gen" : "pp_gen",
+        "location" : "root://cmd//sim/run004396.root",
+        "events" : 50000,
+        "E_beam" : 970,
+        "Ge^2" : 1,
+        "Gm^2" : 1,
+        "B_field" : 1.3,
+        "Beam_smearing" : true,
+        "filename" : "",
+        "comment" : "Dunno much. Took it from CMD3 Sim DB"
+    }
+}

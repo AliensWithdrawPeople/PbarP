@@ -33,10 +33,10 @@ void prelim_coll::Loop(std::string new_file_name)
    const double max_de_dx = 3e4;
 
    const double min_energy_depo_for_coll_pbarp = 200; // MeV
+    // For annihilation PbarP.
    const int min_vertex_track_number = 2;
    const double max_vertex_rho = 2.5; // cm
    const double min_vertex_rho = 1.5; // cm
-   // For annihilation PbarP.
    const double max_track_energy_deposition = 300; // MeV
 
    Long64_t nentries = fChain->GetEntriesFast();
@@ -98,7 +98,7 @@ void prelim_coll::Loop(std::string new_file_name)
    new_tree->Branch("tcharge", &tcharge_vec);
    new_tree->Branch("ten", &ten_vec);
 
-   // [(tuple_id, pos_track_id, neg_track_id)]
+   // [(vertex_id, pos_track_id, neg_track_id)]
    std::vector<std::tuple<int, int, int>> candidates = {};
 
    auto check_dedx = [&min_de_dx, &max_de_dx](double dedx, double mom) {

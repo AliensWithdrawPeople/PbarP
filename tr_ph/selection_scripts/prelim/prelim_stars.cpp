@@ -12,6 +12,7 @@
 #include <TLine.h>
 
 #include <vector>
+#include <map>
 #include <tuple>
 #include <utility>
 #include <cmath>
@@ -35,10 +36,10 @@ void prelim_stars::Loop(std::string new_file_name)
 
    // For annihilation PbarP.
    const int min_vertex_track_number = 3;
-   const double max_vertex_rho = 3; // cm
-   const double min_vertex_rho = 0.7; // cm
+   const double max_vertex_rho = 7; // cm
+   const double min_vertex_rho = 0.3; // cm
    const double max_track_energy_deposition = 400; // MeV
-   const double pipe_rho = 2.; // cm
+   const double pipe_rho = 1.7; // cm
 
    Long64_t nentries = fChain->GetEntriesFast();
    TFile *new_file = new TFile(new_file_name.c_str(), "recreate");
@@ -53,20 +54,24 @@ void prelim_stars::Loop(std::string new_file_name)
    new_tree->Branch("ybeam", &ybeam);
    new_tree->Branch("runnum", &runnum);
    new_tree->Branch("is_coll", &is_coll);
+   new_tree->Branch("trigbits", &trigbits);
    new_tree->Branch("is_bhabha", &is_bhabha);
    new_tree->Branch("ecaltot", &ecaltot);
    new_tree->Branch("ecalneu", &ecalneu);
+   double tracks_min_rho = 0;
+   new_tree->Branch("min_rho", &tracks_min_rho);
    
    std::vector<int> vtrk_vec = {};
    std::vector<std::vector<int>> vind_vec = {};
    std::vector<float> vrho_vec = {};
-   std::vector<bool> is_fake_vertex_vec = {};
+   std::vector<float> vz_vec = {};
+   std::map<int, bool> is_fake_vertex = {};
    new_tree->Branch("nv", &nv);
    new_tree->Branch("vtrk", &vtrk_vec);
    // [ ]: Do I need vind_vec if I only seek for one vertex with 2 tracks and I push track_ids to vectors with track info.
    // new_tree->Branch("vind", &vind_vec);
    new_tree->Branch("vrho", &vrho_vec);
-   new_tree->Branch("is_fake_vertex", &is_fake_vertex_vec);
+   new_tree->Branch("vz", &vz_vec);
    
    std::vector<int> tnhit_vec = {};
    std::vector<float> tlength_vec = {};
@@ -108,7 +113,8 @@ void prelim_stars::Loop(std::string new_file_name)
    std::vector<std::pair<int, std::vector<int>>> candidates = {};
 
    auto check_dedx = [&min_de_dx, &max_de_dx](double dedx, double mom) {
-      return max_de_dx > dedx && dedx > min_de_dx;
+      // this values were obtained in fit
+      return dedx > min_de_dx || (mom > 270 && dedx > 1.2357e6 / (mom - 50) + 1250);
    };
 
    auto get_rho = [](double x, double y) {
@@ -118,6 +124,7 @@ void prelim_stars::Loop(std::string new_file_name)
    auto fill_vertex_vecs = [&](int vertex_id){
       vind_vec.push_back(std::vector(std::begin(vind[vertex_id]), std::end(vind[vertex_id])));
       vrho_vec.push_back(get_rho(vxyz[vertex_id][0], vxyz[vertex_id][1]));
+      vz_vec.push_back(vxyz[vertex_id][2]);
    };
 
    auto fill_track_vecs = [&](int track_id){
@@ -141,7 +148,8 @@ void prelim_stars::Loop(std::string new_file_name)
    auto clear_vecs = [&](){
       vind_vec.clear();
       vrho_vec.clear();
-      is_fake_vertex_vec.clear();
+      vz_vec.clear();
+      is_fake_vertex.clear();
 
       tnhit_vec.clear();
       tlength_vec.clear();
@@ -170,7 +178,7 @@ void prelim_stars::Loop(std::string new_file_name)
    };
 
    auto is_proton = [&](int track_id) {
-      return check_dedx(tdedx[track_id], tptot[track_id]);
+      return tcharge[track_id] > 0 && check_dedx(tdedx[track_id], tptot[track_id]);
    };
 
    bool skip = false;
@@ -181,14 +189,11 @@ void prelim_stars::Loop(std::string new_file_name)
       if (ientry < 0) break;
       nb = fChain->GetEntry(jentry);   nbytes += nb;
 
-      for(int i = 0; i < nt; i++)
-      {
-         if(ten[i] > max_track_energy_deposition)
-         {
-            skip = true;
-            break;
-         }
-      }
+      skip = std::any_of(std::cbegin(ten), std::cbegin(ten) + nt, 
+                     [&max_track_energy_deposition](double en) {return en > max_track_energy_deposition; } );
+      
+      tracks_min_rho = *std::min_element(std::cbegin(trho), std::cbegin(trho) + nt, 
+                     [](double rho1, double rho2) {return fabs(rho1) < fabs(rho2); } );
       
       for (int i = 0; i < nv && !skip; i++)
       {
@@ -197,31 +202,37 @@ void prelim_stars::Loop(std::string new_file_name)
          {
             std::vector<int> track_ids = {};
             track_ids.reserve(vtrk[i]);
+            
             for(int j = 0; j < vtrk[i]; j++)
             { 
                track_ids.push_back(vind[i][j]);
                if(is_proton(track_ids.back()))
                { fake_vertex = true; }
             }
-            is_fake_vertex_vec.push_back(fake_vertex);
+            is_fake_vertex[i] = fake_vertex;
             fake_vertex = false;
             candidates.push_back(std::make_pair(i, track_ids));
          }
       }
       
       if(!skip && candidates.size() > 0)
-      {
+      { 
          candidates_num = candidates.size();
          auto it_min = candidates.begin();
          if(candidates_num > 1)
          { 
-            auto closest_to_pipe_vertex = [&get_rho, this, &pipe_rho](const std::pair<int, std::vector<int>>& cand1, const std::pair<int, std::vector<int>>& cand2) {
+            auto closest_to_pipe_vertex = [&get_rho, this, &pipe_rho, &is_fake_vertex](const std::pair<int, std::vector<int>>& cand1, const std::pair<int, std::vector<int>>& cand2) {
                auto delta_rho1 = fabs(get_rho(vxyz[cand1.first][0], vxyz[cand1.first][1]) - pipe_rho);
                auto delta_rho2 = fabs(get_rho(vxyz[cand1.first][0], vxyz[cand1.first][1]) - pipe_rho);
+               if(is_fake_vertex[cand1.first] ^ is_fake_vertex[cand2.first])
+               { return is_fake_vertex[cand1.first]? true : false; }
                return delta_rho1 < delta_rho2;
             };
             it_min = std::min_element(candidates.begin(), candidates.end(), closest_to_pipe_vertex); 
          }
+
+         if(is_fake_vertex[it_min->first])
+         { continue; }
          fill_vertex_vecs(it_min->first);
          for(const auto& track_id : it_min->second)
          { fill_track_vecs(track_id); }
@@ -229,6 +240,7 @@ void prelim_stars::Loop(std::string new_file_name)
       }
       clear_vecs();
       skip = false;
+      tracks_min_rho = 0.;
    }
 
    new_file->Write();

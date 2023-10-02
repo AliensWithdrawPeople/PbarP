@@ -307,7 +307,7 @@ void prelim_stars::Loop(std::string new_file_name)
          if(is_fake_vertex[it_min->first])
          { continue; }
          fill_vertex_vecs(it_min->first);
-         for(int proton_track_id = 0; proton_track_id < nt; proton_track_id)
+         for(int proton_track_id = 0; proton_track_id < nt; proton_track_id++)
          {
             if(is_collinear_proton(proton_track_id))
             { fill_proton_track_vecs(proton_track_id); }

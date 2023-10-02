@@ -106,6 +106,36 @@ void prelim_stars::Loop(std::string new_file_name)
    new_tree->Branch("tcharge", &tcharge_vec);
    new_tree->Branch("ten", &ten_vec);
 
+   std::vector<int> tnhit_proton = {};
+   std::vector<float> tlength_proton = {};
+   std::vector<float> tphi_proton = {};
+   std::vector<float> tth_proton = {};
+   std::vector<float> tptot_proton = {};
+   std::vector<float> tphiv_proton = {};
+   std::vector<float> tthv_proton = {};
+   std::vector<float> tptotv_proton = {};
+   std::vector<float> trho_proton = {};
+   std::vector<float> tdedx_proton = {};
+   std::vector<float> tz_proton = {};
+   std::vector<float> tt0_proton = {};
+   std::vector<float> tant_proton = {};
+   std::vector<int> tcharge_proton = {};
+   std::vector<float> ten_proton = {};
+   new_tree->Branch("tnhit_pr", &tnhit_proton);
+   new_tree->Branch("tlength_pr", &tlength_proton);
+   new_tree->Branch("tphi_pr", &tphi_proton);
+   new_tree->Branch("tth_pr", &tth_proton);
+   new_tree->Branch("tptot_pr", &tptot_proton);
+   new_tree->Branch("tphiv_pr", &tphiv_proton);
+   new_tree->Branch("tthv_pr", &tthv_proton);
+   new_tree->Branch("tptotv_pr", &tptotv_proton);
+   new_tree->Branch("trho_pr", &trho_proton);
+   new_tree->Branch("tdedx_pr", &tdedx_proton);
+   new_tree->Branch("tz_pr", &tz_proton);
+   new_tree->Branch("tt0_pr", &tt0_proton);
+   new_tree->Branch("tant_pr", &tant_proton);
+   new_tree->Branch("tcharge_pr", &tcharge_proton);
+   new_tree->Branch("ten_pr", &ten_proton);
    int candidates_num = 0;
    new_tree->Branch("candidates_num", &candidates_num);
 
@@ -115,6 +145,13 @@ void prelim_stars::Loop(std::string new_file_name)
    auto check_dedx = [&min_de_dx, &max_de_dx](double dedx, double mom) {
       // this values were obtained in fit
       return dedx > min_de_dx || (mom > 270 && dedx > 1.2357e6 / (mom - 50) + 1250);
+   };
+
+   auto is_collinear_proton = [&](int track_id) {
+      return tnhit[track_id] >= min_n_hit &&  trho[track_id] < 0.5 &&
+            tchi2r[track_id] < max_chi2_r && tchi2z[track_id] < max_chi2_z &&
+            tz[track_id] < max_track_z && 
+            max_de_dx > tdedx[track_id] && tdedx[track_id] > min_de_dx;
    };
 
    auto get_rho = [](double x, double y) {
@@ -143,6 +180,42 @@ void prelim_stars::Loop(std::string new_file_name)
       tant_vec.push_back(tant[track_id]);
       tcharge_vec.push_back(tcharge[track_id]);
       ten_vec.push_back(ten[track_id]);
+   };
+
+   auto fill_proton_track_vecs = [&](int track_id){
+      tnhit_proton.push_back(tnhit[track_id]);
+      tlength_proton.push_back(tlength[track_id]);
+      tphi_proton.push_back(tphi[track_id]);
+      tth_proton.push_back(tth[track_id]);
+      tptot_proton.push_back(tptot[track_id]);
+      tphiv_proton.push_back(tphiv[track_id]);
+      tthv_proton.push_back(tthv[track_id]);
+      tptotv_proton.push_back(tptotv[track_id]);
+      trho_proton.push_back(trho[track_id]);
+      tdedx_proton.push_back(tdedx[track_id]);
+      tz_proton.push_back(tz[track_id]);
+      tt0_proton.push_back(tt0[track_id]);
+      tant_proton.push_back(tant[track_id]);
+      tcharge_proton.push_back(tcharge[track_id]);
+      ten_proton.push_back(ten[track_id]);
+   };
+
+   auto clear_proton_track_vecs = [&](){
+      tnhit_proton.clear();
+      tlength_proton.clear();
+      tphi_proton.clear();
+      tth_proton.clear();
+      tptot_proton.clear();
+      tphiv_proton.clear();
+      tthv_proton.clear();
+      tptotv_proton.clear();
+      trho_proton.clear();
+      tdedx_proton.clear();
+      tz_proton.clear();
+      tt0_proton.clear();
+      tant_proton.clear();
+      tcharge_proton.clear();
+      ten_proton.clear();
    };
 
    auto clear_vecs = [&](){
@@ -234,11 +307,17 @@ void prelim_stars::Loop(std::string new_file_name)
          if(is_fake_vertex[it_min->first])
          { continue; }
          fill_vertex_vecs(it_min->first);
+         for(int proton_track_id = 0; proton_track_id < nt; proton_track_id)
+         {
+            if(is_collinear_proton(proton_track_id))
+            { fill_proton_track_vecs(proton_track_id); }
+         }
          for(const auto& track_id : it_min->second)
          { fill_track_vecs(track_id); }
          new_tree->Fill();
       }
       clear_vecs();
+      clear_proton_track_vecs();
       skip = false;
       tracks_min_rho = 0.;
    }

@@ -24,7 +24,8 @@ class Select_config_stars:
     max_delta_theta: float = 0.2 # rad
     max_z: float = 8 # cm
     max_vertex_z: float = 8 # cm
-    
+    vertex_track_number_filter: float = 3
+        
     max_vertex_rho: float = 2.5 # cm
     min_vertex_rho: float = 1.2 # cm
     
@@ -56,7 +57,7 @@ class Select_stars:
         
         with up.open(f'{raw_file}:prelim') as raw_file: # type: ignore
             self.raw: pd.DataFrame = raw_file.arrays(['event_id', 'energy', 'run', 'nt', 'min_rho', 'trigger', # type: ignore
-                                            'vrho', 'vz', 'is_coll',
+                                            'vrho', 'vz', 'is_coll', 'proton_index', 'vtrk',
                                             'tot_neutral_cal_deposition', 'tot_cal_deposition',
                                             'hits', 'dedx', 'z', 'charge', 'cal_deposition', 'rho', 't0', 'tant',
                                             'phi', 'theta', 'mom',
@@ -67,6 +68,7 @@ class Select_stars:
                                                     'charge' : 'tcharge', 'cal_deposition' : 'ten', 
                                                     'phi' : 'tphi', 'theta' : 'tth', 'mom' : 'tptot',
                                                     'phi_v' : 'tphiv', 'theta_v' : 'tthv', 'mom_v' : 'tptotv',
+                                                    'proton_index' : 'vertex_proton_track'
                                                     }, 
                                             library='pd')
         self.preprocess()
@@ -91,7 +93,10 @@ class Select_stars:
         self.raw['p_max'] = self.raw['mom'].apply(lambda mom: np.max(mom))
         self.raw['p_min'] = self.raw['mom'].apply(lambda mom: np.min(mom))
         
-        self.raw['vertex_min_rho'] = self.raw['rho'].apply(lambda rho: np.min(np.abs(rho)))
+        def get_list_without_element(init_list: list, index: int)->list:
+            return init_list if index < 0 else init_list[:index] + init_list[index + 1 :]
+        self.raw['vertex_min_rho'] = self.raw[['rho', 'proton_index']].\
+        apply(lambda row: np.min(np.abs(get_list_without_element(row['rho'], row['proton_index']))), axis=1)
         self.raw['sigma_t0'] = self.raw['t0'].apply(lambda t0: float(np.std(t0)))
         self.raw['season'] = self.season_num
         self.raw['energy_point'] = self.energy_point_num
@@ -101,8 +106,10 @@ class Select_stars:
     
     def filter(self):
         self.raw['vertex_z_filter'] = self.raw['vz'].apply(lambda z: bool(np.all(np.abs(z) < self.config.max_vertex_z)))
-        self.raw['vertex_track_min_rho_filter'] = np.abs(self.raw['min_rho']) > self.config.vertex_track_min_rho
-        
+        self.raw['vertex_track_min_rho_filter'] = self.raw['vertex_min_rho'] > self.config.vertex_track_min_rho
+        self.raw['vertex_track_number_filter'] = self.raw[['phi', 'proton_index']].\
+            apply(lambda row: len(row['phi']) > self.config.vertex_track_number_filter if row['proton_index'] != -1 else True, axis=1)
+              
         self.raw['sigma_t0_filter'] = self.raw['sigma_t0'] < self.config.max_sigma_t0
         self.raw['tot_cal_depo_filter'] = self.raw['tot_cal_deposition'] > self.config.min_tot_cal_depo
         self.raw['p_max_filter'] = (self.config.max_p_max > self.raw['p_max']) & (self.raw['p_max']  > self.config.min_p_max)
@@ -113,9 +120,15 @@ class Select_stars:
                 
         self.raw['collinear_filter'] = (self.raw['delta_phi']  > self.config.min_delta_phi) | (self.raw['delta_theta']  > self.config.min_delta_theta)
 
-        filter_mask = np.array(self.raw['vertex_z_filter']) & self.raw['vertex_track_min_rho_filter'] & \
-                    self.raw['sigma_t0_filter'] & self.raw['tot_cal_depo_filter'] & \
-                    self.raw['p_max_filter'] & self.raw['p_min_filter'] & self.raw['collinear_filter'] & self.raw['min_vertex_rho_filter'] & self.raw['max_vertex_rho_filter']
+        filter_mask = np.array(self.raw['vertex_z_filter']) & \
+                    self.raw['sigma_t0_filter'] & \
+                    self.raw['tot_cal_depo_filter'] & \
+                    self.raw['p_max_filter'] &\
+                    self.raw['p_min_filter'] & \
+                    self.raw['collinear_filter'] & \
+                    self.raw['vertex_track_min_rho_filter']
+                    # self.raw['min_vertex_rho_filter'] & \
+                    # self.raw['max_vertex_rho_filter'] & \
         return filter_mask
 
     def save(self, processed: os.PathLike, recreate: bool) -> bool:

@@ -127,8 +127,6 @@ class Select_stars:
                     self.raw['p_min_filter'] & \
                     self.raw['collinear_filter'] & \
                     self.raw['vertex_track_min_rho_filter']
-                    # self.raw['min_vertex_rho_filter'] & \
-                    # self.raw['max_vertex_rho_filter'] & \
         return filter_mask
 
     def save(self, processed: os.PathLike, recreate: bool) -> bool:

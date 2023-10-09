@@ -25,7 +25,7 @@ def get_xsection(season_name: str, root_file_pattern: Patterns, event_type: Even
                 continue
 
             with up.open(f'{file}:{final_tree_name}') as events:  # type: ignore
-                tree = events.arrays('vrho', library='pd') # type: ignore
+                tree = events.arrays(['vrho', 'proton_index'], library='pd') # type: ignore
                 
             entries = get_entries(event_type, tree)
             
@@ -44,7 +44,7 @@ def get_xsection(season_name: str, root_file_pattern: Patterns, event_type: Even
 
  
 # Configuration 
-event_type = EventType.annihilation
+event_type = EventType.bkg_annihilation
 root_file_pattern = Patterns.bkg_stars_final_root_file_pattern
 seasons = ['season2017', 'season2019', 'season2020', 'season2021', 'season2022']
 

@@ -3,3 +3,6 @@ NonAutomaticFunction.h
 *.root
 *.exe
 tempCodeRunnerFile.py
+tr_ph/EnergyPointData/tables/*.csv
+tr_ph/EnergyPointData/lum_v*.dat
+tr_ph/EnergyPointData/elabels.txt

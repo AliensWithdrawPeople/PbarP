@@ -239,6 +239,22 @@
         "lumi": "1309.94",
         "lumi_error": "3.07685"
     },
+    "990_43038": {
+        "season": "HIGH2017",
+        "season_id": "6",
+        "nominal_energy": "990.0",
+        "start_run": "43038",
+        "end_run": "43169",
+        "start_date": "2017-04-19 18:24:32",
+        "end_date": "2017-04-21 08:26:02",
+        "mean_energy": 991.228,
+        "mean_energy_stat_err": 0.022125,
+        "mean_energy_sys_err": 0.098232,
+        "mean_spread": 0.742531,
+        "mean_spread_stat_err": 0.0148488,
+        "lumi": "1254.61",
+        "lumi_error": "3.03826"
+    },
     "1003.5_43198": {
         "season": "HIGH2017",
         "season_id": "6",

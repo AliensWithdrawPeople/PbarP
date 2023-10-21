@@ -7,6 +7,9 @@ import re
 import uproot as up
 import pandas as pd
 import numpy as np
+
+import sys
+sys.path.append('C:/work/Science/BINP/PbarP/tr_ph/')
 from config import final_tree_name
 
 
@@ -23,11 +26,10 @@ class Select_config:
     max_mom_ratio: float = 0.1
 
 class Select_collinear:            
-    def __init__(self, prelim_file: os.PathLike, select_config: Select_config = Select_config()):
+    def __init__(self, prelim_file: os.PathLike, filename_pattern: str, select_config: Select_config = Select_config()):
         self.config = select_config
         raw_file = PurePath(prelim_file)
-        pattern = r'scan(\d+)_e([-+]?(?:\d*\.*\d+))_coll_prelim.root'
-        matched = re.fullmatch(pattern, raw_file.name)
+        matched = re.fullmatch(filename_pattern, raw_file.name)
         self.season = f'season{matched.group(1)}' if matched is not None else 'error_during_matching'
         self.energy_point = str(matched.group(2)) if matched is not None else 'error_during_matching'
         self.season_num = int(matched.group(1)) if matched is not None else 0
@@ -50,7 +52,6 @@ class Select_collinear:
         self.preprocess()
         filter_mask = self.filter()
         self.selected = self.raw[filter_mask].reset_index(drop=True)
-        print('Entries after selection =', len(self.selected))
     
     def preprocess(self):
         self.raw['delta_theta'] = self.raw['theta_v'].apply(lambda x: x[0] + x[1] - pi)
@@ -59,7 +60,8 @@ class Select_collinear:
         self.raw['season'] = self.season_num
         self.raw['energy_point'] = self.energy_point_num
     
-    def get_selected_entries_num(self)->int:
+    @property
+    def selected_entries_num(self)->int:
         return len(self.selected)
     
     def filter(self):

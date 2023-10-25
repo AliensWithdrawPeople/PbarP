@@ -9,9 +9,16 @@ from multiprocessing.pool import Pool
 prelim_selection_coll_macro: tuple[str, str] = ('prelim_coll.cpp', 'prelim_coll')
 prelim_selection_annihilation_macro: tuple[str, str] = ('prelim_stars.cpp', 'prelim_stars')
 
+prelim_selection_coll_macro_MC: tuple[str, str] = ('prelim_coll_MC.cpp', 'prelim_coll_MC')
+prelim_selection_annihilation_macro_MC: tuple[str, str] = ('prelim_stars.cpp', 'prelim_stars')
+
 class Event_Type(Enum):
     collinear = prelim_selection_coll_macro
     annihilation = prelim_selection_annihilation_macro
+    
+class Event_Type_MC(Enum):
+    collinear = prelim_selection_coll_macro_MC
+    annihilation = prelim_selection_annihilation_macro_MC
     
 def get_raw_file_root_url(scan: str, point: str)->str:
     return f'root://cmd//{scan}/{scan}_tr_ph_fc_e{point}_v9.root'
@@ -42,7 +49,7 @@ def get_selection_params_EXP(scan_points_filename: os.PathLike, event_type: Even
             selection_params.append((scan_name, point, output_name, event_type))  
     return selection_params 
 
-def execute_selection_MC(filename: str, point: str, output_name: str, event_type: Event_Type):
+def execute_selection_MC(filename: str, point: str, output_name: str, event_type: Event_Type_MC):
     prelim_selection_macro, prelim_selection_macro_name = event_type.value
     prelim_selection_macro =  'C:/work/Science/BINP/PbarP/tr_ph/selection_scripts/prelim/' + prelim_selection_macro
     command = f"root -l -q \"C:/work/Science/BINP/PbarP/tr_ph/selection_scripts/select.cpp(\\{aux1 + prelim_selection_macro + aux2}\",\
@@ -54,7 +61,7 @@ def execute_selection_MC(filename: str, point: str, output_name: str, event_type
     print(f'[{filename}/{point}MeV tr_ph v9 {event_type.name} exited with {res.returncode}]', flush=True)
     print(output.decode()[93:], flush=True)            
       
-def get_selection_params_MC(scan_points_filename: os.PathLike, event_type: Event_Type, run_name_filter = None):
+def get_selection_params_MC(scan_points_filename: os.PathLike, event_type: Event_Type_MC, run_name_filter = None):
     if not os.path.isfile(scan_points_filename):
         raise FileNotFoundError
     with open(scan_points_filename) as file:
@@ -77,8 +84,8 @@ if __name__ == '__main__':
     #     pool.starmap(execute_selection, params)  
         
     mc_scan_points_filename = PurePath('tr_ph/MC_info.json')
-    params = get_selection_params_MC(mc_scan_points_filename, Event_Type.collinear, 
-                                     lambda run_name: str(run_name).startswith("run0001") or str(run_name).startswith("run0002"))
+    params = get_selection_params_MC(mc_scan_points_filename, Event_Type_MC.collinear, 
+                                     lambda run_name: str(run_name).startswith("run0002"))
     with Pool(4) as pool:
         pool.starmap(execute_selection_MC, params) 
 

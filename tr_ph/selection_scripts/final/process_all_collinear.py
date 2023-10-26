@@ -27,7 +27,7 @@ def select_MC(file: pathlib.Path, MC_pattern: str, info: dict):
     Ge = matched.group(3)
     Gm = matched.group(4)
     run_num = matched.group(5)
-    select_coll = Select_collinear(file, MC_pattern)
+    select_coll = Select_collinear(file, MC_pattern, is_MC=True)
     energy_point_folder = pathlib.PurePath(FinalRootFilesFolder.MC.value, f'energy_{select_coll.energy_point}MeV')
     make_if_not_exists(energy_point_folder)
     output_file_path = pathlib.PurePath(energy_point_folder, f'{select_coll.season}_coll_Ge{Ge}_Ge{Gm}_run000{run_num}.root')

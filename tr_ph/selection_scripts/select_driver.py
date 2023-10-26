@@ -72,7 +72,7 @@ def get_selection_params_MC(scan_points_filename: os.PathLike, event_type: Event
         if run_name_filter is not None and not run_name_filter(run_name):
             continue
         season_num = info['season'][-4:] if info['season'] is not None else 0
-        output_name = f'C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/prelim/{event_type.name}/season{season_num}_e{info["E_beam"]}_Ge{info["Ge^2"]}_Gm{info["Gm^2"]}_{"coll" if event_type is Event_Type.collinear else "stars"}_{run_name}_prelim.root'
+        output_name = f'C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/prelim/{event_type.name}/season{season_num}_e{info["E_beam"]}_Ge{info["Ge^2"]}_Gm{info["Gm^2"]}_{"coll" if event_type is Event_Type_MC.collinear else "stars"}_{run_name}_prelim.root'
         selection_params.append((f'C:/work/Science/BINP/PbarP/{info["location"]}', info["E_beam"], output_name, event_type))  
     return selection_params    
 
@@ -85,7 +85,7 @@ if __name__ == '__main__':
         
     mc_scan_points_filename = PurePath('tr_ph/MC_info.json')
     params = get_selection_params_MC(mc_scan_points_filename, Event_Type_MC.collinear, 
-                                     lambda run_name: str(run_name).startswith("run0002"))
+                                     lambda run_name: str(run_name).startswith("run0001") or str(run_name).startswith("run0002"))
     with Pool(4) as pool:
         pool.starmap(execute_selection_MC, params) 
 

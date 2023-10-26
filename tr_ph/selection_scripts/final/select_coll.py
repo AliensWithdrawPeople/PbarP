@@ -26,7 +26,7 @@ class Select_config:
     max_mom_ratio: float = 0.1
 
 class Select_collinear:            
-    def __init__(self, prelim_file: os.PathLike, filename_pattern: str, select_config: Select_config = Select_config()):
+    def __init__(self, prelim_file: os.PathLike, filename_pattern: str, select_config: Select_config = Select_config(), is_MC: bool = False):
         self.config = select_config
         raw_file = PurePath(prelim_file)
         matched = re.fullmatch(filename_pattern, raw_file.name)
@@ -34,21 +34,25 @@ class Select_collinear:
         self.energy_point = str(matched.group(2)) if matched is not None else 'error_during_matching'
         self.season_num = int(matched.group(1)) if matched is not None else 0
         self.energy_point_num = float(matched.group(2)) if matched is not None else 0.
-        
+        prelim_tree_cols = ['event_id', 'energy', 'run', 'nt',
+                            'tot_neutral_cal_deposition', 'tot_cal_deposition',
+                            'hits', 'dedx', 'z', 'charge', 'cal_deposition', 'rho',
+                            'phi', 'theta', 'mom',
+                            'phi_v', 'theta_v', 'mom_v']
+        tree_cols_aliases = dict({'event_id' : 'evnum', 'energy' : 'emeas', 'run' : 'runnum',
+                                'tot_neutral_cal_deposition' : 'ecalneu', 'tot_cal_deposition' : 'ecaltot',
+                                    'hits' : 'tnhit', 'dedx' : 'tdedx', 'z' : 'tz', 'rho' : 'trho',
+                                'charge' : 'tcharge', 'cal_deposition' : 'ten', 
+                                'phi' : 'tphi', 'theta' : 'tth', 'mom' : 'tptot',
+                                'phi_v' : 'tphiv', 'theta_v' : 'tthv', 'mom_v' : 'tptotv',
+                                'phi_MC' : 'tphi_MC', 'theta_MC' : 'tth_MC', 'mom_MC' : 'tptot_MC'
+                                })
+        if is_MC:
+            prelim_tree_cols.extend(['phi_MC', 'theta_MC', 'mom_MC'])
+            
         with up.open(f'{raw_file}:prelim') as raw_file: # type: ignore
-            self.raw: pd.DataFrame = raw_file.arrays(['event_id', 'energy', 'run', 'nt', # type: ignore
-                                            'tot_neutral_cal_deposition', 'tot_cal_deposition',
-                                            'hits', 'dedx', 'z', 'charge', 'cal_deposition', 'rho',
-                                            'phi', 'theta', 'mom',
-                                            'phi_v', 'theta_v', 'mom_v'],
-                                aliases={'event_id' : 'evnum', 'energy' : 'emeas', 'run' : 'runnum',
-                                        'tot_neutral_cal_deposition' : 'ecalneu', 'tot_cal_deposition' : 'ecaltot',
-                                            'hits' : 'tnhit', 'dedx' : 'tdedx', 'z' : 'tz', 'rho' : 'trho',
-                                        'charge' : 'tcharge', 'cal_deposition' : 'ten', 
-                                        'phi' : 'tphi', 'theta' : 'tth', 'mom' : 'tptot',
-                                        'phi_v' : 'tphiv', 'theta_v' : 'tthv', 'mom_v' : 'tptotv',
-                                        }, 
-                                library='pd')
+            self.raw: pd.DataFrame = raw_file.arrays(prelim_tree_cols, aliases=tree_cols_aliases, library='pd') # type: ignore
+            
         self.preprocess()
         filter_mask = self.filter()
         self.selected = self.raw[filter_mask].reset_index(drop=True)

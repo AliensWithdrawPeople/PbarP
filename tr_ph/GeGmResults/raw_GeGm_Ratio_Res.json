@@ -1,151 +1,284 @@
 {
+    "1003.5_103608": {
+        "status": true,
+        "ERROR MATRIX UNCERTAINTY": "RIX ACCURATE",
+        "fit prob": "1.47025e-130",
+        "fit chi2 / ndf": "768.575 / 48",
+        "Ge2": [
+            0.627247,
+            0.0178584
+        ],
+        "Gm2": [
+            0.372757,
+            0.0175606
+        ],
+        "Ge2_raw": "0.627247 +/- 0.0178584",
+        "Gm2_raw": "0.372757 +/- 0.0175606"
+    },
     "948.75_120634": {
         "status": true,
         "ERROR MATRIX UNCERTAINTY": "RIX ACCURATE",
         "fit prob": "1",
-        "fit chi2 / ndf": "16.2719 / 98",
-        "Ge2": "0.99986 +/- 0.723545",
-        "Gm2": "6.78267e-10 +/- 0.0194801"
+        "fit chi2 / ndf": "13.4993 / 48",
+        "Ge2": [
+            0.999954,
+            0.971863
+        ],
+        "Gm2": [
+            1.3789e-13,
+            0.0194801
+        ],
+        "Ge2_raw": "0.999954 +/- 0.971863",
+        "Gm2_raw": "1.3789e-13 +/- 0.0194801"
     },
     "950_119028": {
-        "Error": [
-            "Warning in <TFractionFitter::Fit>: Abnormal termination of minimization."
-        ]
+        "status": true,
+        "ERROR MATRIX UNCERTAINTY": "RIX ACCURATE",
+        "fit prob": "0.968501",
+        "fit chi2 / ndf": "31.491 / 48",
+        "Ge2": [
+            0.999679,
+            0.50888
+        ],
+        "Gm2": [
+            1.21731e-08,
+            0.109478
+        ],
+        "Ge2_raw": "0.999679 +/- 0.50888",
+        "Gm2_raw": "1.21731e-08 +/- 0.109478"
     },
     "950_79625": {
         "status": true,
         "ERROR MATRIX UNCERTAINTY": "RIX ACCURATE",
-        "fit prob": "1",
-        "fit chi2 / ndf": "30.9567 / 98",
-        "Ge2": "0.516951 +/- 0.255192",
-        "Gm2": "0.483048 +/- 0.242562"
+        "fit prob": "0.974745",
+        "fit chi2 / ndf": "30.786 / 48",
+        "Ge2": [
+            0.999998,
+            0.720389
+        ],
+        "Gm2": [
+            2.55962e-13,
+            0.103497
+        ],
+        "Ge2_raw": "0.999998 +/- 0.720389",
+        "Gm2_raw": "2.55962e-13 +/- 0.103497"
     },
     "950_93145": {
         "status": true,
         "ERROR MATRIX UNCERTAINTY": "RIX ACCURATE",
-        "fit prob": "-nan(ind)",
-        "fit chi2 / ndf": "-nan(ind) / 98",
-        "Ge2": "-0.462973 +/- 0.139525",
-        "Gm2": "1 +/- 0.0236344"
+        "fit prob": "0.000425434",
+        "fit chi2 / ndf": "87.5505 / 48",
+        "Ge2": [
+            0.999996,
+            0.638613
+        ],
+        "Gm2": [
+            7.46597e-11,
+            0.0284644
+        ],
+        "Ge2_raw": "0.999996 +/- 0.638613",
+        "Gm2_raw": "7.46597e-11 +/- 0.0284644"
     },
     "951_119974": {
         "status": true,
         "ERROR MATRIX UNCERTAINTY": "RIX ACCURATE",
-        "fit prob": "-nan(ind)",
-        "fit chi2 / ndf": "-nan(ind) / 98",
-        "Ge2": "-0.234187 +/- 0.0965435",
-        "Gm2": "1 +/- 0.0212771"
+        "fit prob": "2.35507e-09",
+        "fit chi2 / ndf": "129.067 / 48",
+        "Ge2": [
+            0.999998,
+            0.623698
+        ],
+        "Gm2": [
+            2.06946e-11,
+            0.0332255
+        ],
+        "Ge2_raw": "0.999998 +/- 0.623698",
+        "Gm2_raw": "2.06946e-11 +/- 0.0332255"
     },
     "952_118137": {
         "status": true,
         "ERROR MATRIX UNCERTAINTY": "RIX ACCURATE",
-        "fit prob": "-nan(ind)",
-        "fit chi2 / ndf": "-nan(ind) / 98",
-        "Ge2": "-0.126717 +/- 0.0488647",
-        "Gm2": "1 +/- 0.00979855"
+        "fit prob": "2.53776e-18",
+        "fit chi2 / ndf": "187.157 / 48",
+        "Ge2": [
+            4.05281e-11,
+            0.0131158
+        ],
+        "Gm2": [
+            0.99996,
+            0.104107
+        ],
+        "Ge2_raw": "4.05281e-11 +/- 0.0131158",
+        "Gm2_raw": "0.99996 +/- 0.104107"
     },
     "953_118524": {
         "status": true,
         "ERROR MATRIX UNCERTAINTY": "RIX ACCURATE",
-        "fit prob": "-nan(ind)",
-        "fit chi2 / ndf": "-nan(ind) / 98",
-        "Ge2": "-0.0908352 +/- 0.0350259",
-        "Gm2": "1 +/- 0.00675711"
+        "fit prob": "5.42632e-52",
+        "fit chi2 / ndf": "373.732 / 48",
+        "Ge2": [
+            6.1029e-13,
+            0.0125978
+        ],
+        "Gm2": [
+            1.0,
+            0.123275
+        ],
+        "Ge2_raw": "6.1029e-13 +/- 0.0125978",
+        "Gm2_raw": "1 +/- 0.123275"
     },
     "954_119518": {
         "status": true,
         "ERROR MATRIX UNCERTAINTY": "RIX ACCURATE",
-        "fit prob": "-nan(ind)",
-        "fit chi2 / ndf": "-nan(ind) / 98",
-        "Ge2": "-0.0145284 +/- 0.0336912",
-        "Gm2": "1 +/- 0.0350501"
+        "fit prob": "0.0180515",
+        "fit chi2 / ndf": "70.727 / 48",
+        "Ge2": [
+            2.46918e-11,
+            0.0428326
+        ],
+        "Gm2": [
+            1.0,
+            0.0777349
+        ],
+        "Ge2_raw": "2.46918e-11 +/- 0.0428326",
+        "Gm2_raw": "1 +/- 0.0777349"
     },
     "955_81775": {
         "status": true,
         "ERROR MATRIX UNCERTAINTY": "RIX ACCURATE",
-        "fit prob": "0.996807",
-        "fit chi2 / ndf": "64.0897 / 98",
-        "Ge2": "1 +/- 0.0659291",
-        "Gm2": "5.78449e-08 +/- 0.177044"
+        "fit prob": "0.602039",
+        "fit chi2 / ndf": "44.8659 / 48",
+        "Ge2": [
+            0.999979,
+            0.0908089
+        ],
+        "Gm2": [
+            1.55205e-06,
+            0.640115
+        ],
+        "Ge2_raw": "0.999979 +/- 0.0908089",
+        "Gm2_raw": "1.55205e-06 +/- 0.640115"
     },
     "960_94254": {
         "status": true,
-        "ERROR MATRIX UNCERTAINTY": "RIX ACCURATE",
-        "fit prob": "0.330878",
-        "fit chi2 / ndf": "103.563 / 98",
-        "Ge2": "0.519791 +/- 0.033101",
-        "Gm2": "0.480218 +/- 0.0330294"
+        "ERROR MATRIX UNCERTAINTY": "5.6 per cent",
+        "fit prob": "0.042118",
+        "fit chi2 / ndf": "66.1565 / 48",
+        "Ge2": [
+            0.527501,
+            0.0354975
+        ],
+        "Gm2": [
+            0.472496,
+            0.0367839
+        ],
+        "Ge2_raw": "0.527501 +/- 0.0354975",
+        "Gm2_raw": "0.472496 +/- 0.0367839"
     },
     "962.5_80068": {
         "status": true,
         "ERROR MATRIX UNCERTAINTY": "RIX ACCURATE",
-        "fit prob": "-nan(ind)",
-        "fit chi2 / ndf": "-nan(ind) / 98",
-        "Ge2": "-0.000937509 +/- 0.05519",
-        "Gm2": "1 +/- 0.166689"
+        "fit prob": "0.125465",
+        "fit chi2 / ndf": "59.3872 / 48",
+        "Ge2": [
+            4.59075e-10,
+            0.155858
+        ],
+        "Gm2": [
+            1.0,
+            0.140457
+        ],
+        "Ge2_raw": "4.59075e-10 +/- 0.155858",
+        "Gm2_raw": "1 +/- 0.140457"
     },
     "970_95392": {
         "status": true,
-        "ERROR MATRIX UNCERTAINTY": "RIX ACCURATE",
-        "fit prob": "0.911551",
-        "fit chi2 / ndf": "79.699 / 98",
-        "Ge2": "0.508855 +/- 0.0300025",
-        "Gm2": "0.491147 +/- 0.0299674"
+        "ERROR MATRIX UNCERTAINTY": "5.7 per cent",
+        "fit prob": "0.550924",
+        "fit chi2 / ndf": "46.102 / 48",
+        "Ge2": [
+            0.525281,
+            0.0322143
+        ],
+        "Gm2": [
+            0.474716,
+            0.0336909
+        ],
+        "Ge2_raw": "0.525281 +/- 0.0322143",
+        "Gm2_raw": "0.474716 +/- 0.0336909"
     },
     "970_98116": {
-        "status": true,
-        "ERROR MATRIX UNCERTAINTY": "0.5 per cent",
-        "fit prob": "0.999545",
-        "fit chi2 / ndf": "58.1022 / 98",
-        "Ge2": "0.608484 +/- 0.0368406",
-        "Gm2": "0.391516 +/- 0.0370267"
+        "Error": [
+            "Warning in <TFractionFitter::Fit>: Abnormal termination of minimization."
+        ]
     },
     "975_80603": {
         "status": true,
-        "ERROR MATRIX UNCERTAINTY": "2.7 per cent",
-        "fit prob": "0.772692",
-        "fit chi2 / ndf": "87.2765 / 98",
-        "Ge2": "0.335059 +/- 0.0412263",
-        "Gm2": "0.664939 +/- 0.0387379"
+        "ERROR MATRIX UNCERTAINTY": "3.6 per cent",
+        "fit prob": "0.0313977",
+        "fit chi2 / ndf": "67.793 / 48",
+        "Ge2": [
+            0.331292,
+            0.039021
+        ],
+        "Gm2": [
+            0.668706,
+            0.0373769
+        ],
+        "Ge2_raw": "0.331292 +/- 0.039021",
+        "Gm2_raw": "0.668706 +/- 0.0373769"
     },
     "978_80506": {
-        "status": true,
-        "ERROR MATRIX UNCERTAINTY": "RIX ACCURATE",
-        "fit prob": "0.996892",
-        "fit chi2 / ndf": "63.9964 / 98",
-        "Ge2": "0.154548 +/- 0.0826532",
-        "Gm2": "0.84545 +/- 0.0844205"
+        "Error": [
+            "Warning in <TFractionFitter::Fit>: Abnormal termination of minimization."
+        ]
     },
     "980_99550": {
         "status": true,
-        "ERROR MATRIX UNCERTAINTY": "0.5 per cent",
-        "fit prob": "0.6487",
-        "fit chi2 / ndf": "92.1067 / 98",
-        "Ge2": "0.575531 +/- 0.0257382",
-        "Gm2": "0.424467 +/- 0.0256335"
+        "ERROR MATRIX UNCERTAINTY": "RIX ACCURATE",
+        "fit prob": "0.00162107",
+        "fit chi2 / ndf": "81.9845 / 48",
+        "Ge2": [
+            0.577399,
+            0.0247951
+        ],
+        "Gm2": [
+            0.422601,
+            0.0245601
+        ],
+        "Ge2_raw": "0.577399 +/- 0.0247951",
+        "Gm2_raw": "0.422601 +/- 0.0245601"
     },
     "987.5_81313": {
         "status": true,
         "ERROR MATRIX UNCERTAINTY": "3.4 per cent",
-        "fit prob": "0.594652",
-        "fit chi2 / ndf": "94.0322 / 98",
-        "Ge2": "0.491119 +/- 0.0622069",
-        "Gm2": "0.508885 +/- 0.0622362"
+        "fit prob": "0.105938",
+        "fit chi2 / ndf": "60.5271 / 48",
+        "Ge2": [
+            0.488,
+            0.062616
+        ],
+        "Gm2": [
+            0.512058,
+            0.0625971
+        ],
+        "Ge2_raw": "0.488 +/- 0.062616",
+        "Gm2_raw": "0.512058 +/- 0.0625971"
     },
     "990_101920": {
         "status": true,
-        "ERROR MATRIX UNCERTAINTY": "RIX ACCURATE",
-        "fit prob": "0.0432822",
-        "fit chi2 / ndf": "123.228 / 98",
-        "Ge2": "0.524136 +/- 0.0252685",
-        "Gm2": "0.475869 +/- 0.0251896"
-    },
-    "1003.5_103608": {
-        "status": true,
-        "ERROR MATRIX UNCERTAINTY": "RIX ACCURATE",
-        "fit prob": "2.68625e-111",
-        "fit chi2 / ndf": "803.731 / 98",
-        "Ge2": "0.622456 +/- 0.0187244",
-        "Gm2": "0.377565 +/- 0.0184476"
+        "ERROR MATRIX UNCERTAINTY": "4.9 per cent",
+        "fit prob": "0.220099",
+        "fit chi2 / ndf": "55.2381 / 48",
+        "Ge2": [
+            0.523952,
+            0.0285909
+        ],
+        "Gm2": [
+            0.476046,
+            0.0285091
+        ],
+        "Ge2_raw": "0.523952 +/- 0.0285909",
+        "Gm2_raw": "0.476046 +/- 0.0285091"
     }
 }

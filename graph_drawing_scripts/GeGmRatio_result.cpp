@@ -19,23 +19,23 @@ int GeGmRatio_result()
     // ********************* Start of Data ********************* //
     // HIGH2021
     std::vector<double> energy_HIGH2021 ={ 1003.5, 980.248, 990.293 }; // MeV
-    std::vector<double> gegm_HIGH2021 = { 0, 0.99747, 4.59487 };
-    std::vector<double> gegm_err_HIGH2021 = { 0, 0.20129, 1.0945 };
+    std::vector<double> gegm_HIGH2021 = { 1.2971969781031716, 1.1688883607941352, 1.0491091458947444 };
+    std::vector<double> gegm_err_HIGH2021 = { 0.3043517701607796, 0.3142133033466279, 0.29861346252304166 };
 
     // HIGH2022
     std::vector<double> energy_HIGH2022 ={ 948.727, 949.995, 950.945, 952.012, 953.003, 953.997 }; // MeV
-    std::vector<double> gegm_HIGH2022 = { 3.62488, 0, 0, 0, 0, 0 };
-    std::vector<double> gegm_err_HIGH2022 = { 4.54162, 0, 0, 0, 0, 0 };
+    std::vector<double> gegm_HIGH2022 = { 0, 0, 0, 0, 0, 0 };
+    std::vector<double> gegm_err_HIGH2022 = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 };
 
     // HIGH2019
-    std::vector<double> energy_HIGH2019 ={ 950.15, 956.084 }; // MeV
-    std::vector<double> gegm_HIGH2019 = { 0, 0 };
-    std::vector<double> gegm_err_HIGH2019 = { 0, 0 };
+    std::vector<double> energy_HIGH2019 ={ 950.15, 956.084, 962.687, 972.917, 987.81 }; // MeV
+    std::vector<double> gegm_HIGH2019 = { 0, 0, 0, 0.7038607816891065, 0.9762274325176485 };
+    std::vector<double> gegm_err_HIGH2019 = { 0.0, 0.0, 0.0, 0.25414562754452413, 0.41097445176069036 };
 
     // HIGH2020
-    std::vector<double> energy_HIGH2020 ={ 960.252, 970.583 }; // MeV
-    std::vector<double> gegm_HIGH2020 = { 0.67709, 1.23829 };
-    std::vector<double> gegm_err_HIGH2020 = { 0.10282, 0.17583 };
+    std::vector<double> energy_HIGH2020 ={ 950.29, 960.252, 970.583 }; // MeV
+    std::vector<double> gegm_HIGH2020 = { 0, 1.056603047506489, 1.0519125438932648 };
+    std::vector<double> gegm_err_HIGH2020 = { 0.0, 0.33893952262903776, 0.3221645542265629 };
     // ********************* End of Data ********************* //
         
     // season2019

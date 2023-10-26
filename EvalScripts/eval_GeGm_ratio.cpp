@@ -27,9 +27,9 @@ int eval_GeGm_ratio(std::string dist, std::string exp_filename, std::string MC_f
     auto MC_Ge_distr = new TH1D("MC_Ge_distr", "MC_Ge_distr", 50, -1, 1);
     auto MC_Gm_distr = new TH1D("MC_Gm_distr", "MC_Gm_distr", 50, -1, 1);
 
-    exp->Draw("cos(theta_v) >> exp_distr", "fabs(cos(theta_v)) < 0.5", "goff");
-    MC_Ge->Draw("cos(theta_v) >> MC_Ge_distr", "fabs(cos(theta_v)) < 0.5", "goff");
-    MC_Gm->Draw("cos(theta_v) >> MC_Gm_distr", "fabs(cos(theta_v)) < 0.5", "goff");
+    exp->Draw("cos(theta_v) >> exp_distr", "", "goff");
+    MC_Ge->Draw("cos(theta_v) >> MC_Ge_distr", "", "goff");
+    MC_Gm->Draw("cos(theta_v) >> MC_Gm_distr", "", "goff");
     MC_Gm_distr->Scale(4./3. * MC_Ge_distr->Integral() / MC_Gm_distr->Integral());
     file->cd();
     TObjArray *mc = new TObjArray(2);
@@ -38,7 +38,12 @@ int eval_GeGm_ratio(std::string dist, std::string exp_filename, std::string MC_f
 
     TFractionFitter* fit = new TFractionFitter(exp_distr, mc);
     fit->Constrain(0,0.0,1.0); 
-    fit->Constrain(1,0.0,1.0); 
+    fit->Constrain(1,0.0,1.0);
+    Int_t left_boundary = 0;
+    Int_t right_boundary = 0;
+    exp_distr->GetBinWithContent(cos(1.), left_boundary, 0, exp_distr->GetNbinsX(), 1e-2);
+    exp_distr->GetBinWithContent(cos(3.1415 - 1.), right_boundary, 0, exp_distr->GetNbinsX(), 1e-2);
+    fit->SetRangeX(left_boundary, right_boundary);
     Int_t status = fit->Fit();
 
     double Ge_frac, Ge_frac_err;

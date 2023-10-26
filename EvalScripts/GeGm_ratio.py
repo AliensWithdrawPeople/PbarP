@@ -2,10 +2,10 @@ import json
 import pathlib
 import subprocess as sub
 from multiprocessing.pool import Pool
-
+import re
 import sys
 sys.path.append('C:/work/Science/BINP/PbarP')
-from tr_ph.config import MC_info_path, exp_info_path, GeGm_Fit_Results_dir
+from tr_ph.config import MC_info_path, exp_info_path, GeGm_Fit_Results_dir, GeGm_Fit_Result_json
 
 with open(MC_info_path) as f:
     MC_info: dict[str, dict] = json.load(f)
@@ -35,6 +35,13 @@ def eval_ratio(elabel: str, dist_path: str, exp_path: str, MC: list[str]):
     }
     return elabel, output_data
 
+def match_G(val: str)->tuple[float | None, float | None]:
+    pattern = r'([-+]?(?:\d*\.*\d+)) \+/- ([-+]?(?:\d*\.*\d+))'
+    pattern = r"([-+]?(?:\d*\.*\d+)?e[-+]?\d+|[-+]?(?:\d*\.*\d+)) \+/- ([-+]?(?:\d*\.*\d+))"
+    res = re.fullmatch(pattern, val)
+    if res is None or res.group(1) is None or res.group(2) is None:
+        return None, None
+    return (float(res.group(1)), float(res.group(2)))
 
 params = []
 for elabel, point_info in exp_info.items():
@@ -45,19 +52,24 @@ for elabel, point_info in exp_info.items():
         continue
     params.append((elabel, pathlib.Path(GeGm_Fit_Results_dir, f'season_{point_info["season"]}_elabel{elabel}_GeGm_Ratio_Res.root').as_posix(), point_info['location']['coll'], MC))
 
-dist = "C:/work/Science/BINP/PbarP/tr_ph/GeGmResults/season2019_elabel975_80603_GeGmRatioRes.root"
-exp_filename = "C:/work/Science/BINP/PbarP/tr_ph/root_files/Exp/final/energy_975MeV/season2019_coll.root"
-MC_filename_Ge = "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_972.92MeV/season2019_coll_Ge1_Ge0_run000109.root"
-MC_filename_Gm = "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_972.92MeV/season2019_coll_Ge0_Ge1_run000209.root"
-
-# print(eval_ratio('975_80603', dist, exp_filename, [MC_filename_Ge, MC_filename_Gm]))
 if __name__ == '__main__':
     with Pool(4) as pool:
         res = pool.starmap(eval_ratio, params)
     res = dict(res)
     keys = list(res.keys())
     keys.sort()
-    sorted_dict = {i: res[i] for i in keys}
-    with open(pathlib.Path(GeGm_Fit_Results_dir, f'raw_GeGm_Ratio_Res.json'), 'w') as f:
+    sorted_dict: dict[str, dict] = {i: res[i] for i in keys}
+
+    for elabel, res in sorted_dict.items():
+        if 'Ge2' not in res.keys():
+            continue
+        ge, ge_error = match_G(res['Ge2'])    
+        gm, gm_error = match_G(res['Gm2'])   
+        res['Ge2_raw'] = res['Ge2']
+        res['Gm2_raw'] = res['Gm2']
+        res['Ge2'] = ge, ge_error
+        res['Gm2'] = gm, gm_error
+        
+    with open(pathlib.Path(GeGm_Fit_Results_dir, GeGm_Fit_Result_json), 'w') as f:
         json.dump(sorted_dict, f, indent=4)
         

@@ -23,19 +23,21 @@ int eval_GeGm_ratio(std::string dist, std::string exp_filename, std::string MC_f
     auto MC_Ge = mcFile_Ge->Get<TTree>("pbarp");
     auto MC_Gm = mcFile_Gm->Get<TTree>("pbarp");
 
-    auto exp_distr = new TH1D("exp_distr", "exp_distr", 100, 0, 3.14);
-    auto MC_Ge_distr = new TH1D("MC_Ge_distr", "MC_Ge_distr", 100, 0, 3.14);
-    auto MC_Gm_distr = new TH1D("MC_Gm_distr", "MC_Gm_distr", 100, 0, 3.14);
+    auto exp_distr = new TH1D("exp_distr", "exp_distr", 50, -1, 1);
+    auto MC_Ge_distr = new TH1D("MC_Ge_distr", "MC_Ge_distr", 50, -1, 1);
+    auto MC_Gm_distr = new TH1D("MC_Gm_distr", "MC_Gm_distr", 50, -1, 1);
 
-    exp->Draw("theta >> exp_distr", "", "goff");
-    MC_Ge->Draw("theta >> MC_Ge_distr", "", "goff");
-    MC_Gm->Draw("theta >> MC_Gm_distr", "", "goff");
+    exp->Draw("cos(theta_v) >> exp_distr", "fabs(cos(theta_v)) < 0.5", "goff");
+    MC_Ge->Draw("cos(theta_v) >> MC_Ge_distr", "fabs(cos(theta_v)) < 0.5", "goff");
+    MC_Gm->Draw("cos(theta_v) >> MC_Gm_distr", "fabs(cos(theta_v)) < 0.5", "goff");
+    MC_Gm_distr->Scale(4./3. * MC_Ge_distr->Integral() / MC_Gm_distr->Integral());
     file->cd();
     TObjArray *mc = new TObjArray(2);
     mc->Add(MC_Ge_distr);
     mc->Add(MC_Gm_distr);
 
     TFractionFitter* fit = new TFractionFitter(exp_distr, mc);
+    fit->Constrain(0,0.0,1.0); 
     fit->Constrain(1,0.0,1.0); 
     Int_t status = fit->Fit();
 

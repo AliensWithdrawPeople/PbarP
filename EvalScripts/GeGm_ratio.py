@@ -26,8 +26,8 @@ def eval_ratio(elabel: str, dist_path: str, exp_path: str, MC: list[str]):
     if res.stderr:
         return elabel, {'Error' : output}
     output_data = {
-        'status' : output[-1].strip()[-1:] == '0',
-        'ERROR MATRIX UNCERTAINTY' : output[-11].strip()[-12:],
+        'status' : output[-1].strip()[-1:] == '1',
+        'ERROR MATRIX UNCERTAINTY' : output[-12].strip()[-15:],
         'fit prob' : output[-5].strip()[10:],
         'fit chi2 / ndf' : output[-4].strip()[16:],
         'Ge2' : output[-3].strip()[6:],
@@ -36,12 +36,18 @@ def eval_ratio(elabel: str, dist_path: str, exp_path: str, MC: list[str]):
     return elabel, output_data
 
 def match_G(val: str)->tuple[float | None, float | None]:
-    pattern = r'([-+]?(?:\d*\.*\d+)) \+/- ([-+]?(?:\d*\.*\d+))'
     pattern = r"([-+]?(?:\d*\.*\d+)?e[-+]?\d+|[-+]?(?:\d*\.*\d+)) \+/- ([-+]?(?:\d*\.*\d+))"
     res = re.fullmatch(pattern, val)
     if res is None or res.group(1) is None or res.group(2) is None:
         return None, None
     return (float(res.group(1)), float(res.group(2)))
+
+def match_numeric(val: str)->float | None:
+    pattern = r"([-+]?(?:\d*\.*\d+)?e[-+]?\d+|[-+]?(?:\d*\.*\d+))"
+    res = re.fullmatch(pattern, val)
+    if res is None or res.group(1) is None:
+        return None
+    return float(res.group(1))
 
 params = []
 for elabel, point_info in exp_info.items():
@@ -52,6 +58,7 @@ for elabel, point_info in exp_info.items():
         continue
     params.append((elabel, pathlib.Path(GeGm_Fit_Results_dir, f'season_{point_info["season"]}_elabel{elabel}_GeGm_Ratio_Res.root').as_posix(), point_info['location']['coll'], MC))
 
+eval_ratio(*params[0])
 if __name__ == '__main__':
     with Pool(4) as pool:
         res = pool.starmap(eval_ratio, params)
@@ -63,8 +70,11 @@ if __name__ == '__main__':
     for elabel, res in sorted_dict.items():
         if 'Ge2' not in res.keys():
             continue
+        res['fit prob raw'] = res['fit prob']
+        res['fit prob'] = match_numeric(res['fit prob'])
         ge, ge_error = match_G(res['Ge2'])    
         gm, gm_error = match_G(res['Gm2'])   
+        res['Ge2_raw'] = res['Ge2']
         res['Ge2_raw'] = res['Ge2']
         res['Gm2_raw'] = res['Gm2']
         res['Ge2'] = ge, ge_error
@@ -72,4 +82,3 @@ if __name__ == '__main__':
         
     with open(pathlib.Path(GeGm_Fit_Results_dir, GeGm_Fit_Result_json), 'w') as f:
         json.dump(sorted_dict, f, indent=4)
-        

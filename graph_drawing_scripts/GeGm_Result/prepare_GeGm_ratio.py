@@ -1,9 +1,6 @@
 import json
 from pathlib import Path
 import jinja2
-import sys
-sys.path.append('C:/work/Science/BINP/PbarP')
-from tr_ph.config import GeGm_Fit_Result_json, GeGm_Fit_Results_dir, exp_info_path
 
 class Cook:
     def __init__(self, gegm_results: Path, energy_points_info: Path) -> None: 
@@ -17,6 +14,8 @@ class Cook:
         self.__scans: dict[str, list[tuple[float, tuple[float, float], tuple[float, float]]]] = dict()
         for elabel, res in self.__results.items():
             if 'Ge2' not in res.keys():
+                continue
+            if res['fit prob'] < 1e-2:
                 continue
             season = self.__info[elabel]['season']
             if season not in self.__scans.keys():
@@ -32,7 +31,7 @@ class Cook:
             for val in vals:
                 en, ge, gm = val
                 energy.append(en)
-                ge_gm_ratio = round((ge[0] / gm[0])**0.5, 4) if ge[0] > 0.05 and gm[0] > 0.05 else 0
+                ge_gm_ratio = round((ge[0] / gm[0])**0.5, 4) if 10 > ge[0] > 1e-2 and 10 > gm[0] > 1e-2 else 0
                 ratio.append(ge_gm_ratio)
                 def eval_error(ge: tuple[float, float], gm: tuple[float, float])->float:
                     if ge[0] > 0.05 and gm[0] > 0.05:    

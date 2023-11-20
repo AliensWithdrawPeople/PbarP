@@ -7,7 +7,7 @@ import re
 
 import sys
 sys.path.append('C:/work/Science/BINP/PbarP/')
-from tr_ph.config import FinalRootFilesFolder, lumi, final_tree_name, exp_info_path, collinear_results_data
+from tr_ph.config import FinalRootFilesFolder, lumi, final_tree_name, exp_info_path, collinear_results_data, templates, root_folder
 
 from Utility import EventType, Patterns, format_data, get_energy_point_value, eval_xsection, get_root_files, get_entries, render
 
@@ -50,8 +50,8 @@ def get_xsection(season_name: str, root_file_pattern: Patterns, event_type: Even
 event_type = EventType.collinear
 root_file_pattern = Patterns.coll_final_root_file_pattern
 seasons = ['season2017', 'season2019', 'season2020', 'season2021', 'season2022']
-template_filename = 'C:/work/Science/BINP/PbarP/graph_drawing_scripts/templates/vis_xsec_coll.cpp.jinja'
-output_filename = 'C:/work/Science/BINP/PbarP/graph_drawing_scripts/vis_xsec_coll.cpp'
+template_filename = Path(templates, 'vis_xsec_coll.cpp.jinja')
+output_filename = Path(root_folder, 'graph_drawing_scripts/vis_xsec_coll.cpp')
 
 
 seasons_data = []

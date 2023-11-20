@@ -1,17 +1,16 @@
-import numpy as np
+import jinja2
 import json
 import pathlib
-from multiprocessing.pool import Pool
 
 import sys
 sys.path.append('C:/work/Science/BINP/PbarP')
-from tr_ph.config import MC_info_path, exp_info_path, GeGm_Fit_Result_json
+from tr_ph.config import MC_info_path, collinear_results_data, GeGm_Fit_Result_json, templates, root_folder
 
 GeGm = json.loads(GeGm_Fit_Result_json.read_text())
 MC_info = json.loads(MC_info_path.read_text())
-exp_info = json.loads(exp_info_path.read_text())
+vis_xsec_data = json.loads(collinear_results_data.read_text())
 
-def eval_eff(elabel: str)->float:
+def eval_eff(elabel: str)->tuple[float, float]:
     if elabel not in GeGm.keys():
         raise KeyError(f'No GeGm for elabel = {elabel}')
     
@@ -31,29 +30,49 @@ def eval_eff(elabel: str)->float:
     if len(mc) != 2:
         raise KeyError(f"There must be exactly two MC files for elabel = {elabel}")
     ge_mc_num = 0 if mc[0][1]['Ge^2'] != 0 else 1
-    ge_eff = mc[ge_mc_num][1]['eff']
-    gm_eff = mc[abs(ge_mc_num - 1)][1]['eff']
-    return ge_eff * ge_frac + gm_eff * gm_frac
+    
+    eff_ge = mc[ge_mc_num][1]['eff']
+    eff_gm = mc[abs(ge_mc_num - 1)][1]['eff']
+    eff = eff_ge * ge_frac + eff_gm * gm_frac
+    eff_error = (((eff_ge + eff_gm) * gm / (ge + gm)**2)**2 * ge_error**2 + 
+                 ((eff_ge + eff_gm) * ge / (ge + gm)**2)**2 * gm_error**2 + 
+                 ge_frac**2 * (eff_ge * (1 - eff_ge))**2 + 
+                 gm_frac**2 * (eff_gm * (1 - eff_gm))**2 )**0.5
+    return eff, eff_error
 
-_nominal_energy_season2019 = [str(en) for en in (936, 945, 950, 955, 962.5, 975, 978, 987.5)]
-_xsec_season2019 = [0.0052, 0.0035, 0.0025, 0.2614, 0.4046, 0.4806, 0.4837, 0.5096]
-vis_xsec_season2019 = dict(zip(_nominal_energy_season2019, _xsec_season2019))
 
-_nominal_energy_season2020 = [str(en) for en in (935, 945, 950, 960, 970)]
-_xsec_season2020 = [0.0022, 0.0024, 0.0035, 0.3924, 0.4637]
-vis_xsec_season2020 = dict(zip(_nominal_energy_season2020, _xsec_season2020))
+res = []
+for elabel, xsec in vis_xsec_data.items():
+    if xsec['nominal_energy'] < 950:
+        continue
+    
+    eff, eff_err = eval_eff(elabel)
+    xsection, xsection_err = xsec["cross section"], xsec["cross section error"]
+    res.append((xsec['energy'], round(xsec["cross section"] / eff, 4), round(((xsection_err / eff)**2 + (xsection * eff_err / eff**2)**2)**0.5, 4)))
 
-_nominal_energy_season2021 = [str(en) for en in (970, 980, 990, 1003.5)]
-_xsec_season2021 = [0.5299, 0.4524, 0.493, 0.5064]
-vis_xsec_season2021 = dict(zip(_nominal_energy_season2021, _xsec_season2021))
+res.sort(key=lambda x: x[0])
+print(res)
 
-eff = {elabel.partition('_')[0] : eval_eff(elabel) for elabel, _ in GeGm.items() 
-       if elabel in exp_info.keys() 
-       and exp_info[elabel]["season"] == "HIGH2021"}
+energy = []
+xsec = []
+xsec_err = []
+for val in res:
+    energy.append(str(val[0]))
+    xsec.append(str(val[1]))
+    xsec_err.append(str(val[2]))
 
-xsec_season2021 = {en : xsec / eff[en] for en, xsec in vis_xsec_season2021.items() if en in eff.keys()}
-print(eff)
-print(vis_xsec_season2021)
-print(xsec_season2021)
-# print(eval_eff("970_95392"))
-# print(MC_info)
+energy = "std::vector<double> energy = {" + ', '.join(energy) + '}; // MeV'
+xsec = "std::vector<double> xsec = {" + ', '.join(xsec) + '}; // nb'
+xsec_err = "std::vector<double> xsec_err = {" + ', '.join(xsec_err) + '}; // nb'
+
+def render(data, template_filename, output_filename):
+    with open(template_filename) as file_:
+        template = jinja2.Template(file_.read())
+    rendered_content = template.render(**data)
+    with open(output_filename, "w") as file:
+        file.write(rendered_content)
+
+template_filename = pathlib.Path(templates, 'xsec_coll.cpp.jinja')
+output_filename = pathlib.Path(root_folder, 'graph_drawing_scripts/xsec_coll.cpp')
+
+render({'energy' : energy, 'xsec' : xsec, 'xsec_err' : xsec_err}, template_filename, output_filename)

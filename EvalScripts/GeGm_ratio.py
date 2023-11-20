@@ -13,9 +13,10 @@ with open(MC_info_path) as f:
 with open(exp_info_path) as f:
     exp_info: dict[str, dict] = json.load(f)
     
-def eval_ratio(elabel: str, dist_path: str, exp_path: str, MC: list[str]):
+def eval_ratio(elabel: str, dist_path: str, exp_path: str, MC: list[str], is_TFractionFitter=False):
     aux1, aux2 = "\"", "\\"
-    command = f"root -l -q \"C:/work/Science/BINP/PbarP/EvalScripts/eval_GeGm_ratio.cpp(" \
+    script_name = "eval_GeGm_ratio_TFractionFitter" if is_TFractionFitter else "eval_GeGm_ratio"
+    command = f"root -l -q \"C:/work/Science/BINP/PbarP/EvalScripts/{script_name}.cpp(" \
                 + f'\\{aux1 + dist_path + aux2}\",' \
                 + f'\\{aux1 + exp_path + aux2}\",' \
                 + f'\\{aux1 + MC[0] + aux2}\",' \
@@ -56,7 +57,7 @@ for elabel, point_info in exp_info.items():
     MC = [MC_point_info['processed_file_location'] for _, MC_point_info in MC_info.items() if MC_point_info['elabel'] == elabel] 
     if point_info['location'] is None or any([x is None for x in MC]):
         continue
-    params.append((elabel, pathlib.Path(GeGm_Fit_Results_dir, f'season_{point_info["season"]}_elabel{elabel}_GeGm_Ratio_Res.root').as_posix(), point_info['location']['coll'], MC))
+    params.append((elabel, pathlib.Path(GeGm_Fit_Results_dir, f'season_{point_info["season"]}_elabel{elabel}_GeGm_Ratio_Res.root').as_posix(), point_info['location']['coll'], MC, False))
 
 eval_ratio(*params[0])
 if __name__ == '__main__':

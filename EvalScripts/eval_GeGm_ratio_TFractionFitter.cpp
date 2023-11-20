@@ -12,7 +12,7 @@
 #include <TF1.h>
 
 // int eval_GeGm_ratio()
-int eval_GeGm_ratio(std::string dist, std::string exp_filename, std::string MC_filename_Ge, std::string MC_filename_Gm)
+int eval_GeGm_ratio_TFractionFitter(std::string dist, std::string exp_filename, std::string MC_filename_Ge, std::string MC_filename_Gm)
 { 
     // std::string dist = "C:/work/Science/BINP/PbarP/tr_ph/GeGmResults/season_HIGH2019_elabel975_80603_GeGm_Ratio_Res.root";
     // std::string exp_filename = "C:/work/Science/BINP/PbarP/tr_ph/root_files/Exp/final/energy_975MeV/season2019_coll.root";
@@ -42,61 +42,38 @@ int eval_GeGm_ratio(std::string dist, std::string exp_filename, std::string MC_f
     mc->Add(MC_Gm_distr);
 
 /* TFractionFitter block */
-    // TFractionFitter* fit = new TFractionFitter(exp_distr, mc);
-    // fit->Constrain(0,0.0,1.0); 
-    // // fit->Constrain(1,0.0,1.0);
+    TFractionFitter* fit = new TFractionFitter(exp_distr, mc);
+    fit->Constrain(0,0.0,1.0); 
+    // fit->Constrain(1,0.0,1.0);
 
-    // auto width = exp_distr->GetBinWidth(0);
-    // auto left_boundary = exp_distr->GetBinCenter(0) - width / 2;
-    // Int_t left_constraint = int((-0.5 - left_boundary) / width);
-    // Int_t right_constraint = int((0.5 - left_boundary) / width);
-    // std::cout << width << " : " << left_constraint << " : " << right_constraint << std::endl;
-    // fit->SetRangeX(left_constraint, right_constraint);
-    // Int_t status = fit->Fit();
+    auto width = exp_distr->GetBinWidth(0);
+    auto left_boundary = exp_distr->GetBinCenter(0) - width / 2;
+    Int_t left_constraint = int((-0.5 - left_boundary) / width);
+    Int_t right_constraint = int((0.5 - left_boundary) / width);
+    std::cout << width << " : " << left_constraint << " : " << right_constraint << std::endl;
+    fit->SetRangeX(left_constraint, right_constraint);
+    Int_t status = fit->Fit();
+    auto fit_res = fit->Fit();
 
-    // auto prob = fit->GetProb();
-    // auto chi2 = fit->GetChisquare();
-    // auto ndf = fit->GetNDF();
-    // double Ge_frac, Ge_frac_err;
-    // double Gm_frac, Gm_frac_err;
-    // fit->GetResult(0, Ge_frac, Ge_frac_err);
-    // fit->GetResult(1, Gm_frac, Gm_frac_err);
-    // auto result = (TH1D*) fit->GetPlot();
+    auto prob = fit->GetProb();
+    auto chi2 = fit->GetChisquare();
+    auto ndf = fit->GetNDF();
+    double Ge_frac, Ge_frac_err;
+    double Gm_frac, Gm_frac_err;
+    fit->GetResult(0, Ge_frac, Ge_frac_err);
+    fit->GetResult(1, Gm_frac, Gm_frac_err);
+    auto result = (TH1D*) fit->GetPlot();
 /* TFractionFitter block */
 
-    auto fit_func = new TF1("sum_mc_angular_distribution", [&](double *x, double *par){
-        return par[0] * (par[1] * MC_Ge_distr->Interpolate(x[0]) + par[2] * MC_Gm_distr->Interpolate(x[0]));
-    }, -1, 1, 3);
-    fit_func->SetParameters(exp_distr->Integral() / (MC_Ge_distr->Integral()), 0.5, 0.5);
-    fit_func->SetParameters(0.2, 0.5, 0.3);
-    fit_func->SetParLimits(0, 0., 100.);
-    fit_func->SetParLimits(1, 0., 100.);
-    fit_func->FixParameter(2, 1);
-    auto fit_res = exp_distr->Fit(fit_func, "SLME", "", -0.5, 0.5);
-
-    auto status = fit_res->CovMatrixStatus() ;
-    double Ge_frac = fit_res->Parameter(1);
-    double Gm_frac = fit_res->Parameter(2);
-    double Ge_frac_err = fit_res->ParError(1);
-    double Gm_frac_err = fit_res->ParError(2);
-    auto prob = fit_res->Prob();
-    auto chi2 = fit_res->Chi2();
-    auto ndf = fit_res->Ndf();
-
+    MC_Gm_distr->Scale(Gm_frac * fit_res->Parameter(0));
+    MC_Ge_distr->Scale(Ge_frac * fit_res->Parameter(0));
+    
     std::cout << "fit covariance matrix status: " << status << std::endl;
     std::cout << "fit prob: " << prob << std::endl;
     std::cout << "fit chi2 / ndf: " << chi2 << " / " << ndf << std::endl;
     std::cout << "Ge^2: " << Ge_frac << " +/- " << Ge_frac_err << std::endl;
     std::cout << "Gm^2: " << Gm_frac << " +/- " << Gm_frac_err << std::endl;
-    fit_func->Write();
-    fit_func->SetNpx(1000);
-    auto result = fit_func->GetHistogram();
 
-    // MC_Gm_distr->Scale(Gm_frac * exp_distr->Integral() / MC_Gm_distr->Integral());
-    // MC_Ge_distr->Scale(Ge_frac * exp_distr->Integral() / MC_Ge_distr->Integral());
-
-    MC_Gm_distr->Scale(Gm_frac * fit_res->Parameter(0));
-    MC_Ge_distr->Scale(Ge_frac * fit_res->Parameter(0));
 
     MC_Gm_distr->SetLineColor(kRed);
     MC_Ge_distr->SetLineColor(kBlue);

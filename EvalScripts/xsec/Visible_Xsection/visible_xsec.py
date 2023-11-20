@@ -68,7 +68,7 @@ for season in seasons:
     })
     
     name = f'// {season}'
-    nominal_energy = f'std::vector<double> energy_{season} ={aux_curly_bracket[0]}' + ', '.join([str(val) for val in nominal_energy]) + f'{aux_curly_bracket[1]}; // MeV'
+    nominal_energy = f'std::vector<double> nominal_energy_{season} ={aux_curly_bracket[0]}' + ', '.join([str(val) for val in nominal_energy]) + f'{aux_curly_bracket[1]}; // MeV'
     energy = f'std::vector<double> energy_{season} ={aux_curly_bracket[0]}' + ', '.join([str(val) for val in energy]) + f'{aux_curly_bracket[1]}; // MeV'
     xsec = f'std::vector<double> xsec_{season} = {aux_curly_bracket[0]}' + ', '.join([str(val) for val in xsec]) + f'{aux_curly_bracket[1]}; // nb'
     xsec_error = f'std::vector<double> xsec_err_{season} = {aux_curly_bracket[0]}' + ', '.join([str(val) for val in xsec_err]) + f'{aux_curly_bracket[1]}; // nb\n'

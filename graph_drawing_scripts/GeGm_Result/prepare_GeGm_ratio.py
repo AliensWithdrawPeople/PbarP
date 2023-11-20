@@ -15,7 +15,7 @@ class Cook:
         for elabel, res in self.__results.items():
             if 'Ge2' not in res.keys():
                 continue
-            if res['fit prob'] < 1e-2:
+            if res['fit prob'] is None or res['fit prob'] < 1e-2:
                 continue
             season = self.__info[elabel]['season']
             if season not in self.__scans.keys():

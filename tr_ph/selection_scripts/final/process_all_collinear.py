@@ -15,9 +15,9 @@ def select_exp(file: pathlib.Path, pattern: str, info: dict):
     select_coll = Select_collinear(file, pattern)
     energy_point_folder = pathlib.PurePath(FinalRootFilesFolder.exp.value, f'energy_{select_coll.energy_point}MeV')
     make_if_not_exists(energy_point_folder)
-    select_coll.save(pathlib.PurePath(energy_point_folder, f'{select_coll.season}_coll.root'), True)
+    print('Is saved?', select_coll.save(pathlib.PurePath(energy_point_folder, f'{select_coll.season}_coll.root'), True))
     print('Entries after selection =', select_coll.selected_entries_num)
-    return '', {}
+    return 'selected_entries', select_coll.selected_entries_num
 
 def select_MC(file: pathlib.Path, MC_pattern: str, info: dict):
     matched = re.fullmatch(MC_pattern, file.name)
@@ -47,23 +47,28 @@ class WorkingMode(Enum):
      
 if __name__ == '__main__':
     # exp
-    raw_files = [x for x in PrelimRootFilesFolder_Coll.exp.value.iterdir() if x.is_file() and x.suffix == '.root']
+    raw_files_exp = [x for x in PrelimRootFilesFolder_Coll.exp.value.iterdir() if x.is_file() and x.suffix == '.root']
     exp_pattern = r'scan(\d+)_e([-+]?(?:\d*\.*\d+))_coll_prelim.root'
     exp_info_filename = 'C:/work/Science/BINP/PbarP/tr_ph/exp_info.json'
     # MC
-    raw_files = [x for x in PrelimRootFilesFolder_Coll.MC.value.iterdir() if x.is_file() and x.suffix == '.root']
+    raw_files_MC = [x for x in PrelimRootFilesFolder_Coll.MC.value.iterdir() if x.is_file() and x.suffix == '.root']
     MC_pattern = r'season(\d+)_e([-+]?(?:\d*\.*\d+))_Ge(\d+)_Gm(\d+)_coll_run000(\d+)_prelim.root'
     MC_info_filename = 'C:/work/Science/BINP/PbarP/tr_ph/MC_info.json'
     
     # Set working mode
-    mode = WorkingMode.MC
+    mode = WorkingMode.EXP
     
     select = select_MC if mode is WorkingMode.MC else select_exp
+    raw_files = raw_files_MC if mode is WorkingMode.MC else raw_files_exp
     info_filename = MC_info_filename if mode is WorkingMode.MC else exp_info_filename
     with open(info_filename) as file:
         info = json.load(file) 
-    
+        
     select_params = [(file, MC_pattern if mode is WorkingMode.MC else exp_pattern, info) for file in raw_files]
+    
+    def progress(res):
+        print(f"Done:{len(res)} out of {len(select_params)}")
+        
     with Pool(4) as pool:
         res = pool.starmap(select, select_params)
     res = list(filter(lambda x: x is not None, res))

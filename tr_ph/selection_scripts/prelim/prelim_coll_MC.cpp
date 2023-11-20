@@ -29,11 +29,11 @@ void prelim_coll_MC::Loop(std::string new_file_name)
    const double max_coll_pbarp_vertex_rho = 1.; // cm
    const double max_track_z = 10.; // cm
 
-   const double min_de_dx = 6e3; 
+   const double min_de_dx = 2.5e3; 
    const double max_de_dx = 3e4;
 
    const double min_energy_depo_for_coll_pbarp = 200; // MeV
-    // For annihilation PbarP.
+   // For annihilation PbarP.
    const int min_vertex_track_number = 2;
    const double max_vertex_rho = 2.5; // cm
    const double min_vertex_rho = 1.5; // cm

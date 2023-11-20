@@ -63,6 +63,10 @@ class Select_collinear:
         self.raw['mom_ratio'] = self.raw['mom_v'].apply(lambda x: abs(x[0] - x[1]) / (x[0] + x[1]))
         self.raw['season'] = self.season_num
         self.raw['energy_point'] = self.energy_point_num
+        
+        # Fake branches.
+        self.raw['vrho'] = [-1] * len(self.raw['phi_v'])
+        self.raw['proton_index'] = [-1] * len(self.raw['phi_v'])
     
     @property
     def selected_entries_num(self)->int:

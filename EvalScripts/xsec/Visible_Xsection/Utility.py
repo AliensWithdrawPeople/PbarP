@@ -1,7 +1,9 @@
 from enum import Enum, member
 from pathlib import Path
 import re
-from typing import Callable
+import json
+
+import jinja2
 import pandas as pd 
 
 from EventCounter import get_events_collinear, get_events_annihilation, get_events_bkg_annihilation
@@ -50,3 +52,32 @@ class EventType(Enum):
     
 def get_entries(event_type: EventType, vertex_rho: pd.DataFrame)-> tuple[float, float]:
     return event_type.value(vertex_rho) # type: ignore
+
+def render(data, template_filename, output_filename):
+    with open(template_filename) as file_:
+        template = jinja2.Template(file_.read())
+    rendered_content = template.render(seasons=data)
+    with open(output_filename, "w") as file:
+        file.write(rendered_content)
+        
+
+def format_data(data: dict[str, list[float] | str], exp_info_path: Path):
+    exp_info = json.loads(exp_info_path.read_text())
+    formatted = {}
+    for nominal_energy, energy, xsec, xsec_error in zip(data['nominal_energy'], data['energy'], data['xsec'], data['xsec_error']):
+        info = [(elabel, info) for elabel, info in exp_info.items() if 
+                  info['season'][-4:] == data['season'][-4:] and 
+                  elabel.partition('_')[0] == str(nominal_energy) and
+                  abs(info['mean_energy'] - energy) < 0.1]
+        if len(info) != 1:
+            print(f"bruh! Can't find your bloody elabel! Take a look at these elabels = {[v[0] for v in info]} (season = {data['season']}, energy = {nominal_energy}).")
+            continue
+        elabel, info = info[0]
+        formatted[elabel] = {
+            "season" : info['season'],
+            "nominal_energy" :nominal_energy,
+            "energy" : energy,
+            "cross section" : xsec,
+            "cross section error" : xsec_error
+        }
+    return formatted

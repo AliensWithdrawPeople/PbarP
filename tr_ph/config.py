@@ -1,6 +1,7 @@
 import pathlib
 from enum import Enum
 
+root_folder = pathlib.Path('C:/work/Science/BINP/PbarP/')
 root_files_folder = pathlib.Path('C:/work/Science/BINP/PbarP/tr_ph/root_files')
 
 class RootFilesFolder(Enum):
@@ -32,5 +33,8 @@ final_tree_name = 'pbarp'
 MC_info_path = pathlib.Path('C:/work/Science/BINP/PbarP/tr_ph/MC_info.json')
 exp_info_path = pathlib.Path('C:/work/Science/BINP/PbarP/tr_ph/exp_info.json')
 GeGm_Fit_Results_dir = pathlib.Path('C:/work/Science/BINP/PbarP/tr_ph/GeGmResults')
+GeGm_Fit_Result_json = pathlib.Path(GeGm_Fit_Results_dir, 'raw_GeGm_Ratio_Res.json')
+
+collinear_results_data = pathlib.Path(root_folder, 'Results', 'collinear.json')
 
 # TODO: add list of branches in final tree.

@@ -30,49 +30,53 @@ def eval_eff(elabel: str)->tuple[float, float]:
     if len(mc) != 2:
         raise KeyError(f"There must be exactly two MC files for elabel = {elabel}")
     ge_mc_num = 0 if mc[0][1]['Ge^2'] != 0 else 1
+    gm_mc_num = 1 if mc[0][1]['Ge^2'] != 0 else 0
     
     eff_ge = mc[ge_mc_num][1]['eff']
-    eff_gm = mc[abs(ge_mc_num - 1)][1]['eff']
+    eff_gm = mc[gm_mc_num][1]['eff']
     eff = eff_ge * ge_frac + eff_gm * gm_frac
     eff_error = (((eff_ge + eff_gm) * gm / (ge + gm)**2)**2 * ge_error**2 + 
                  ((eff_ge + eff_gm) * ge / (ge + gm)**2)**2 * gm_error**2 + 
-                 ge_frac**2 * (eff_ge * (1 - eff_ge))**2 + 
-                 gm_frac**2 * (eff_gm * (1 - eff_gm))**2 )**0.5
+                 ge_frac**2 * (eff_ge * (1 - eff_ge) / (mc[ge_mc_num][1]['events'])**0.5)**2 + 
+                 gm_frac**2 * (eff_gm * (1 - eff_gm) / (mc[gm_mc_num][1]['events'])**0.5)**2 )**0.5
     return eff, eff_error
 
 
 res = []
 for elabel, xsec in vis_xsec_data.items():
-    if xsec['nominal_energy'] < 950:
+    if xsec['nominal_energy'] < 950 or xsec['season'][-4:] == '2017':
         continue
     
     eff, eff_err = eval_eff(elabel)
     xsection, xsection_err = xsec["cross section"], xsec["cross section error"]
-    res.append((xsec['energy'], round(xsec["cross section"] / eff, 4), round(((xsection_err / eff)**2 + (xsection * eff_err / eff**2)**2)**0.5, 4)))
+    res.append((xsec['season'], xsec['energy'], round(xsec["cross section"] / eff, 4), round(((xsection_err / eff)**2 + (xsection * eff_err / eff**2)**2)**0.5, 4)))
 
 res.sort(key=lambda x: x[0])
-print(res)
 
-energy = []
-xsec = []
-xsec_err = []
-for val in res:
-    energy.append(str(val[0]))
-    xsec.append(str(val[1]))
-    xsec_err.append(str(val[2]))
+seasons = dict()
+for season, energy, xsection, xsection_err in res:
+    if season not in seasons.keys():
+        seasons[season] = {'energy' : [], 'xsec' : [], 'xsec_error' : []}
+    seasons[season]['energy'].append(str(energy))
+    seasons[season]['xsec'].append(str(xsection))
+    seasons[season]['xsec_error'].append(str(xsection_err))
 
-energy = "std::vector<double> energy = {" + ', '.join(energy) + '}; // MeV'
-xsec = "std::vector<double> xsec = {" + ', '.join(xsec) + '}; // nb'
-xsec_err = "std::vector<double> xsec_err = {" + ', '.join(xsec_err) + '}; // nb'
+
+for season, vals in seasons.items():
+    vals['name'] = f'season{season[-4:]}'
+    vals['energy'] = f"std::vector<double> energy_{vals['name']}" + " = {" + ', '.join(vals['energy']) + '}; // MeV'
+    vals['xsec'] = f"std::vector<double> xsec_{vals['name']}" + " = {" + ', '.join(vals['xsec']) + '}; // nb'
+    vals['xsec_error'] = f"std::vector<double> xsec_err_{vals['name']}" + " = {" + ', '.join(vals['xsec_error']) + '}; // nb'
+season_list = [vals for _, vals in seasons.items()]
 
 def render(data, template_filename, output_filename):
     with open(template_filename) as file_:
         template = jinja2.Template(file_.read())
-    rendered_content = template.render(**data)
+    rendered_content = template.render(seasons=data)
     with open(output_filename, "w") as file:
         file.write(rendered_content)
 
 template_filename = pathlib.Path(templates, 'xsec_coll.cpp.jinja')
 output_filename = pathlib.Path(root_folder, 'graph_drawing_scripts/xsec_coll.cpp')
 
-render({'energy' : energy, 'xsec' : xsec, 'xsec_err' : xsec_err}, template_filename, output_filename)
+render(season_list, template_filename, output_filename)

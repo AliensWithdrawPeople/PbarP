@@ -54,8 +54,7 @@ def eval_eff(elabel: str, ge: float, ge_error: float, gm: float, gm_error: float
 res = []
 for elabel, xsec in vis_xsec_data.items():
     # if xsec['nominal_energy'] < 950 or xsec['season'][-4:] == '2017':
-    if xsec['nominal_energy'] > 950:
-        continue
+        # continue
     ge, ge_error, gm, gm_error = 1, 0.1, 1, 0.1
     try:
         ge, ge_error, gm, gm_error = load_MC_info(elabel)

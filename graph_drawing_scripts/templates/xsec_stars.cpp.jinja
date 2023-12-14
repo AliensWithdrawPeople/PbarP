@@ -39,6 +39,12 @@ int xsec_stars()
     xsec_vs_energy_season2020.SetMarkerColor(kBlue);
     xsec_vs_energy_season2020.SetName("xsec_vs_energy_season2020");
 
+    // season2021
+    TGraphErrors xsec_vs_energy_season2021(energy_season2021.size(), energy_season2021.data(), xsec_season2021.data(), 
+                                            zeroes.data(), xsec_err_season2021.data());
+    xsec_vs_energy_season2021.SetMarkerColor(kMagenta);
+    xsec_vs_energy_season2021.SetName("xsec_vs_energy_season2021");
+
     // season2022
     TGraphErrors xsec_vs_energy_season2022(energy_season2022.size(), energy_season2022.data(), xsec_season2022.data(), 
                                             zeroes.data(), xsec_err_season2022.data());
@@ -56,6 +62,7 @@ int xsec_stars()
     legend->AddEntry("xsec_vs_energy_season2017","High2017","ep");
     legend->AddEntry("xsec_vs_energy_season2019","High2019","ep");
     legend->AddEntry("xsec_vs_energy_season2020","High2020","ep");
+    legend->AddEntry("xsec_vs_energy_season2021","High2021","ep");
     legend->AddEntry("xsec_vs_energy_season2022","NNbar2022","ep");
     legend->DrawClone();
 

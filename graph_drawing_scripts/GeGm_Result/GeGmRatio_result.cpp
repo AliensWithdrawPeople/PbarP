@@ -20,23 +20,23 @@ int GeGmRatio_result()
 
     //HIGH2021
     std::vector<double> energy_HIGH2021 = { 1003.5, 968.805, 980.248, 990.293 }; // MeV
-    std::vector<double> gegm_HIGH2021 = { 0.966, 1.164, 1.0453, 1.67 };
-    std::vector<double> gegm_err_HIGH2021 = { 0.0926, 0.2258, 0.1351, 0.2858 };
+    std::vector<double> gegm_HIGH2021 = { 1.4867, 1.1268, 1.048, 0.945 };
+    std::vector<double> gegm_err_HIGH2021 = { 0.0, 0.0, 0.0, 0.0 };
 
     //HIGH2022
     std::vector<double> energy_HIGH2022 = { 948.727, 949.995, 953.997 }; // MeV
-    std::vector<double> gegm_HIGH2022 = { 0.6417, 1.2487, 0 };
-    std::vector<double> gegm_err_HIGH2022 = { 0.1517, 0.376, 0 };
+    std::vector<double> gegm_HIGH2022 = { 1.0577, 0.7916, 1.4148 };
+    std::vector<double> gegm_err_HIGH2022 = { 0.0, 0.0, 0.0 };
 
     //HIGH2019
-    std::vector<double> energy_HIGH2019 = { 950.15, 956.084, 962.687, 972.917, 977.158, 987.81 }; // MeV
-    std::vector<double> gegm_HIGH2019 = { 0, 0, 0.4786, 2.0354, 0.7782, 1.6727 };
-    std::vector<double> gegm_err_HIGH2019 = { 0, 0, 0.3093, 0.7472, 0.6243, 0.5777 };
+    std::vector<double> energy_HIGH2019 = { 950.15, 956.084, 962.687, 977.158, 987.81 }; // MeV
+    std::vector<double> gegm_HIGH2019 = { 0.2066, 1.1466, 1.1257, 1.1371, 1.2638 };
+    std::vector<double> gegm_err_HIGH2019 = { 0.0, 0.0, 0.0, 0.0, 0.0 };
 
     //HIGH2020
-    std::vector<double> energy_HIGH2020 = { 960.252, 970.583 }; // MeV
-    std::vector<double> gegm_HIGH2020 = { 0.9467, 1.2864 };
-    std::vector<double> gegm_err_HIGH2020 = { 0.1461, 0.2184 };
+    std::vector<double> energy_HIGH2020 = { 950.29, 960.252, 970.583 }; // MeV
+    std::vector<double> gegm_HIGH2020 = { 1.39, 1.4351, 0.6843 };
+    std::vector<double> gegm_err_HIGH2020 = { 0.0, 0.0, 0.0 };
 
     // ********************* End of Data ********************* //
         
@@ -64,7 +64,7 @@ int GeGmRatio_result()
     gegm_vs_energy_season2022.SetMarkerColor(kBlack);
     gegm_vs_energy_season2022.SetName("gegm_vs_energy_season2022");
     
-    auto hist = new TH2D("hist", "", 3, 910, 1010, 3, 0, 3);
+    auto hist = new TH2D("hist", "", 3, 910, 1010, 3, 0, 20);
     hist->GetXaxis()->SetTitle("E_{beam}, MeV");
     hist->GetYaxis()->SetTitle("|G_{e}/G_{m}|");
     hist->Draw();

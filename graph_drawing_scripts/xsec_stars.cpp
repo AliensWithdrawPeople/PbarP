@@ -4,51 +4,49 @@
 #include <TAxis.h>
 #include <TCanvas.h>
 #include <TLegend.h>
-#include <TH2D.h>
 
 int xsec_stars()
 {
     TCanvas canv;
     std::vector<double> zeroes(100, 0.0);
-    std::vector<double> nominal_energy_season2017 = {936, 945, 950, 955, 962.5, 975, 978, 987.5};
-    std::vector<double> nominal_energy_season2019 = {936, 945, 950, 955, 962.5, 975, 978, 987.5};
-    std::vector<double> nominal_energy_season2020 = {935, 945, 950, 960, 970};
-    std::vector<double> nominal_energy_season2021 = {970, 980, 990, 1003.5};
-    std::vector<double> nominal_energy_season2022 = {920, 930, 935, 937.5, 938.3, 938.9, 939.6, 940.2, 941, 942, 943.5, 945, 947.5, 948.75, 950, 951, 952, 953, 954};
-
     // ********************* Start of Data ********************* //
-    // season2017
-std::vector<double> energy_season2017 ={ 930.481, 935.478, 937.388, 937.218, 938.176, 938.723, 939.467, 940.166, 940.608, 941.882, 950.359, 960.625, 971.253, 981.947 }; // MeV
-std::vector<double> xsec_season2017 = { 0.0002, 0.003, 0.0063, 0.002, 0.0122, 0.0255, 0.0354, 0.0423, 0.0535, 0.0555, 0.0325, 0.0085, 0.0026, 0.0035 }; // nb
-std::vector<double> xsec_err_season2017 = { 0.0019, 0.0033, 0.003, 0.0034, 0.0034, 0.0047, 0.0058, 0.0062, 0.0067, 0.0081, 0.0072, 0.0042, 0.0025, 0.003 }; // nb
 
-// season2019
-std::vector<double> energy_season2019 ={ 936.305, 944.817, 950.15, 956.084, 962.687, 972.917, 977.158, 987.81 }; // MeV
-std::vector<double> xsec_season2019 = { -0.0005, 0.0674, 0.0424, 0.01, 0.0076, 0.005, -0.0007, 0.0046 }; // nb
-std::vector<double> xsec_err_season2019 = { 0.0018, 0.007, 0.0062, 0.0045, 0.0034, 0.0021, 0.0038, 0.0027 }; // nb
+    //season2017
+    std::vector<double> energy_season2017 = {938.723, 939.467, 940.166, 940.608, 941.882, 950.359, 960.625, 971.253, 981.947}; // MeV
+    std::vector<double> xsec_season2017 = {0.1443, 0.1886, 0.2319, 0.2788, 0.2928, 0.3684, 0.7922, 0.5556, 1.1364}; // nb
+    std::vector<double> xsec_err_season2017 = {0.0285, 0.0337, 0.0377, 0.0401, 0.0475, 0.0857, 0.3954, 0.5356, 0.9773}; // nb
 
-// season2020
-std::vector<double> energy_season2020 ={ 934.705, 945.461, 950.29, 960.252, 970.583 }; // MeV
-std::vector<double> xsec_season2020 = { 0.0009, 0.0682, 0.0371, 0.0056, 0.0037 }; // nb
-std::vector<double> xsec_err_season2020 = { 0.0009, 0.0035, 0.0026, 0.0013, 0.0013 }; // nb
+    //season2019
+    std::vector<double> energy_season2019 = {944.817, 950.15, 956.084, 962.687, 972.917, 977.158, 987.81}; // MeV
+    std::vector<double> xsec_season2019 = {0.3243, 0.4128, 0.4262, 0.7594, 1.0682, -0.174, 1.4485}; // nb
+    std::vector<double> xsec_err_season2019 = {0.0407, 0.0607, 0.2423, 0.4397, 0.5164, 0.9531, 0.9331}; // nb
 
-// season2021
-std::vector<double> energy_season2021 ={ 1003.5, 968.805, 980.248, 990.293 }; // MeV
-std::vector<double> xsec_season2021 = { 0.004, 0.0081, 0.0072, 0.0029 }; // nb
-std::vector<double> xsec_err_season2021 = { 0.0008, 0.002, 0.0014, 0.0011 }; // nb
+    //season2020
+    std::vector<double> energy_season2020 = {945.461, 950.29, 960.252, 970.583}; // MeV
+    std::vector<double> xsec_season2020 = {0.3387, 0.3643, 0.4885, 0.762}; // nb
+    std::vector<double> xsec_err_season2020 = {0.0296, 0.086, 0.1356, 0.2956}; // nb
 
-// season2022
-std::vector<double> energy_season2022 ={ 919.966, 929.985, 934.979, 937.505, 938.323, 938.887, 939.594, 940.207, 940.96, 941.995, 943.495, 944.993, 947.5, 948.727, 949.995, 950.945, 952.012, 953.003, 953.997 }; // MeV
-std::vector<double> xsec_season2022 = { -0.0001, 0.0022, 0.0012, 0.0018, 0.0154, 0.0294, 0.0432, 0.0479, 0.0491, 0.0555, 0.0577, 0.0588, 0.0616, 0.0545, 0.0344, 0.0234, 0.0216, 0.0157, 0.0125 }; // nb      
-std::vector<double> xsec_err_season2022 = { 0.0007, 0.001, 0.0007, 0.0009, 0.0015, 0.0022, 0.0026, 0.0027, 0.0028, 0.003, 0.003, 0.0028, 0.003, 0.0036, 0.0033, 0.0028, 0.0029, 0.0024, 0.0023 }; // nb 
+    //season2021
+    std::vector<double> energy_season2021 = {1003.5, 968.805, 980.248, 990.293}; // MeV
+    std::vector<double> xsec_season2021 = {1.8648, 1.4955, 2.1015, 1.049}; // nb
+    std::vector<double> xsec_err_season2021 = {0.4135, 0.4677, 0.4914, 0.4229}; // nb
+
+    //season2022
+    std::vector<double> energy_season2022 = {938.323, 938.887, 939.594, 940.207, 940.96, 941.995, 943.495, 944.993, 947.5, 949.995, 950.945, 952.012, 953.003, 953.997}; // MeV
+    std::vector<double> xsec_season2022 = {0.2179, 0.16, 0.227, 0.2454, 0.257, 0.2858, 0.2949, 0.3132, 0.3372, 0.3186, 0.309, 0.4054, 0.4011, 0.4251}; // nb
+    std::vector<double> xsec_err_season2022 = {0.0262, 0.0165, 0.0211, 0.0222, 0.0233, 0.0254, 0.0259, 0.0267, 0.029, 0.0963, 0.1445, 0.0575, 0.1063, 0.2163}; // nb
+
     // ********************* End of Data ********************* //
-    
+
     // season2017
     TGraphErrors xsec_vs_energy_season2017(energy_season2017.size(), energy_season2017.data(), xsec_season2017.data(), 
                                             zeroes.data(), xsec_err_season2017.data());
     xsec_vs_energy_season2017.SetMarkerColor(kGreen);
     xsec_vs_energy_season2017.SetName("xsec_vs_energy_season2017");
-    
+    xsec_vs_energy_season2017.GetXaxis()->SetTitle("E_{beam}, MeV");
+    xsec_vs_energy_season2017.GetYaxis()->SetTitle("#sigma_{e^{+}e^{-} #rightarrow p#bar{p}}, nb");
+    xsec_vs_energy_season2017.SetTitle("e^{+}e^{-} #rightarrow p#bar{p} annihilation events");
+
     // season2019
     TGraphErrors xsec_vs_energy_season2019(energy_season2019.size(), energy_season2019.data(), xsec_season2019.data(), 
                                             zeroes.data(), xsec_err_season2019.data());
@@ -72,18 +70,12 @@ std::vector<double> xsec_err_season2022 = { 0.0007, 0.001, 0.0007, 0.0009, 0.001
                                             zeroes.data(), xsec_err_season2022.data());
     xsec_vs_energy_season2022.SetMarkerColor(kBlack);
     xsec_vs_energy_season2022.SetName("xsec_vs_energy_season2022");
-    
-    auto hist = new TH2D("hist", "hist", 3, 910, 1010, 3, -0.01, 0.08);
-    hist->GetXaxis()->SetTitle("E_{beam}, MeV");
-    hist->GetYaxis()->SetTitle("#sigma^{(vis)}_{e^{+}e^{-} #rightarrow p#bar{p}}, nb");
-    hist->SetTitle("e^{+}e^{-} #rightarrow p#bar{p} annihilation events");
-    hist->Draw();
 
-    xsec_vs_energy_season2017.DrawClone("P");
-    xsec_vs_energy_season2019.DrawClone("P");
-    xsec_vs_energy_season2020.DrawClone("P");
-    xsec_vs_energy_season2021.DrawClone("P");
-    xsec_vs_energy_season2022.DrawClone("P");
+    xsec_vs_energy_season2017.DrawClone("AP");
+    xsec_vs_energy_season2019.DrawClone("P same");
+    xsec_vs_energy_season2020.DrawClone("P same");
+    xsec_vs_energy_season2021.DrawClone("P same");
+    xsec_vs_energy_season2022.DrawClone("P same");
 
     auto legend = new TLegend(0.1,0.7,0.48,0.9);
     legend->SetHeader("Seasons","C"); // option "C" allows to center the header

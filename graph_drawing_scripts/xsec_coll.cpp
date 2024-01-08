@@ -13,23 +13,23 @@ int xsec_coll()
 
     //season2019
     std::vector<double> energy_season2019 = {950.15, 956.084, 962.687, 972.917, 977.158, 987.81}; // MeV
-    std::vector<double> xsec_season2019 = {5.9777, 1.0132, 1.0961, 0.7713, 0.8516, 0.7373}; // nb
-    std::vector<double> xsec_err_season2019 = {2.6313, 0.298, 0.4891, 0.1606, 0.6738, 0.184}; // nb
+    std::vector<double> xsec_season2019 = {7.5758, 1.2187, 1.1865, 0.8842, 0.9152, 0.7781}; // nb
+    std::vector<double> xsec_err_season2019 = {3.3345, 0.069, 1.0839, 0.102, 0.3919, 0.0955}; // nb
 
     //season2020
     std::vector<double> energy_season2020 = {950.29, 960.252, 970.583}; // MeV
-    std::vector<double> xsec_season2020 = {2.7865, 0.903, 0.7464}; // nb
-    std::vector<double> xsec_err_season2020 = {0.7135, 0.1412, 0.1146}; // nb
+    std::vector<double> xsec_season2020 = {3.3019, 0.8564, 0.7517}; // nb
+    std::vector<double> xsec_err_season2020 = {0.9257, 0.0605, 0.0495}; // nb
 
     //season2021
     std::vector<double> energy_season2021 = {1003.5, 968.805, 980.248, 990.293}; // MeV
-    std::vector<double> xsec_season2021 = {0.7647, 0.7453, 0.7348, 0.6811}; // nb
-    std::vector<double> xsec_err_season2021 = {0.074, 0.1384, 0.0946, 0.0847}; // nb
+    std::vector<double> xsec_season2021 = {0.7604, 0.7173, 0.7023, 0.7077}; // nb
+    std::vector<double> xsec_err_season2021 = {0.0298, 0.0555, 0.0363, 0.0386}; // nb
 
     //season2022
     std::vector<double> energy_season2022 = {949.995, 950.945, 952.012, 953.003, 953.997}; // MeV
-    std::vector<double> xsec_season2022 = {48.2519, 1.4444, 3.4112, 2.3911, 1.5605}; // nb
-    std::vector<double> xsec_err_season2022 = {17.0813, 0.5669, 0.319, 0.7602, 1.056}; // nb
+    std::vector<double> xsec_season2022 = {52.3077, 1.7674, 2.2694, 1.6445, 1.0959}; // nb
+    std::vector<double> xsec_err_season2022 = {19.4024, 0.6138, 0.1781, 0.434, 0.18}; // nb
 
     // ********************* End of Data ********************* //
 

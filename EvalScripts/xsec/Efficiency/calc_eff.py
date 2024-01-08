@@ -7,7 +7,7 @@ sys.path.append('C:/work/Science/BINP/PbarP')
 from tr_ph.config import MC_info_path, collinear_results_data, stars_results_data, GeGm_Fit_Result_json, templates, root_folder
 
 type = "coll"
-type = "stars"
+# type = "stars"
 results_data = collinear_results_data if type == "coll" else stars_results_data
 eff_key_name = 'eff' if type == "coll" else 'eff_stars'
 

@@ -72,7 +72,7 @@ int eval_GeGm_ratio(std::string dist, std::string exp_filename, std::string MC_f
     fit_func->SetParLimits(0, 0., 100.);
     fit_func->SetParLimits(1, 0., 100.);
     fit_func->FixParameter(2, 1);
-    auto fit_res = exp_distr->Fit(fit_func, "SLME", "", -0.5, 0.5);
+    auto fit_res = exp_distr->Fit(fit_func, "SLME", "", -0.8, 0.8);
 
     auto status = fit_res->CovMatrixStatus() ;
     double Ge_frac = fit_res->Parameter(1);

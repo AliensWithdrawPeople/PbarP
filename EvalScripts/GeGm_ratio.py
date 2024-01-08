@@ -50,14 +50,17 @@ def match_numeric(val: str)->float | None:
         return None
     return float(res.group(1))
 
+def match_chi2(val: str):
+    return (float(v) for v in val.split('/'))
+
 params = []
 for elabel, point_info in exp_info.items():
     if float(elabel.split('_')[0]) < 948 or 'coll' not in point_info['location'].keys():
         continue
-    MC = [MC_point_info['processed_file_location'] for _, MC_point_info in MC_info.items() if MC_point_info['elabel'] == elabel] 
+    MC = [MC_point_info['processed_file_location'] for _, MC_point_info in MC_info.items() if MC_point_info['elabel'] == elabel and 'processed_file_location' in MC_point_info.keys()] 
     if point_info['location'] is None or any([x is None for x in MC]):
         continue
-    params.append((elabel, pathlib.Path(GeGm_Fit_Results_dir, f'season_{point_info["season"]}_elabel{elabel}_GeGm_Ratio_Res.root').as_posix(), point_info['location']['coll'], MC, False))
+    params.append((elabel, pathlib.Path(GeGm_Fit_Results_dir, f'season_{point_info["season"]}_elabel{elabel}_GeGm_Ratio_Res_cosTheta_cut0.8.root').as_posix(), point_info['location']['coll'], MC, False))
 
 eval_ratio(*params[0])
 if __name__ == '__main__':
@@ -80,6 +83,10 @@ if __name__ == '__main__':
         res['Gm2_raw'] = res['Gm2']
         res['Ge2'] = ge, ge_error
         res['Gm2'] = gm, gm_error
+        
+        chi2, ndf = match_chi2(res['fit chi2 / ndf'])
+        res['chi2_val'] = chi2
+        res['ndf_val'] = ndf
         
     with open(pathlib.Path(GeGm_Fit_Results_dir, GeGm_Fit_Result_json), 'w') as f:
         json.dump(sorted_dict, f, indent=4)

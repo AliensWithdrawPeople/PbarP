@@ -7,7 +7,7 @@ import re
 
 import sys
 sys.path.append('C:/work/Science/BINP/PbarP/')
-from tr_ph.config import FinalRootFilesFolder, lumi, final_tree_name, exp_info_path, collinear_results_data, templates, root_folder
+from tr_ph.config import FinalRootFilesFolder, lumi, final_tree_name, exp_info_path, collinear_results_data, stars_results_data, templates, root_folder
 
 from Utility import EventType, Patterns, format_data, get_energy_point_value, eval_xsection, get_root_files, get_entries, render
 
@@ -46,13 +46,23 @@ def get_xsection(season_name: str, root_file_pattern: Patterns, event_type: Even
     return nominal_energy, energy, xsec, xsec_err
 
  
-# Configuration 
-event_type = EventType.collinear
-root_file_pattern = Patterns.coll_final_root_file_pattern
-seasons = ['season2017', 'season2019', 'season2020', 'season2021', 'season2022']
-template_filename = Path(templates, 'vis_xsec_coll.cpp.jinja')
-output_filename = Path(root_folder, 'graph_drawing_scripts/vis_xsec_coll.cpp')
-
+# Configuration Starts
+ev_type = "coll"
+if ev_type == "coll":
+    event_type = EventType.collinear
+    root_file_pattern = Patterns.coll_final_root_file_pattern
+    seasons = ['season2017', 'season2019', 'season2020', 'season2021', 'season2022']
+    template_filename = Path(templates, 'vis_xsec_coll.cpp.jinja')
+    output_filename = Path(root_folder, 'graph_drawing_scripts/vis_xsec_coll.cpp')
+    results_data = collinear_results_data
+else:
+    event_type = EventType.annihilation
+    root_file_pattern = Patterns.stars_final_root_file_pattern
+    seasons = ['season2017', 'season2019', 'season2020', 'season2021', 'season2022']
+    template_filename = Path(templates, 'vis_xsec_stars.cpp.jinja')
+    output_filename = Path(root_folder, 'graph_drawing_scripts/vis_xsec_stars.cpp')
+    results_data = stars_results_data
+# Configuration Ends
 
 seasons_data = []
 results = []
@@ -87,6 +97,6 @@ render(data = seasons_data, template_filename = template_filename, output_filena
 results = [format_data(data, exp_info_path) for data in results]
 formatted = reduce(lambda acc, val: dict(chain(acc.items(), val.items())), results, dict())
 
-with open(collinear_results_data, 'w') as f:
+with open(results_data, 'w') as f:
     json.dump(formatted, f, indent = 4)
     

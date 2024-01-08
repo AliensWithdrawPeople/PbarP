@@ -61,8 +61,6 @@ void prelim_coll::Loop(std::string new_file_name)
    std::vector<float> vrho_vec = {};
    new_tree->Branch("nv", &nv);
    new_tree->Branch("vtrk", &vtrk_vec);
-   // [ ]: Do I need vind_vec if I only seek for one vertex with 2 tracks and I push track_ids to vectors with track info.
-   // new_tree->Branch("vind", &vind_vec);
    new_tree->Branch("vrho", &vrho_vec);
    
    std::vector<int> tnhit_vec = {};
@@ -157,7 +155,7 @@ void prelim_coll::Loop(std::string new_file_name)
    auto track_goodness = [&](int track_id) {
       return tnhit[track_id] >= min_n_hit && 
             tchi2r[track_id] < max_chi2_r && tchi2z[track_id] < max_chi2_z &&
-            tz[track_id] < max_track_z && 
+            fabs(tz[track_id]) < max_track_z && 
             check_dedx(tdedx[track_id], tptot[track_id]);
    };
 

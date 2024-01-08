@@ -45,11 +45,11 @@ class Select_config_stars:
     
 
 class Select_stars:            
-    def __init__(self, prelim_file: os.PathLike, select_config: Select_config_stars = Select_config_stars()):
+    def __init__(self, prelim_file: os.PathLike, filename_pattern: str, select_config: Select_config_stars = Select_config_stars()):
         self.config = select_config
         raw_file = PurePath(prelim_file)
-        pattern = r'scan(\d+)_e([-+]?(?:\d*\.*\d+))_stars_prelim.root'
-        matched = re.fullmatch(pattern, raw_file.name)
+        # pattern = r'scan(\d+)_e([-+]?(?:\d*\.*\d+))_stars_prelim.root'
+        matched = re.fullmatch(filename_pattern, raw_file.name)
         self.season = f'season{matched.group(1)}' if matched is not None else 'error_during_matching'
         self.energy_point = str(matched.group(2)) if matched is not None else 'error_during_matching'
         self.season_num = int(matched.group(1)) if matched is not None else 0

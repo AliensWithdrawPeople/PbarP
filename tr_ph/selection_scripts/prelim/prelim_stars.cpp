@@ -71,8 +71,6 @@ void prelim_stars::Loop(std::string new_file_name)
    std::vector<float> vz_vec = {};
    new_tree->Branch("nv", &nv);
    new_tree->Branch("vtrk", &vtrk_vec);
-   // [ ]: Do I need vind_vec if I only seek for one vertex with 2 tracks and I push track_ids to vectors with track info.
-   // new_tree->Branch("vind", &vind_vec);
    new_tree->Branch("vrho", &vrho_vec);
    new_tree->Branch("vz", &vz_vec);
    new_tree->Branch("vertex_proton_track", &vproton_track_index);

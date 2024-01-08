@@ -48,9 +48,9 @@ class WorkingMode(Enum):
      
 if __name__ == '__main__':
     # exp
-    # raw_files_exp = [x for x in PrelimRootFilesFolder_Coll_Track_Eff.exp.value.iterdir() if x.is_file() and x.suffix == '.root']
-    # exp_pattern = r'scan(\d+)_e([-+]?(?:\d*\.*\d+))_coll_track_efficiency_prelim.root'
-    # exp_info_filename = 'C:/work/Science/BINP/PbarP/tr_ph/exp_info.json'
+    raw_files_exp = [x for x in PrelimRootFilesFolder_Coll_Track_Eff.exp.value.iterdir() if x.is_file() and x.suffix == '.root']
+    exp_pattern = r'scan(\d+)_e([-+]?(?:\d*\.*\d+))_coll_track_efficiency_prelim.root'
+    exp_info_filename = 'C:/work/Science/BINP/PbarP/tr_ph/exp_info.json'
     # MC
     raw_files_MC = [x for x in PrelimRootFilesFolder_Coll_Track_Eff.MC.value.iterdir() if x.is_file() and x.suffix == '.root']
     MC_pattern = r'season(\d+)_e([-+]?(?:\d*\.*\d+))_Ge(\d+)_Gm(\d+)_coll_track_efficiency_run000(\d+)_prelim.root'

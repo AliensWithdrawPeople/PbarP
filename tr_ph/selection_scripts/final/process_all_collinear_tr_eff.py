@@ -3,7 +3,6 @@ import pathlib
 import re
 import json
 from multiprocessing.pool import Pool
-import tqdm
 
 import sys
 sys.path.append('C:/work/Science/BINP/PbarP/tr_ph/')
@@ -57,7 +56,7 @@ if __name__ == '__main__':
     MC_info_filename = 'C:/work/Science/BINP/PbarP/tr_ph/MC_info.json'
     
     # Set working mode
-    mode = WorkingMode.MC
+    mode = WorkingMode.EXP
     
     select = select_MC if mode is WorkingMode.MC else select_exp
     raw_files = raw_files_MC if mode is WorkingMode.MC else raw_files_exp
@@ -72,11 +71,10 @@ if __name__ == '__main__':
         
     with Pool(4) as pool:
         res = pool.starmap(select, select_params)
-    res = list(filter(lambda x: x is not None, res))
-    if all([x is not None for x in res]):    
-        res = dict(res) # type: ignore
-        for key, val in res.items():
-            info[key] = val
-    with open(info_filename, 'w') as file:
-        json.dump(info, file, indent=4) 
+    # if all([x is not None for x in res]):    
+    #     res = dict(res) # type: ignore
+    #     for key, val in res.items():
+    #         info[key] = val
+    # with open(info_filename, 'w') as file:
+    #     json.dump(info, file, indent=4) 
         

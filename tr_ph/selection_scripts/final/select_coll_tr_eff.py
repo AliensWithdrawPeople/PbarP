@@ -64,17 +64,16 @@ class Select_collinear_track_eff:
     def preprocess(self):
         self.raw['season'] = self.season_num
         self.raw['energy_point'] = self.energy_point_num
-        self.raw['found_both'] = self.raw[['proton_z', 'antiproton_z']].\
-            apply(lambda row: len(row['antiproton_z']) > 0 and len(row['proton_z']) > 0, axis=1)
+        self.raw['found_both'] = self.raw[['proton_z', 'antiproton_z']].apply(lambda row: len(row['antiproton_z']) > 0 and len(row['proton_z']) > 0, axis=1, result_type='reduce')
 
     @property
     def selected_entries_num(self)->int:
         return len(self.selected)
     
     def filter(self):
-        z_filter = self.raw['antiproton_z'].apply(lambda z: bool(np.all(np.abs(z) < self.config.max_z)))
+        # z_filter = self.raw['antiproton_z'].apply(lambda z: bool(np.all(np.abs(z) < self.config.max_z)))
         track_rho_filter = self.raw['antiproton_rho'].apply(lambda rho: bool(np.all(np.abs(rho) < self.config.max_track_rho)))
-        filter_mask = z_filter & track_rho_filter
+        filter_mask = track_rho_filter
         return filter_mask
 
     def save(self, processed: os.PathLike, recreate: bool) -> bool:

@@ -24,7 +24,7 @@ void prelim_coll_track_efficiency::Loop(std::string new_file_name)
     if (fChain == 0)
         return;
 
-    const int min_n_hit = 5;
+    const int min_n_hit = 7;
     const double max_chi2_r = 15.;
     const double max_chi2_z = 10.;
 
@@ -61,11 +61,16 @@ void prelim_coll_track_efficiency::Loop(std::string new_file_name)
     new_tree->Branch("is_bhabha", &is_bhabha);
     new_tree->Branch("ecaltot", &ecaltot);
     new_tree->Branch("ecalneu", &ecalneu);
+    new_tree->Branch("nt", &nt);
+    int beam_tracks = 0;
+    new_tree->Branch("beam_tracks", &beam_tracks);
  
     int antiproton_candidates_number = 0;
     std::vector<int> antiproton_candidates = {};
 
     std::vector<int> antiproton_tnhit_vec = {};
+    std::vector<int> antiproton_chi2r_vec = {};
+    std::vector<int> antiproton_chi2z_vec = {};
     std::vector<float> antiproton_tlength_vec = {};
     std::vector<float> antiproton_tphi_vec = {};
     std::vector<float> antiproton_tth_vec = {};
@@ -82,6 +87,8 @@ void prelim_coll_track_efficiency::Loop(std::string new_file_name)
 
     std::vector<int> proton_tnhit_vec = {};
     std::vector<float> proton_tlength_vec = {};
+    std::vector<int> proton_chi2r_vec = {};
+    std::vector<int> proton_chi2z_vec = {};
     std::vector<float> proton_tphi_vec = {};
     std::vector<float> proton_tth_vec = {};
     std::vector<float> proton_tptot_vec = {};
@@ -101,6 +108,8 @@ void prelim_coll_track_efficiency::Loop(std::string new_file_name)
 
     new_tree->Branch("proton_tnhit", &proton_tnhit_vec);
     new_tree->Branch("proton_tlength", &proton_tlength_vec);
+    new_tree->Branch("proton_chi2r", &proton_chi2r_vec);
+    new_tree->Branch("proton_chi2z", &proton_chi2z_vec);
     new_tree->Branch("proton_tphi", &proton_tphi_vec);
     new_tree->Branch("proton_tth", &proton_tth_vec);
     new_tree->Branch("proton_tptot", &proton_tptot_vec);
@@ -115,6 +124,8 @@ void prelim_coll_track_efficiency::Loop(std::string new_file_name)
     new_tree->Branch("proton_ten", &proton_ten_vec);
 
     new_tree->Branch("antiproton_tnhit", &antiproton_tnhit_vec);
+    new_tree->Branch("antiproton_chi2r", &antiproton_chi2r_vec);
+    new_tree->Branch("antiproton_chi2z", &antiproton_chi2z_vec);
     new_tree->Branch("antiproton_tlength", &antiproton_tlength_vec);
     new_tree->Branch("antiproton_tphi", &antiproton_tphi_vec);
     new_tree->Branch("antiproton_tth", &antiproton_tth_vec);
@@ -131,10 +142,13 @@ void prelim_coll_track_efficiency::Loop(std::string new_file_name)
     }
     
     // [(neg_track_id, pos_track_id)]
-    std::vector<std::pair<int, int>> candidates = {};
 
     auto check_dedx = [&min_de_dx, &max_de_dx](double dedx, double mom)
-    { return max_de_dx > dedx && dedx > min_de_dx; };
+    { 
+        return  max_de_dx > dedx && 
+                dedx > min_de_dx && 
+                dedx > 1.38906e6/(mom - 41.1525) + 2106.22; 
+    };
 
     auto is_collinear = [&](int track1, int track2)
     {
@@ -147,10 +161,21 @@ void prelim_coll_track_efficiency::Loop(std::string new_file_name)
         return (delta_phi < max_delta_phi) && (delta_theta < max_delta_theta) && vec1.Dot(vec2) < 0;
     };
 
+    auto is_full_collinear = [&](int track1, int track2)
+    {
+        TVector3 vec1(1, 1, 1);
+        TVector3 vec2(1, 1, 1);
+        vec1.SetMagThetaPhi(1, tth[track1], tphi[track1]);
+        vec2.SetMagThetaPhi(1, tth[track2], tphi[track2]);
+        return fabs(vec1.Angle(vec2)) < 0.25;
+    };
+
     auto fill_proton_track_vecs = [&](int track_id)
     {
         proton_tnhit_vec.push_back(tnhit[track_id]);
         proton_tlength_vec.push_back(tlength[track_id]);
+        proton_chi2r_vec.push_back(tchi2r[track_id]);
+        proton_chi2z_vec.push_back(tchi2z[track_id]);
         proton_tphi_vec.push_back(tphi[track_id]);
         proton_tth_vec.push_back(tth[track_id]);
         proton_tptot_vec.push_back(tptot[track_id]);
@@ -169,6 +194,8 @@ void prelim_coll_track_efficiency::Loop(std::string new_file_name)
     {
         antiproton_tnhit_vec.push_back(tnhit[track_id]);
         antiproton_tlength_vec.push_back(tlength[track_id]);
+        antiproton_chi2r_vec.push_back(tchi2r[track_id]);
+        antiproton_chi2z_vec.push_back(tchi2z[track_id]);
         antiproton_tphi_vec.push_back(tphi[track_id]);
         antiproton_tth_vec.push_back(tth[track_id]);
         antiproton_tptot_vec.push_back(tptot[track_id]);
@@ -187,6 +214,8 @@ void prelim_coll_track_efficiency::Loop(std::string new_file_name)
     {
         proton_tnhit_vec.clear();
         proton_tlength_vec.clear();
+        proton_chi2r_vec.clear();
+        proton_chi2z_vec.clear();
         proton_tphi_vec.clear();
         proton_tth_vec.clear();
         proton_tptot_vec.clear();
@@ -202,6 +231,8 @@ void prelim_coll_track_efficiency::Loop(std::string new_file_name)
 
         antiproton_tnhit_vec.clear();
         antiproton_tlength_vec.clear();
+        antiproton_chi2r_vec.clear();
+        antiproton_chi2z_vec.clear();
         antiproton_tphi_vec.clear();
         antiproton_tth_vec.clear();
         antiproton_tptot_vec.clear();
@@ -214,15 +245,22 @@ void prelim_coll_track_efficiency::Loop(std::string new_file_name)
         antiproton_tt0_vec.clear();
         antiproton_tant_vec.clear();
         antiproton_ten_vec.clear();
+    };
 
-        candidates.clear();
+    auto clear_everything = [&]()
+    {
+        antiproton_candidates.clear();
+        clear_vecs();
+        antiproton_candidates_number = 0;
+        beam_tracks = 0;
     };
 
     auto track_goodness = [&](int track_id)
     {
         auto nominal_avg_momentum = sqrt(emeas * emeas - 938.272 * 938.272);
         return tnhit[track_id] >= min_n_hit &&
-               tchi2r[track_id] < max_chi2_r && tchi2z[track_id] < max_chi2_z &&
+               tchi2r[track_id] < max_chi2_r && 
+               tchi2z[track_id] < max_chi2_z &&
                fabs(tz[track_id]) < max_track_z &&
                fabs(trho[track_id]) < max_track_rho &&
                check_dedx(tdedx[track_id], tptot[track_id]) &&
@@ -240,42 +278,56 @@ void prelim_coll_track_efficiency::Loop(std::string new_file_name)
 
         if (ecaltot < min_energy_depo_for_coll_pbarp)
         { continue; }
-
         for (int i = 0; i < nt; i++)
         {
+            if(fabs(trho[i]) < max_track_rho)
+            { beam_tracks++; }
+
             if (track_goodness(i) && tcharge[i] < 0)
             { antiproton_candidates.push_back(i); }
         }
-        
-        // if(antiproton_candidates.size() > 1)
-        // {
-        //     std::cout << "Houston, we have " << antiproton_candidates.size() << " antiproton candidates! nominal momentum = " << sqrt(emeas * emeas - 938.272 * 938.272) << std::endl;
-        // }
 
         if(antiproton_candidates.size() == 0)
         {
-            antiproton_candidates.clear();
+            clear_everything();
             continue;
         }
 
         antiproton_candidates_number = antiproton_candidates.size();
         std::set<int> proton_candidates = {};
+        bool break_flag = false;
         for(const auto& antiproton_candidate_track :  antiproton_candidates)
         {
             fill_antiproton_track_vecs(antiproton_candidate_track);
             for (int i = 0; i < nt; i++)
-            {            
+            {          
+                if (antiproton_candidate_track != i && is_full_collinear(antiproton_candidate_track, i))
+                { 
+                    break_flag = true;
+                    break;
+                }
+
                 if (antiproton_candidate_track != i && track_goodness(i) && tcharge[i] > 0 && is_collinear(antiproton_candidate_track, i))
                 { proton_candidates.insert(i); }
             }
+            if(break_flag)
+            { break; }
         }
+        if(break_flag)
+        {
+            clear_everything();
+            proton_candidates.clear();
+            break_flag = false;
+            continue;
+        }
+
         for(const auto& proton_candidate :  proton_candidates)
         { fill_proton_track_vecs(proton_candidate); }
 
         new_tree->Fill();
-        antiproton_candidates.clear();
-        clear_vecs();
         proton_candidates.clear();
+        clear_everything();
+        break_flag = false;
     }
 
     new_file->Write();

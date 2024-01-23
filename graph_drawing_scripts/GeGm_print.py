@@ -13,7 +13,7 @@ exp_info = Path(exp_info_path)
 
 cook = Cook(results, exp_info)
 cook.prepare_results()
-cook.render(template_filename, output_filename)
+cook.render(template_filename, output_filename, draw_chi2 = False)
    
 aux1, aux2 = "\"", "\\"
 command = f'root -l \"{output_filename}\"'

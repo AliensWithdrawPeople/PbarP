@@ -44,6 +44,8 @@ int xsec_coll()
                                             zeroes.data(), xsec_err_season2022.data());
     xsec_vs_energy_season2022.SetMarkerColor(kBlack);
     xsec_vs_energy_season2022.SetName("xsec_vs_energy_season2022");
+    
+    xsec_vs_energy_season2019.GetXaxis()->SetLimits(940, 1010);
 
     xsec_vs_energy_season2019.DrawClone("AP");
     xsec_vs_energy_season2020.DrawClone("P same");

@@ -77,7 +77,7 @@ def format_data(data: dict[str, list[float] | str], exp_info_path: Path):
             "season" : info['season'],
             "nominal_energy" :nominal_energy,
             "energy" : energy,
-            "cross section" : xsec,
-            "cross section error" : xsec_error
+            "visible cross section" : xsec,
+            "visible cross section error" : xsec_error
         }
     return formatted

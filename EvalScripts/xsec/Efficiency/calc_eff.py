@@ -38,7 +38,7 @@ def eval_eff(elabel: str, ge: float, ge_error: float, gm: float, gm_error: float
     ge_mc_num = 0 if mc[0][1]['Ge^2'] != 0 else 1
     gm_mc_num = 1 if mc[0][1]['Ge^2'] != 0 else 0
     
-    if int(elabel[:3]) < 960:
+    if int(elabel[:3]) < 950:
         ge_frac, gm_frac = 0.5, 0.5
     
     eff_ge = mc[ge_mc_num][1][eff_key_name]
@@ -64,8 +64,10 @@ for elabel, xsec in vis_xsec_data.items():
         
     try:    
         eff, eff_err = eval_eff(elabel, ge, ge_error, gm, gm_error)
-        xsection, xsection_err = xsec["cross section"], xsec["cross section error"]
-        res.append((xsec['season'], xsec['energy'], round(xsec["cross section"] / eff, 4), round(((xsection_err / eff)**2 + (xsection * eff_err / eff**2)**2)**0.5, 4)))
+        xsection, xsection_err = xsec["visible cross section"], xsec["visible cross section error"]
+        res.append((xsec['season'], xsec['energy'], round(xsec["visible cross section"] / eff, 4), round(((xsection_err / eff)**2 + (xsection * eff_err / eff**2)**2)**0.5, 4)))
+        xsec["cross section"] = round(xsec["visible cross section"] / eff, 4)
+        xsec["cross section error"] = round(((xsection_err / eff)**2 + (xsection * eff_err / eff**2)**2)**0.5, 4)
     except KeyError as e:
         print(elabel, ":", e)
 
@@ -89,12 +91,14 @@ season_list = [vals for _, vals in seasons.items()]
 
 def render(data, template_filename, output_filename):
     with open(template_filename) as file_:
-        template = jinja2.Template(file_.read())
+        template = jinja2.Template(file_.read()) # type: ignore
     rendered_content = template.render(seasons=data)
     with open(output_filename, "w") as file:
         file.write(rendered_content)
 
-
+with open(results_data, "w") as file:
+    json.dump(dict(sorted(vis_xsec_data.items(), key=lambda record: record[1]['energy'])), file, indent=4)
+    
 template_filename = pathlib.Path(templates, f'xsec_{type}.cpp.jinja')
 output_filename = pathlib.Path(root_folder, f'graph_drawing_scripts/xsec_{type}.cpp')
 

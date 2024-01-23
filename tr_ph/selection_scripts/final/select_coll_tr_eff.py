@@ -33,6 +33,7 @@ class Select_collinear_track_eff:
         self.energy_point_num = float(matched.group(2)) if matched is not None else 0.
         prelim_tree_cols = ['event_id', 'energy', 'run',
                             'tot_neutral_cal_deposition', 'tot_cal_deposition',
+                            'beam_tracks', 'nt',
                             'proton_hits', 'proton_dedx', 'proton_z', 'proton_cal_deposition', 'proton_rho',
                             'proton_phi', 'proton_theta', 'proton_mom',
                             'proton_phi_v', 'proton_theta_v', 'proton_mom_v',

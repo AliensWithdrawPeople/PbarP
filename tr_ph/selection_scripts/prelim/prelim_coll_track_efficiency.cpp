@@ -69,8 +69,8 @@ void prelim_coll_track_efficiency::Loop(std::string new_file_name)
     std::vector<int> antiproton_candidates = {};
 
     std::vector<int> antiproton_tnhit_vec = {};
-    std::vector<int> antiproton_chi2r_vec = {};
-    std::vector<int> antiproton_chi2z_vec = {};
+    std::vector<float> antiproton_chi2r_vec = {};
+    std::vector<float> antiproton_chi2z_vec = {};
     std::vector<float> antiproton_tlength_vec = {};
     std::vector<float> antiproton_tphi_vec = {};
     std::vector<float> antiproton_tth_vec = {};
@@ -87,8 +87,8 @@ void prelim_coll_track_efficiency::Loop(std::string new_file_name)
 
     std::vector<int> proton_tnhit_vec = {};
     std::vector<float> proton_tlength_vec = {};
-    std::vector<int> proton_chi2r_vec = {};
-    std::vector<int> proton_chi2z_vec = {};
+    std::vector<float> proton_chi2r_vec = {};
+    std::vector<float> proton_chi2z_vec = {};
     std::vector<float> proton_tphi_vec = {};
     std::vector<float> proton_tth_vec = {};
     std::vector<float> proton_tptot_vec = {};
@@ -167,7 +167,7 @@ void prelim_coll_track_efficiency::Loop(std::string new_file_name)
         TVector3 vec2(1, 1, 1);
         vec1.SetMagThetaPhi(1, tth[track1], tphi[track1]);
         vec2.SetMagThetaPhi(1, tth[track2], tphi[track2]);
-        return fabs(vec1.Angle(vec2)) < 0.25;
+        return fabs(vec1.Angle(vec2)) < 1;
     };
 
     auto fill_proton_track_vecs = [&](int track_id)
@@ -280,7 +280,7 @@ void prelim_coll_track_efficiency::Loop(std::string new_file_name)
         { continue; }
         for (int i = 0; i < nt; i++)
         {
-            if(fabs(trho[i]) < max_track_rho)
+            if(fabs(trho[i]) < 3)
             { beam_tracks++; }
 
             if (track_goodness(i) && tcharge[i] < 0)

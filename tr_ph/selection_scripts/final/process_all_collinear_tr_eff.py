@@ -36,7 +36,7 @@ def select_MC(file: pathlib.Path, MC_pattern: str, info: dict):
     try:
         info[f'run000{run_num}']['selected_events'] = select_coll.selected_entries_num
         info[f'run000{run_num}']['eff'] = select_coll.selected_entries_num / info[f'run000{run_num}']['events']
-        info[f'run000{run_num}']['processed_file_location'] = output_file_path.as_posix()
+        info[f'run000{run_num}']['tr_eff processed_file_location'] = output_file_path.as_posix()
     except KeyError as e:
         print(f'Something is wrong with run000{run_num} in info file: {e}')
     return f'run000{run_num}', info[f'run000{run_num}']
@@ -47,7 +47,7 @@ class WorkingMode(Enum):
      
 if __name__ == '__main__':
     # exp
-    raw_files_exp = [x for x in PrelimRootFilesFolder_Coll_Track_Eff.exp.value.iterdir() if x.is_file() and x.suffix == '.root']
+    raw_files_exp = [x for x in PrelimRootFilesFolder_Coll_Track_Eff.exp.value.iterdir() if x.is_file() and x.suffix == '.root' and 'scan2021_e970_coll_track_efficiency_prelim' in str(x)]
     exp_pattern = r'scan(\d+)_e([-+]?(?:\d*\.*\d+))_coll_track_efficiency_prelim.root'
     exp_info_filename = 'C:/work/Science/BINP/PbarP/tr_ph/exp_info.json'
     # MC

@@ -6,10 +6,11 @@ import sys
 sys.path.append('C:/work/Science/BINP/PbarP')
 from tr_ph.config import MC_info_path, collinear_results_data, stars_results_data, GeGm_Fit_Result_json, templates, root_folder
 
-type = "coll"
-# type = "stars"
+# type = "coll"
+type = "stars"
 results_data = collinear_results_data if type == "coll" else stars_results_data
 eff_key_name = 'eff' if type == "coll" else 'eff_stars'
+eff_scale = (1, 0) if type == "coll" else (0.413, 0.007)
 
 GeGm = json.loads(GeGm_Fit_Result_json.read_text())
 MC_info = json.loads(MC_info_path.read_text())
@@ -26,29 +27,61 @@ def load_MC_info(elabel: str):
     gm, gm_error = info['Gm2']
     return ge, ge_error, gm, gm_error
 
-def eval_eff(elabel: str, ge: float, ge_error: float, gm: float, gm_error: float)->tuple[float, float]:
+def eval_eff(elabel: str, ge: float, ge_error: float, gm: float, gm_error: float, eff_scale: tuple[float, float] = (1, 0))->tuple[float, float]:
+    """Evaluate selection efficiency.
+
+    Parameters
+    ----------
+    elabel : str
+        Elabel of the energy point.
+    ge : float
+        G_{e} factor. == 1 if E < 950 MeV
+    ge_error : float
+        Error of G_{e} factor
+    gm : float
+        G_{m} factor. == 1 if E < 950 MeV
+    gm_error : float
+        Error of G_{m} factor
+    eff_scale : tuple[float, float], optional
+        scale for annihilation events = sigma^{not corrected eff}_{stars} / sigma_{coll}, by default (1, 0)
+
+    Returns
+    -------
+    tuple[float, float]
+        efficiency, error of the efficiency
+
+    Raises
+    ------
+    KeyError
+        There must be exactly two MC files for elabel. 
+    """
     ge_frac = ge / (ge + gm)
     gm_frac = gm / (ge + gm)
     
     mc = list(filter(lambda run: run[1]['elabel'] == elabel, MC_info.items()))
     if len(mc) == 0:
+        if int(elabel[:3]) < 939:
+            return 1, 0
         raise KeyError(f"No MC for elabel = {elabel}")
     if len(mc) != 2:
         raise KeyError(f"There must be exactly two MC files for elabel = {elabel}")
+    
     ge_mc_num = 0 if mc[0][1]['Ge^2'] != 0 else 1
     gm_mc_num = 1 if mc[0][1]['Ge^2'] != 0 else 0
-    
+        
     if int(elabel[:3]) < 950:
         ge_frac, gm_frac = 0.5, 0.5
     
     eff_ge = mc[ge_mc_num][1][eff_key_name]
     eff_gm = mc[gm_mc_num][1][eff_key_name]
+    
     eff = eff_ge * ge_frac + eff_gm * gm_frac
     eff_error = (((eff_ge + eff_gm) * gm / (ge + gm)**2)**2 * ge_error**2 + 
                  ((eff_ge + eff_gm) * ge / (ge + gm)**2)**2 * gm_error**2 + 
                  ge_frac**2 * (eff_ge * (1 - eff_ge) / (mc[ge_mc_num][1]['events'])**0.5)**2 + 
                  gm_frac**2 * (eff_gm * (1 - eff_gm) / (mc[gm_mc_num][1]['events'])**0.5)**2 )**0.5
-    return eff, eff_error
+                 
+    return eff * eff_scale[0], (eff_error**2 + eff_scale[1]**2)**0.5
 
 
 res = []
@@ -63,7 +96,7 @@ for elabel, xsec in vis_xsec_data.items():
         pass
         
     try:    
-        eff, eff_err = eval_eff(elabel, ge, ge_error, gm, gm_error)
+        eff, eff_err = eval_eff(elabel, ge, ge_error, gm, gm_error, eff_scale)
         xsection, xsection_err = xsec["visible cross section"], xsec["visible cross section error"]
         res.append((xsec['season'], xsec['energy'], round(xsec["visible cross section"] / eff, 4), round(((xsection_err / eff)**2 + (xsection * eff_err / eff**2)**2)**0.5, 4)))
         xsec["cross section"] = round(xsec["visible cross section"] / eff, 4)

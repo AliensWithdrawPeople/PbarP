@@ -47,7 +47,7 @@ def get_xsection(season_name: str, root_file_pattern: Patterns, event_type: Even
 
  
 # Configuration Starts
-ev_type = "coll"
+ev_type = "stars"
 if ev_type == "coll":
     event_type = EventType.collinear
     root_file_pattern = Patterns.coll_final_root_file_pattern

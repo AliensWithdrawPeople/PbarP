@@ -31,8 +31,8 @@ def select_exp(file: pathlib.Path, pattern: str, info: dict):
     
     make_if_not_exists(energy_point_folder)
     print('Is saved?', select_stars.save(pathlib.PurePath(energy_point_folder, f'{select_stars.season}_stars.root'), True))
-    print('Entries after selection =', select_stars.get_selected_entries_num)
-    return 'selected_entries', select_stars.get_selected_entries_num
+    print('Entries after selection =', select_stars.get_selected_entries_num())
+    return
 
 def select_MC(file: pathlib.Path, MC_pattern: str, info: dict):
     matched = re.fullmatch(MC_pattern, file.name)
@@ -80,7 +80,7 @@ if __name__ == '__main__':
     info_filename = MC_info_filename if mode is WorkingMode.MC else exp_info_filename
     with open(info_filename) as file:
         info = json.load(file) 
-        
+    raw_files = [pathlib.PurePath('C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/prelim/stars/season2022_e941.995_Ge1_Gm0_stars_run000146_prelim.root')]
     select_params = [(file, MC_pattern if mode is WorkingMode.MC else exp_pattern, info) for file in raw_files]
     
     def progress(res):

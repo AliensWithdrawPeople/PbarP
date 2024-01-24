@@ -73,7 +73,7 @@ if __name__ == '__main__':
     MC_info_filename = 'C:/work/Science/BINP/PbarP/tr_ph/MC_info.json'
     
     # Set working mode
-    mode = WorkingMode.MC
+    mode = WorkingMode.EXP
     
     select = select_MC if mode is WorkingMode.MC else select_exp
     raw_files = raw_files_MC if mode is WorkingMode.MC else raw_files_exp

@@ -146,7 +146,7 @@ void prelim_coll_track_efficiency::Loop(std::string new_file_name)
     auto check_dedx = [&min_de_dx, &max_de_dx](double dedx, double mom)
     { 
         return  max_de_dx > dedx && 
-                dedx > min_de_dx && 
+                dedx > min_de_dx &&
                 dedx > 1.38906e6/(mom - 41.1525) + 2106.22; 
     };
 

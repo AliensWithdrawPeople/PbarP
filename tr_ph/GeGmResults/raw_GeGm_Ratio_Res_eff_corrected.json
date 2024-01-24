@@ -2,343 +2,331 @@
     "1003.5_103608": {
         "status": true,
         "ERROR MATRIX UNCERTAINTY": "P         FIRST",
-        "fit prob": 0.0271398,
-        "fit chi2 / ndf": "56.4941 / 38",
+        "fit prob": 0.0463327,
+        "fit chi2 / ndf": "53.7846 / 38",
         "Ge2": [
-            1.42285,
-            0.111697
+            1.24377,
+            0.0950358
         ],
         "Gm2": [
             1.0,
             0.0
         ],
-        "fit prob raw": "0.0271398",
-        "Ge2_raw": "1.42285 +/- 0.111697",
+        "fit prob raw": "0.0463327",
+        "Ge2_raw": "1.24377 +/- 0.0950358",
         "Gm2_raw": "1 +/- 0",
-        "chi2_val": 56.4941,
+        "chi2_val": 53.7846,
         "ndf_val": 38.0
     },
     "950_119028": {
         "status": true,
         "ERROR MATRIX UNCERTAINTY": "P         FIRST",
-        "fit prob": 0.81655,
-        "fit chi2 / ndf": "30.0824 / 38",
+        "fit prob": 6.89947e-145,
+        "fit chi2 / ndf": "807.202 / 38",
         "Ge2": [
-            1.55932,
-            0.939085
+            4.16002,
+            2.36259
         ],
         "Gm2": [
             1.0,
             0.0
         ],
-        "fit prob raw": "0.81655",
-        "Ge2_raw": "1.55932 +/- 0.939085",
+        "fit prob raw": "6.89947e-145",
+        "Ge2_raw": "4.16002 +/- 2.36259",
         "Gm2_raw": "1 +/- 0",
-        "chi2_val": 30.0824,
+        "chi2_val": 807.202,
         "ndf_val": 38.0
     },
     "950_79625": {
         "status": true,
         "ERROR MATRIX UNCERTAINTY": "P         FIRST",
-        "fit prob": 1.0,
-        "fit chi2 / ndf": "7.85044 / 38",
+        "fit prob": 0.0,
+        "fit chi2 / ndf": "4542.26 / 38",
         "Ge2": [
             100.0,
-            57.3188
+            50.7155
         ],
         "Gm2": [
             1.0,
             0.0
         ],
-        "fit prob raw": "1",
-        "Ge2_raw": "100 +/- 57.3188",
+        "fit prob raw": "0",
+        "Ge2_raw": "100 +/- 50.7155",
         "Gm2_raw": "1 +/- 0",
-        "chi2_val": 7.85044,
+        "chi2_val": 4542.26,
         "ndf_val": 38.0
     },
     "950_93145": {
         "status": true,
         "ERROR MATRIX UNCERTAINTY": "P         FIRST",
-        "fit prob": 0.0555726,
-        "fit chi2 / ndf": "52.8202 / 38",
+        "fit prob": 0.0,
+        "fit chi2 / ndf": "12095.5 / 38",
         "Ge2": [
-            2.62172,
-            1.45475
+            1.79591,
+            1.0225
         ],
         "Gm2": [
             1.0,
             0.0
         ],
-        "fit prob raw": "0.0555726",
-        "Ge2_raw": "2.62172 +/- 1.45475",
+        "fit prob raw": "0",
+        "Ge2_raw": "1.79591 +/- 1.0225",
         "Gm2_raw": "1 +/- 0",
-        "chi2_val": 52.8202,
+        "chi2_val": 12095.5,
         "ndf_val": 38.0
     },
     "951_119974": {
-        "status": true,
-        "ERROR MATRIX UNCERTAINTY": "P         FIRST",
-        "fit prob": 0.00840231,
-        "fit chi2 / ndf": "61.9351 / 38",
-        "Ge2": [
-            3.33484,
-            3.01537
-        ],
-        "Gm2": [
-            1.0,
-            0.0
-        ],
-        "fit prob raw": "0.00840231",
-        "Ge2_raw": "3.33484 +/- 3.01537",
-        "Gm2_raw": "1 +/- 0",
-        "chi2_val": 61.9351,
-        "ndf_val": 38.0
+        "Error": [
+            "Warning in <ROOT::Fit::FillData>: fit range is outside histogram range, no fit data for xaxis",
+            "Warning in <Fit>: Fit data is empty ",
+            "Error in <TFitResultPtr>: TFitResult is empty - use the fit option S"
+        ]
     },
     "952_118137": {
         "status": true,
         "ERROR MATRIX UNCERTAINTY": "P         FIRST",
-        "fit prob": 5.30732e-13,
-        "fit chi2 / ndf": "136.326 / 38",
+        "fit prob": 2.24486e-170,
+        "fit chi2 / ndf": "929.649 / 38",
         "Ge2": [
-            3.91742e-11,
-            0.0227448
+            9.84594e-08,
+            0.125609
         ],
         "Gm2": [
             1.0,
             0.0
         ],
-        "fit prob raw": "5.30732e-13",
-        "Ge2_raw": "3.91742e-11 +/- 0.0227448",
+        "fit prob raw": "2.24486e-170",
+        "Ge2_raw": "9.84594e-08 +/- 0.125609",
         "Gm2_raw": "1 +/- 0",
-        "chi2_val": 136.326,
+        "chi2_val": 929.649,
         "ndf_val": 38.0
     },
     "953_118524": {
         "status": true,
         "ERROR MATRIX UNCERTAINTY": "P         FIRST",
-        "fit prob": 8.56017e-26,
-        "fit chi2 / ndf": "210.678 / 38",
+        "fit prob": 1.15199e-12,
+        "fit chi2 / ndf": "134.229 / 38",
         "Ge2": [
-            0.175419,
-            0.179524
+            0.0312495,
+            0.193874
         ],
         "Gm2": [
             1.0,
             0.0
         ],
-        "fit prob raw": "8.56017e-26",
-        "Ge2_raw": "0.175419 +/- 0.179524",
+        "fit prob raw": "1.15199e-12",
+        "Ge2_raw": "0.0312495 +/- 0.193874",
         "Gm2_raw": "1 +/- 0",
-        "chi2_val": 210.678,
+        "chi2_val": 134.229,
         "ndf_val": 38.0
     },
     "954_119518": {
         "status": true,
         "ERROR MATRIX UNCERTAINTY": "P         FIRST",
-        "fit prob": 0.046544,
-        "fit chi2 / ndf": "53.7607 / 38",
+        "fit prob": 2.05273e-33,
+        "fit chi2 / ndf": "252.178 / 38",
         "Ge2": [
-            2.18869e-10,
-            0.0791074
+            1.16107e-07,
+            0.414926
         ],
         "Gm2": [
             1.0,
             0.0
         ],
-        "fit prob raw": "0.046544",
-        "Ge2_raw": "2.18869e-10 +/- 0.0791074",
+        "fit prob raw": "2.05273e-33",
+        "Ge2_raw": "1.16107e-07 +/- 0.414926",
         "Gm2_raw": "1 +/- 0",
-        "chi2_val": 53.7607,
+        "chi2_val": 252.178,
         "ndf_val": 38.0
     },
     "955_81775": {
         "status": true,
         "ERROR MATRIX UNCERTAINTY": "P         FIRST",
-        "fit prob": 0.246355,
-        "fit chi2 / ndf": "43.5719 / 38",
+        "fit prob": 0.659595,
+        "fit chi2 / ndf": "33.8979 / 38",
         "Ge2": [
-            99.9939,
-            66.4463
+            5.48867,
+            4.9872
         ],
         "Gm2": [
             1.0,
             0.0
         ],
-        "fit prob raw": "0.246355",
-        "Ge2_raw": "99.9939 +/- 66.4463",
+        "fit prob raw": "0.659595",
+        "Ge2_raw": "5.48867 +/- 4.9872",
         "Gm2_raw": "1 +/- 0",
-        "chi2_val": 43.5719,
+        "chi2_val": 33.8979,
         "ndf_val": 38.0
     },
     "960_94254": {
         "status": true,
         "ERROR MATRIX UNCERTAINTY": "P         FIRST",
-        "fit prob": 0.0401057,
-        "fit chi2 / ndf": "54.5334 / 38",
+        "fit prob": 0.212185,
+        "fit chi2 / ndf": "44.6596 / 38",
         "Ge2": [
-            1.56762,
-            0.236648
+            1.43733,
+            0.212651
         ],
         "Gm2": [
             1.0,
             0.0
         ],
-        "fit prob raw": "0.0401057",
-        "Ge2_raw": "1.56762 +/- 0.236648",
+        "fit prob raw": "0.212185",
+        "Ge2_raw": "1.43733 +/- 0.212651",
         "Gm2_raw": "1 +/- 0",
-        "chi2_val": 54.5334,
+        "chi2_val": 44.6596,
         "ndf_val": 38.0
     },
     "962.5_80068": {
         "status": true,
         "ERROR MATRIX UNCERTAINTY": "P         FIRST",
-        "fit prob": 0.27345,
-        "fit chi2 / ndf": "42.7776 / 38",
+        "fit prob": 0.858562,
+        "fit chi2 / ndf": "28.8209 / 38",
         "Ge2": [
-            0.00911454,
-            0.378379
+            2.36414e-09,
+            0.28391
         ],
         "Gm2": [
             1.0,
             0.0
         ],
-        "fit prob raw": "0.27345",
-        "Ge2_raw": "0.00911454 +/- 0.378379",
+        "fit prob raw": "0.858562",
+        "Ge2_raw": "2.36414e-09 +/- 0.28391",
         "Gm2_raw": "1 +/- 0",
-        "chi2_val": 42.7776,
+        "chi2_val": 28.8209,
         "ndf_val": 38.0
     },
     "970_95392": {
         "status": true,
         "ERROR MATRIX UNCERTAINTY": "P         FIRST",
-        "fit prob": 0.930131,
-        "fit chi2 / ndf": "26.0018 / 38",
+        "fit prob": 0.979834,
+        "fit chi2 / ndf": "22.3247 / 38",
         "Ge2": [
-            1.51742,
-            0.209797
+            1.42509,
+            0.194758
         ],
         "Gm2": [
             1.0,
             0.0
         ],
-        "fit prob raw": "0.930131",
-        "Ge2_raw": "1.51742 +/- 0.209797",
+        "fit prob raw": "0.979834",
+        "Ge2_raw": "1.42509 +/- 0.194758",
         "Gm2_raw": "1 +/- 0",
-        "chi2_val": 26.0018,
+        "chi2_val": 22.3247,
         "ndf_val": 38.0
     },
     "970_98116": {
         "status": true,
         "ERROR MATRIX UNCERTAINTY": "P         FIRST",
-        "fit prob": 0.271967,
-        "fit chi2 / ndf": "42.8198 / 38",
+        "fit prob": 0.0638923,
+        "fit chi2 / ndf": "52.063 / 38",
         "Ge2": [
-            2.21888,
-            0.413055
+            1.00783,
+            0.175158
         ],
         "Gm2": [
             1.0,
             0.0
         ],
-        "fit prob raw": "0.271967",
-        "Ge2_raw": "2.21888 +/- 0.413055",
+        "fit prob raw": "0.0638923",
+        "Ge2_raw": "1.00783 +/- 0.175158",
         "Gm2_raw": "1 +/- 0",
-        "chi2_val": 42.8198,
+        "chi2_val": 52.063,
         "ndf_val": 38.0
     },
     "975_80603": {
         "status": true,
         "ERROR MATRIX UNCERTAINTY": "P         FIRST",
-        "fit prob": 0.00917661,
-        "fit chi2 / ndf": "61.545 / 38",
+        "fit prob": 0.661184,
+        "fit chi2 / ndf": "33.8628 / 38",
         "Ge2": [
-            0.714508,
-            0.161159
+            0.969815,
+            0.203704
         ],
         "Gm2": [
             1.0,
             0.0
         ],
-        "fit prob raw": "0.00917661",
-        "Ge2_raw": "0.714508 +/- 0.161159",
+        "fit prob raw": "0.661184",
+        "Ge2_raw": "0.969815 +/- 0.203704",
         "Gm2_raw": "1 +/- 0",
-        "chi2_val": 61.545,
+        "chi2_val": 33.8628,
         "ndf_val": 38.0
     },
     "978_80506": {
         "status": true,
         "ERROR MATRIX UNCERTAINTY": "P         FIRST",
-        "fit prob": 0.258477,
-        "fit chi2 / ndf": "43.21 / 38",
+        "fit prob": 0.050236,
+        "fit chi2 / ndf": "53.3586 / 38",
         "Ge2": [
-            0.235483,
-            0.287193
+            0.0135815,
+            0.7734
         ],
         "Gm2": [
             1.0,
             0.0
         ],
-        "fit prob raw": "0.258477",
-        "Ge2_raw": "0.235483 +/- 0.287193",
+        "fit prob raw": "0.050236",
+        "Ge2_raw": "0.0135815 +/- 0.7734",
         "Gm2_raw": "1 +/- 0",
-        "chi2_val": 43.21,
+        "chi2_val": 53.3586,
         "ndf_val": 38.0
     },
     "980_99550": {
         "status": true,
         "ERROR MATRIX UNCERTAINTY": "P         FIRST",
-        "fit prob": 0.388916,
-        "fit chi2 / ndf": "39.8232 / 38",
+        "fit prob": 0.483464,
+        "fit chi2 / ndf": "37.6943 / 38",
         "Ge2": [
-            1.95648,
-            0.22991
+            1.5361,
+            0.17302
         ],
         "Gm2": [
             1.0,
             0.0
         ],
-        "fit prob raw": "0.388916",
-        "Ge2_raw": "1.95648 +/- 0.22991",
+        "fit prob raw": "0.483464",
+        "Ge2_raw": "1.5361 +/- 0.17302",
         "Gm2_raw": "1 +/- 0",
-        "chi2_val": 39.8232,
+        "chi2_val": 37.6943,
         "ndf_val": 38.0
     },
     "987.5_81313": {
         "status": true,
         "ERROR MATRIX UNCERTAINTY": "P         FIRST",
-        "fit prob": 0.127783,
-        "fit chi2 / ndf": "48.0241 / 38",
+        "fit prob": 0.951731,
+        "fit chi2 / ndf": "24.7726 / 38",
         "Ge2": [
-            1.33311,
-            0.332286
+            1.4232,
+            0.347865
         ],
         "Gm2": [
             1.0,
             0.0
         ],
-        "fit prob raw": "0.127783",
-        "Ge2_raw": "1.33311 +/- 0.332286",
+        "fit prob raw": "0.951731",
+        "Ge2_raw": "1.4232 +/- 0.347865",
         "Gm2_raw": "1 +/- 0",
-        "chi2_val": 48.0241,
+        "chi2_val": 24.7726,
         "ndf_val": 38.0
     },
     "990_101920": {
         "status": true,
         "ERROR MATRIX UNCERTAINTY": "P         FIRST",
-        "fit prob": 0.566384,
-        "fit chi2 / ndf": "35.9116 / 38",
+        "fit prob": 0.412635,
+        "fit chi2 / ndf": "39.2729 / 38",
         "Ge2": [
-            1.57118,
-            0.180474
+            1.12111,
+            0.126266
         ],
         "Gm2": [
             1.0,
             0.0
         ],
-        "fit prob raw": "0.566384",
-        "Ge2_raw": "1.57118 +/- 0.180474",
+        "fit prob raw": "0.412635",
+        "Ge2_raw": "1.12111 +/- 0.126266",
         "Gm2_raw": "1 +/- 0",
-        "chi2_val": 35.9116,
+        "chi2_val": 39.2729,
         "ndf_val": 38.0
     }
 }

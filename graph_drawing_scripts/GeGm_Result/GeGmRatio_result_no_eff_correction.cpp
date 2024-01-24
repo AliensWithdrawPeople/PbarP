@@ -6,7 +6,7 @@
 #include <TLegend.h>
 #include <TH2D.h>
 
-int {{func_name}}()
+int GeGmRatio_result_no_eff_correction()
 {
     TCanvas canv;
     std::vector<double> zeroes(100, 0.0);
@@ -17,13 +17,31 @@ int {{func_name}}()
     std::vector<double> nominal_energy_season2022 = {920, 930, 935, 937.5, 938.3, 938.9, 939.6, 940.2, 941, 942, 943.5, 945, 947.5, 948.75, 950, 951, 952, 953, 954};
 
     // ********************* Start of Data ********************* //
-{% for season in seasons %}
-    //{{ season['name'] }}
-    {{ season['energy'] }}
-    {{ season['gegm_ratio'] }}
-    {{ season['gegm_ratio_error'] }}
-    {{ season['chi2'] }}
-{% endfor %}
+
+    //HIGH2021
+    std::vector<double> energy_HIGH2021 = { 1003.5, 968.805, 980.248, 990.293 }; // MeV
+    std::vector<double> gegm_HIGH2021 = { 1.1928, 1.4896, 1.3987, 1.2535 };
+    std::vector<double> gegm_err_HIGH2021 = { 0.0468, 0.1386, 0.0822, 0.072 };
+    std::vector<double> chi2_HIGH2021 = { 1.4867, 1.1268, 1.048, 0.945 };
+
+    //HIGH2022
+    std::vector<double> energy_HIGH2022 = { 949.995, 953.997 }; // MeV
+    std::vector<double> gegm_HIGH2022 = { 1.2487, 0 };
+    std::vector<double> gegm_err_HIGH2022 = { 0.376, 0 };
+    std::vector<double> chi2_HIGH2022 = { 0.7916, 0 };
+
+    //HIGH2019
+    std::vector<double> energy_HIGH2019 = { 950.15, 956.084, 962.687, 977.158, 987.81 }; // MeV
+    std::vector<double> gegm_HIGH2019 = { 0, 0, 0, 0.4853, 1.1546 };
+    std::vector<double> gegm_err_HIGH2019 = { 0, 0, 0, 0.2959, 0.1439 };
+    std::vector<double> chi2_HIGH2019 = { 0, 0, 0, 1.1371, 1.2638 };
+
+    //HIGH2020
+    std::vector<double> energy_HIGH2020 = { 950.29, 960.252, 970.583 }; // MeV
+    std::vector<double> gegm_HIGH2020 = { 1.6192, 1.252, 1.2318 };
+    std::vector<double> gegm_err_HIGH2020 = { 0.4492, 0.0945, 0.0852 };
+    std::vector<double> chi2_HIGH2020 = { 1.39, 1.4351, 0.6843 };
+
     // ********************* End of Data ********************* //
         
     // season2019
@@ -83,7 +101,7 @@ int {{func_name}}()
     legend->SetHeader("Seasons","C"); // option "C" allows to center the header
 
 
-{% if not draw_chi2 %}
+
     gegm_vs_energy_season2019.DrawClone("P");
     gegm_vs_energy_season2020.DrawClone("P");
     gegm_vs_energy_season2021.DrawClone("P");
@@ -92,19 +110,7 @@ int {{func_name}}()
     legend->AddEntry("gegm_vs_energy_season2020","High2020","ep");
     legend->AddEntry("gegm_vs_energy_season2021","High2021","ep");
     legend->AddEntry("gegm_vs_energy_season2022","NNbar2022","ep");
-{% else %}
-    hist->SetTitle("Quality of fit for |G_{e}/G_{m}|");
-    hist->GetYaxis()->SetTitle("#chi^{2}/ndf");
-    chi2_vs_energy_season2019.DrawClone("P");
-    chi2_vs_energy_season2020.DrawClone("P");
-    chi2_vs_energy_season2021.DrawClone("P");
-    chi2_vs_energy_season2022.DrawClone("P");
 
-    legend->AddEntry("chi2_vs_energy_season2019","High2019","ep");
-    legend->AddEntry("chi2_vs_energy_season2020","High2020","ep");
-    legend->AddEntry("chi2_vs_energy_season2021","High2021","ep");
-    legend->AddEntry("chi2_vs_energy_season2022","NNbar2022","ep");
-{% endif %}
 
     legend->DrawClone();
     canv.DrawClone();

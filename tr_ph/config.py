@@ -36,6 +36,7 @@ MC_info_path = pathlib.Path(root_folder, 'tr_ph/MC_info.json')
 exp_info_path = pathlib.Path(root_folder, 'tr_ph/exp_info.json')
 GeGm_Fit_Results_dir = pathlib.Path(root_folder, 'tr_ph/GeGmResults')
 GeGm_Fit_Result_json = pathlib.Path(GeGm_Fit_Results_dir, 'raw_GeGm_Ratio_Res.json')
+GeGm_Fit_Result_json_eff_corrected = pathlib.Path(GeGm_Fit_Results_dir, 'raw_GeGm_Ratio_Res_eff_corrected.json')
 
 collinear_results_data = pathlib.Path(root_folder, 'Results', 'collinear.json')
 stars_results_data = pathlib.Path(root_folder, 'Results', 'stars.json')

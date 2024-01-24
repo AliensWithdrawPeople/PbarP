@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+import pathlib
 import jinja2
 
 class Cook:
@@ -52,7 +53,7 @@ class Cook:
     def render(self, template_filename, output_filename, draw_chi2: bool = False):
         with open(template_filename) as file_:
             self.__template = jinja2.Template(file_.read())
-        rendered_content = self.__template.render(seasons=self.__seasons, draw_chi2=draw_chi2)
+        rendered_content = self.__template.render(seasons=self.__seasons, draw_chi2=draw_chi2, func_name = pathlib.PurePath(output_filename).stem)
         with open(output_filename, "w") as file:
             file.write(rendered_content)
             

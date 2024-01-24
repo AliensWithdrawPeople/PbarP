@@ -43,7 +43,7 @@ for energy, dir in energies.items():
                 'lumi' : energy_points[elabel]['lumi']
             } 
         info[elabel]['location'][type] = path.as_posix()
-        
+
 with open('C:/work/Science/BINP/PbarP/tr_ph/exp_info.json', 'w') as f:
-    json.dump(info, f, indent=4)
+    json.dump(dict(sorted(info.items(), key=lambda record: record[1]['mean_energy'])), f, indent=4)
     

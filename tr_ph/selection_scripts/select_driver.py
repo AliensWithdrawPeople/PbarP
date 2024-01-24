@@ -114,15 +114,15 @@ def get_selection_params_MC(scan_points_filename: os.PathLike, event_type: Event
 
 ############# Driver code #############
 if __name__ == '__main__':
-    exp_scan_points_filename = PurePath('tr_ph/seasons.json')
-    params = get_selection_params_EXP(exp_scan_points_filename, Event_Type.collinear_track_efficiency)
-    with Pool(4) as pool:
-        pool.starmap(execute_selection, params)  
-        # root -l -q "select.cpp(\"prelim_coll_track_efficiency.cpp\", \"prelim_coll_track_efficiency\",\\"root://cmd//scan2017/scan2017_tr_ph_fc_e930_v9.root\",\"prelim/collinear_track_efficiency/scan2017_e930_coll_track_efficiency_prelim.root\")"
-    # mc_scan_points_filename = PurePath('tr_ph/MC_info.json')
-    # params = get_selection_params_MC(mc_scan_points_filename, Event_Type_MC.collinear_track_efficiency, 
-    #                                  lambda run_name: (str(run_name).startswith("run0001") or str(run_name).startswith("run0002")) and int(str(run_name)[-2:]) < 25)
-    # # print(params[1])
+    # exp_scan_points_filename = PurePath('tr_ph/seasons.json')
+    # params = get_selection_params_EXP(exp_scan_points_filename, Event_Type.collinear_track_efficiency)
     # with Pool(4) as pool:
-    #     pool.starmap(execute_selection_MC, params) 
+    #     pool.starmap(execute_selection, params)  
+
+    mc_scan_points_filename = PurePath('tr_ph/MC_info.json')
+    params = get_selection_params_MC(mc_scan_points_filename, Event_Type_MC.collinear_track_efficiency, 
+                                     lambda run_name: (str(run_name).startswith("run0001") or str(run_name).startswith("run0002")) and int(str(run_name)[-2:]) < 25)
+    # print(params[1])
+    with Pool(4) as pool:
+        pool.starmap(execute_selection_MC, params) 
         

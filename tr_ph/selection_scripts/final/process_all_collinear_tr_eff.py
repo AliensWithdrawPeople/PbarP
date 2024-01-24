@@ -17,7 +17,7 @@ def select_exp(file: pathlib.Path, pattern: str, info: dict):
     make_if_not_exists(energy_point_folder)
     print('Is saved?', select_coll.save(pathlib.PurePath(energy_point_folder, f'{select_coll.season}_coll_tr_eff.root'), True))
     print('Entries after selection =', select_coll.selected_entries_num)
-    return 'selected_entries', select_coll.selected_entries_num
+    return
 
 def select_MC(file: pathlib.Path, MC_pattern: str, info: dict):
     matched = re.fullmatch(MC_pattern, file.name)
@@ -34,8 +34,6 @@ def select_MC(file: pathlib.Path, MC_pattern: str, info: dict):
     is_saved = select_coll.save(output_file_path, True)
     print(f'Entries after selection in run run000{run_num} =', select_coll.selected_entries_num)
     try:
-        info[f'run000{run_num}']['selected_events'] = select_coll.selected_entries_num
-        info[f'run000{run_num}']['eff'] = select_coll.selected_entries_num / info[f'run000{run_num}']['events']
         info[f'run000{run_num}']['tr_eff processed_file_location'] = output_file_path.as_posix()
     except KeyError as e:
         print(f'Something is wrong with run000{run_num} in info file: {e}')
@@ -47,7 +45,7 @@ class WorkingMode(Enum):
      
 if __name__ == '__main__':
     # exp
-    raw_files_exp = [x for x in PrelimRootFilesFolder_Coll_Track_Eff.exp.value.iterdir() if x.is_file() and x.suffix == '.root' and 'scan2021_e970_coll_track_efficiency_prelim' in str(x)]
+    raw_files_exp = [x for x in PrelimRootFilesFolder_Coll_Track_Eff.exp.value.iterdir() if x.is_file() and x.suffix == '.root']
     exp_pattern = r'scan(\d+)_e([-+]?(?:\d*\.*\d+))_coll_track_efficiency_prelim.root'
     exp_info_filename = 'C:/work/Science/BINP/PbarP/tr_ph/exp_info.json'
     # MC
@@ -56,14 +54,14 @@ if __name__ == '__main__':
     MC_info_filename = 'C:/work/Science/BINP/PbarP/tr_ph/MC_info.json'
     
     # Set working mode
-    mode = WorkingMode.EXP
+    mode = WorkingMode.MC
     
     select = select_MC if mode is WorkingMode.MC else select_exp
     raw_files = raw_files_MC if mode is WorkingMode.MC else raw_files_exp
     info_filename = MC_info_filename if mode is WorkingMode.MC else exp_info_filename
     with open(info_filename) as file:
         info = json.load(file) 
-        
+
     select_params = [(file, MC_pattern if mode is WorkingMode.MC else exp_pattern, info) for file in raw_files]
     
     def progress(res):
@@ -71,10 +69,10 @@ if __name__ == '__main__':
         
     with Pool(4) as pool:
         res = pool.starmap(select, select_params)
-    # if all([x is not None for x in res]):    
-    #     res = dict(res) # type: ignore
-    #     for key, val in res.items():
-    #         info[key] = val
-    # with open(info_filename, 'w') as file:
-    #     json.dump(info, file, indent=4) 
+    if all([x is not None for x in res]):    
+        res = dict(res) # type: ignore
+        for key, val in res.items():
+            info[key] = val
+    with open(info_filename, 'w') as file:
+        json.dump(info, file, indent=4) 
         

@@ -11,13 +11,20 @@
 #include <TCanvas.h>
 #include <TF1.h>
 
+#include "C:/work/Science/BINP/PbarP/EvalScripts/track_eff/get_track_eff.cpp"
+
 // int eval_GeGm_ratio()
-int eval_GeGm_ratio(std::string dist, std::string exp_filename, std::string MC_filename_Ge, std::string MC_filename_Gm)
+int eval_GeGm_ratio(std::string dist, std::string exp_filename, std::string MC_filename_Ge, std::string MC_filename_Gm,
+                    std::string exp_tr_eff_filename, std::string MC_tr_eff_filename_Ge, std::string MC_tr_eff_filename_Gm)
 { 
-    // std::string dist = "C:/work/Science/BINP/PbarP/tr_ph/GeGmResults/season_HIGH2019_elabel975_80603_GeGm_Ratio_Res.root";
-    // std::string exp_filename = "C:/work/Science/BINP/PbarP/tr_ph/root_files/Exp/final/energy_975MeV/season2019_coll.root";
-    // std::string MC_filename_Ge = "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_972.92MeV/season2019_coll_Ge1_Ge0_run000109.root";
-    // std::string MC_filename_Gm = "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_972.92MeV/season2019_coll_Ge0_Ge1_run000209.root";
+    // std::string dist = "C:/work/Science/BINP/PbarP/tr_ph/GeGmResults/season_HIGH2021_elabel980_99550_GeGm_Ratio_Res.root";
+    // std::string exp_filename = "C:/work/Science/BINP/PbarP/tr_ph/root_files/Exp/final/energy_980MeV/season2021_coll.root";
+    // std::string MC_filename_Ge = "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_980.25MeV/season2021_coll_Ge0_Ge1_run000217.root";
+    // std::string MC_filename_Gm = "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_980.25MeV/season2021_coll_Ge1_Ge0_run000117.root";
+    
+    auto eff = get_track_eff(exp_tr_eff_filename, MC_tr_eff_filename_Ge, MC_tr_eff_filename_Gm, 
+                            exp_tr_eff_filename.substr(exp_tr_eff_filename.rfind('/'), std::string::npos));
+
     auto file = new TFile(dist.c_str(), "recreate");
     TCanvas canv("canv");
 
@@ -41,6 +48,8 @@ int eval_GeGm_ratio(std::string dist, std::string exp_filename, std::string MC_f
     mc->Add(MC_Ge_distr);
     mc->Add(MC_Gm_distr);
 
+    exp_distr->Sumw2();
+    exp_distr->Multiply(eff);
 /* TFractionFitter block */
     // TFractionFitter* fit = new TFractionFitter(exp_distr, mc);
     // fit->Constrain(0,0.0,1.0); 
@@ -117,6 +126,6 @@ int eval_GeGm_ratio(std::string dist, std::string exp_filename, std::string MC_f
     canv.DrawClone();
     canv.Write();
     file->Save();
-
+    
     return fit_res->IsValid();
 }

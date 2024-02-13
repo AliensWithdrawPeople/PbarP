@@ -20,21 +20,15 @@ def make_if_not_exists(path: os.PathLike):
             
 @dataclass
 class Select_config_stars:
-    max_delta_phi: float = 0.15 # rad
+    max_delta_phi: float = 0.15 # rad 
     max_delta_theta: float = 0.2 # rad
     max_z: float = 8 # cm
     max_vertex_z: float = 8 # cm
     vertex_track_number_filter: float = 3
-        
-    max_vertex_rho: float = 2.5 # cm
-    min_vertex_rho: float = 1.2 # cm
     
-    vertex_track_min_rho: float = 0.15 # cm
+    vertex_track_min_rho: float = 0.2 # cm
     max_sigma_t0: float = 10 # ns
     
-    # tot_cal_depo_filter > tot_cal_depo_filter_slope * p_max + tot_cal_depo_filter_const
-    tot_cal_depo_filter_slope: float = -2
-    tot_cal_depo_filter_const: float = 600 # MeV
     min_tot_cal_depo: float = 500 # MeV
     min_p_max: float = 150 # MeV
     max_p_max: float = 1000 # MeV
@@ -114,9 +108,6 @@ class Select_stars:
         self.raw['tot_cal_depo_filter'] = self.raw['tot_cal_deposition'] > self.config.min_tot_cal_depo
         self.raw['p_max_filter'] = (self.config.max_p_max > self.raw['p_max']) & (self.raw['p_max']  > self.config.min_p_max)
         self.raw['p_min_filter'] = self.raw['p_min']  > self.config.min_p_min
-        
-        self.raw['min_vertex_rho_filter'] = self.raw['vrho'].apply(lambda z: bool(np.all(np.abs(z) > self.config.min_vertex_rho)))
-        self.raw['max_vertex_rho_filter'] = self.raw['vrho'].apply(lambda z: bool(np.all(np.abs(z) < self.config.max_vertex_rho)))
                 
         self.raw['collinear_filter'] = (self.raw['delta_phi']  > self.config.min_delta_phi) | (self.raw['delta_theta']  > self.config.min_delta_theta)
 

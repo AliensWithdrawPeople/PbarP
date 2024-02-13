@@ -10,7 +10,7 @@ from tr_ph.config import MC_info_path, collinear_results_data, stars_results_dat
 type = "stars"
 results_data = collinear_results_data if type == "coll" else stars_results_data
 eff_key_name = 'eff' if type == "coll" else 'eff_stars'
-eff_scale = (1, 0) if type == "coll" else (0.413, 0.007)
+eff_scale = (1, 0) if type == "coll" else (0.464, 0.007)
 
 GeGm = json.loads(GeGm_Fit_Result_json.read_text())
 MC_info = json.loads(MC_info_path.read_text())

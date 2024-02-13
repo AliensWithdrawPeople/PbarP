@@ -22,11 +22,11 @@ int vis_xsec_stars()
     // season2017
     TGraphErrors xsec_vs_energy_season2017(energy_season2017.size(), energy_season2017.data(), xsec_season2017.data(), 
                                             zeroes.data(), xsec_err_season2017.data());
-    xsec_vs_energy_season2019.SetMarkerColor(kGreen);
-    xsec_vs_energy_season2019.SetName("xsec_vs_energy_season2017");
-    xsec_vs_energy_season2019.GetXaxis()->SetTitle("E_{beam}, MeV");
-    xsec_vs_energy_season2019.GetYaxis()->SetTitle("#sigma^{(vis)}_{e^{+}e^{-} #rightarrow p#bar{p}}, nb");
-    xsec_vs_energy_season2019.SetTitle("e^{+}e^{-} #rightarrow p#bar{p} annihilation events");
+    xsec_vs_energy_season2017.SetMarkerColor(kGreen);
+    xsec_vs_energy_season2017.SetName("xsec_vs_energy_season2017");
+    xsec_vs_energy_season2017.GetXaxis()->SetTitle("E_{beam}, MeV");
+    xsec_vs_energy_season2017.GetYaxis()->SetTitle("#sigma^{(vis)}_{e^{+}e^{-} #rightarrow p#bar{p}}, nb");
+    xsec_vs_energy_season2017.SetTitle("e^{+}e^{-} #rightarrow p#bar{p} annihilation events");
 
 
     // season2019

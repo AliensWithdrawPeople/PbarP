@@ -30,7 +30,7 @@ int {{func_name}}()
     TGraphErrors gegm_vs_energy_season2019(energy_HIGH2019.size(), energy_HIGH2019.data(), gegm_HIGH2019.data(), 
                                             zeroes.data(), gegm_err_HIGH2019.data());
     TGraphErrors chi2_vs_energy_season2019(energy_HIGH2019.size(), energy_HIGH2019.data(), chi2_HIGH2019.data(), 
-                                            zeroes.data(), gegm_err_HIGH2019.data());
+                                            zeroes.data(), zeroes.data());
 
     gegm_vs_energy_season2019.SetMarkerColor(kRed);
     gegm_vs_energy_season2019.SetName("gegm_vs_energy_season2019");
@@ -42,7 +42,7 @@ int {{func_name}}()
     TGraphErrors gegm_vs_energy_season2020(energy_HIGH2020.size(), energy_HIGH2020.data(), gegm_HIGH2020.data(), 
                                             zeroes.data(), gegm_err_HIGH2020.data());
     TGraphErrors chi2_vs_energy_season2020(energy_HIGH2020.size(), energy_HIGH2020.data(), chi2_HIGH2020.data(), 
-                                            zeroes.data(), gegm_err_HIGH2020.data());
+                                            zeroes.data(), zeroes.data());
 
     gegm_vs_energy_season2020.SetMarkerColor(kBlue);
     gegm_vs_energy_season2020.SetName("gegm_vs_energy_season2020");
@@ -54,7 +54,7 @@ int {{func_name}}()
     TGraphErrors gegm_vs_energy_season2021(energy_HIGH2021.size(), energy_HIGH2021.data(), gegm_HIGH2021.data(), 
                                             zeroes.data(), gegm_err_HIGH2021.data());
     TGraphErrors chi2_vs_energy_season2021(energy_HIGH2021.size(), energy_HIGH2021.data(), chi2_HIGH2021.data(), 
-                                            zeroes.data(), gegm_err_HIGH2021.data());
+                                            zeroes.data(), zeroes.data());
 
     gegm_vs_energy_season2021.SetMarkerColor(kMagenta);
     gegm_vs_energy_season2021.SetName("gegm_vs_energy_season2021");
@@ -66,7 +66,7 @@ int {{func_name}}()
     TGraphErrors gegm_vs_energy_season2022(energy_HIGH2022.size(), energy_HIGH2022.data(), gegm_HIGH2022.data(), 
                                             zeroes.data(), gegm_err_HIGH2022.data());
     TGraphErrors chi2_vs_energy_season2022(energy_HIGH2022.size(), energy_HIGH2022.data(), chi2_HIGH2022.data(), 
-                                            zeroes.data(), gegm_err_HIGH2022.data());
+                                            zeroes.data(), zeroes.data());
 
     gegm_vs_energy_season2022.SetMarkerColor(kBlack);
     gegm_vs_energy_season2022.SetName("gegm_vs_energy_season2022");

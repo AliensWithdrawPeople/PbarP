@@ -15,17 +15,15 @@
 /// @param exp_filename Full path of root-file with experimental data.
 /// @param MC_filename_Ge Full path of root-file with MC data (Ge = 1, Gm = 0).
 /// @param MC_filename_Gm Full path of root-file with MC data (Ge = 0, Gm = 1).
-/// @param res_filename Just filename of the file where result will be stored (full path: C:/work/Science/BINP/PbarP/EvalScripts/track_eff/results/{res_filename}) 
 /// @param bin_number Number of bins for efficiencies' ratio histogram
 /// @return Histogram where bin content is eff in the corresponding bin and 
-// TH1D* get_track_eff(std::string res_filename, int bin_number = 50) 
-TH1D* get_track_eff(std::string exp_filename, std::string MC_filename_Ge, std::string MC_filename_Gm, std::string res_filename, int bin_number = 50) 
+// TH1D* get_track_eff(std::string res_filename="tmp_to_ber_deleted.root", int bin_number = 50) 
+TH1D* get_track_eff(std::string exp_filename, std::string MC_filename_Ge, std::string MC_filename_Gm, int bin_number = 50) 
 {
     // Elabel: 980_99550
     // std::string exp_filename = "C:/work/Science/BINP/PbarP/tr_ph/root_files/Exp/final/energy_980MeV/season2021_coll_tr_eff.root";
     // std::string MC_filename_Ge = "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_980.25MeV/season2021_coll_tr_eff_Ge0_Ge1_run000217.root";
     // std::string MC_filename_Gm = "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_980.25MeV/season2021_coll_tr_eff_Ge1_Ge0_run000117.root";
-    std::string res_file = "C:/work/Science/BINP/PbarP/EvalScripts/track_eff/results/" + res_filename;
 
     auto expFile = TFile::Open(exp_filename.c_str());
     auto mcFile_Ge = TFile::Open(MC_filename_Ge.c_str());
@@ -92,6 +90,6 @@ TH1D* get_track_eff(std::string exp_filename, std::string MC_filename_Ge, std::s
     // mc_tmp->Sumw2();
     // exp_tmp->Sumw2();
     mc_tmp->Divide(exp_tmp);
-
+    mc_tmp->SetTitle("MC to EXP efficiency ratio ; cos(#theta) ; #varepsilon^{(MC)}/#varepsilon^{(EXP)}");
     return mc_tmp;
 }

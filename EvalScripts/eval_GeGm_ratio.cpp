@@ -22,8 +22,7 @@ int eval_GeGm_ratio(std::string dist, std::string exp_filename, std::string MC_f
     // std::string MC_filename_Ge = "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_980.25MeV/season2021_coll_Ge0_Ge1_run000217.root";
     // std::string MC_filename_Gm = "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_980.25MeV/season2021_coll_Ge1_Ge0_run000117.root";
     
-    auto eff = get_track_eff(exp_tr_eff_filename, MC_tr_eff_filename_Ge, MC_tr_eff_filename_Gm, 
-                            exp_tr_eff_filename.substr(exp_tr_eff_filename.rfind('/'), std::string::npos));
+    auto eff = get_track_eff(exp_tr_eff_filename, MC_tr_eff_filename_Ge, MC_tr_eff_filename_Gm);
 
     auto file = new TFile(dist.c_str(), "recreate");
     TCanvas canv("canv");

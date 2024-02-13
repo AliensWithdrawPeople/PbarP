@@ -16,7 +16,8 @@ class Cook:
         for elabel, res in self.__results.items():
             if 'Ge2' not in res.keys():
                 continue
-            if res['fit prob'] is None or res['fit prob'] < 1e-2:
+            # if res['fit prob'] is None or res['fit prob'] < 1e-2:
+            if res['fit prob'] is None:
                 continue
             season = self.__info[elabel]['season']
             if season not in self.__scans.keys():
@@ -40,7 +41,7 @@ class Cook:
                         return round((ge[1]**2 * (1 / gm[0])**2 + gm[1]**2 * (ge[0] / gm[0]**2)**2)**0.5, 5)
                     return 0
                 ratio_error.append(round((eval_error(ge, gm) / (2 * ge_gm_ratio)), 4) if ge_gm_ratio > 0 else 0)
-                chi2_ndf.append(round(chi2, 4) if ge_gm_ratio > 0 else 0)
+                chi2_ndf.append(round(chi2, 4))
                 
             self.__seasons.append({
                 'name' : season,

@@ -25,16 +25,16 @@ int GeGmRatio_result_no_eff_correction()
     std::vector<double> chi2_HIGH2021 = { 1.4867, 1.1268, 1.048, 0.945 };
 
     //HIGH2022
-    std::vector<double> energy_HIGH2022 = { 949.995, 953.997 }; // MeV
-    std::vector<double> gegm_HIGH2022 = { 1.2487, 0 };
-    std::vector<double> gegm_err_HIGH2022 = { 0.376, 0 };
-    std::vector<double> chi2_HIGH2022 = { 0.7916, 0 };
+    std::vector<double> energy_HIGH2022 = { 949.995, 950.945, 952.012, 953.003, 953.997 }; // MeV
+    std::vector<double> gegm_HIGH2022 = { 1.2487, 1.8262, 0, 0.4188, 0 };
+    std::vector<double> gegm_err_HIGH2022 = { 0.376, 0.8256, 0, 0.2143, 0 };
+    std::vector<double> chi2_HIGH2022 = { 0.7916, 1.6299, 3.5875, 5.5442, 1.4148 };
 
     //HIGH2019
-    std::vector<double> energy_HIGH2019 = { 950.15, 956.084, 962.687, 977.158, 987.81 }; // MeV
-    std::vector<double> gegm_HIGH2019 = { 0, 0, 0, 0.4853, 1.1546 };
-    std::vector<double> gegm_err_HIGH2019 = { 0, 0, 0, 0.2959, 0.1439 };
-    std::vector<double> chi2_HIGH2019 = { 0, 0, 0, 1.1371, 1.2638 };
+    std::vector<double> energy_HIGH2019 = { 950.15, 956.084, 962.687, 972.917, 977.158, 987.81 }; // MeV
+    std::vector<double> gegm_HIGH2019 = { 0, 0, 0, 0.8453, 0.4853, 1.1546 };
+    std::vector<double> gegm_err_HIGH2019 = { 0, 0, 0, 0.0953, 0.2959, 0.1439 };
+    std::vector<double> chi2_HIGH2019 = { 0.2066, 1.1466, 1.1257, 1.6196, 1.1371, 1.2638 };
 
     //HIGH2020
     std::vector<double> energy_HIGH2020 = { 950.29, 960.252, 970.583 }; // MeV
@@ -48,7 +48,7 @@ int GeGmRatio_result_no_eff_correction()
     TGraphErrors gegm_vs_energy_season2019(energy_HIGH2019.size(), energy_HIGH2019.data(), gegm_HIGH2019.data(), 
                                             zeroes.data(), gegm_err_HIGH2019.data());
     TGraphErrors chi2_vs_energy_season2019(energy_HIGH2019.size(), energy_HIGH2019.data(), chi2_HIGH2019.data(), 
-                                            zeroes.data(), gegm_err_HIGH2019.data());
+                                            zeroes.data(), zeroes.data());
 
     gegm_vs_energy_season2019.SetMarkerColor(kRed);
     gegm_vs_energy_season2019.SetName("gegm_vs_energy_season2019");
@@ -60,7 +60,7 @@ int GeGmRatio_result_no_eff_correction()
     TGraphErrors gegm_vs_energy_season2020(energy_HIGH2020.size(), energy_HIGH2020.data(), gegm_HIGH2020.data(), 
                                             zeroes.data(), gegm_err_HIGH2020.data());
     TGraphErrors chi2_vs_energy_season2020(energy_HIGH2020.size(), energy_HIGH2020.data(), chi2_HIGH2020.data(), 
-                                            zeroes.data(), gegm_err_HIGH2020.data());
+                                            zeroes.data(), zeroes.data());
 
     gegm_vs_energy_season2020.SetMarkerColor(kBlue);
     gegm_vs_energy_season2020.SetName("gegm_vs_energy_season2020");
@@ -72,7 +72,7 @@ int GeGmRatio_result_no_eff_correction()
     TGraphErrors gegm_vs_energy_season2021(energy_HIGH2021.size(), energy_HIGH2021.data(), gegm_HIGH2021.data(), 
                                             zeroes.data(), gegm_err_HIGH2021.data());
     TGraphErrors chi2_vs_energy_season2021(energy_HIGH2021.size(), energy_HIGH2021.data(), chi2_HIGH2021.data(), 
-                                            zeroes.data(), gegm_err_HIGH2021.data());
+                                            zeroes.data(), zeroes.data());
 
     gegm_vs_energy_season2021.SetMarkerColor(kMagenta);
     gegm_vs_energy_season2021.SetName("gegm_vs_energy_season2021");
@@ -84,7 +84,7 @@ int GeGmRatio_result_no_eff_correction()
     TGraphErrors gegm_vs_energy_season2022(energy_HIGH2022.size(), energy_HIGH2022.data(), gegm_HIGH2022.data(), 
                                             zeroes.data(), gegm_err_HIGH2022.data());
     TGraphErrors chi2_vs_energy_season2022(energy_HIGH2022.size(), energy_HIGH2022.data(), chi2_HIGH2022.data(), 
-                                            zeroes.data(), gegm_err_HIGH2022.data());
+                                            zeroes.data(), zeroes.data());
 
     gegm_vs_energy_season2022.SetMarkerColor(kBlack);
     gegm_vs_energy_season2022.SetName("gegm_vs_energy_season2022");
@@ -102,14 +102,17 @@ int GeGmRatio_result_no_eff_correction()
 
 
 
-    gegm_vs_energy_season2019.DrawClone("P");
-    gegm_vs_energy_season2020.DrawClone("P");
-    gegm_vs_energy_season2021.DrawClone("P");
-    gegm_vs_energy_season2022.DrawClone("P");
-    legend->AddEntry("gegm_vs_energy_season2019","High2019","ep");
-    legend->AddEntry("gegm_vs_energy_season2020","High2020","ep");
-    legend->AddEntry("gegm_vs_energy_season2021","High2021","ep");
-    legend->AddEntry("gegm_vs_energy_season2022","NNbar2022","ep");
+    hist->SetTitle("Quality of fit for |G_{e}/G_{m}|");
+    hist->GetYaxis()->SetTitle("#chi^{2}/ndf");
+    chi2_vs_energy_season2019.DrawClone("P");
+    chi2_vs_energy_season2020.DrawClone("P");
+    chi2_vs_energy_season2021.DrawClone("P");
+    chi2_vs_energy_season2022.DrawClone("P");
+
+    legend->AddEntry("chi2_vs_energy_season2019","High2019","ep");
+    legend->AddEntry("chi2_vs_energy_season2020","High2020","ep");
+    legend->AddEntry("chi2_vs_energy_season2021","High2021","ep");
+    legend->AddEntry("chi2_vs_energy_season2022","NNbar2022","ep");
 
 
     legend->DrawClone();

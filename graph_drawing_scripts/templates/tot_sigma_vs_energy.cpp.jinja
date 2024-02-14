@@ -1,0 +1,47 @@
+#include <vector>
+
+#include <TGraphErrors.h>
+#include <TAxis.h>
+#include <TCanvas.h>
+#include <TLegend.h>
+#include <TFile.h>
+
+int tot_sigma_vs_E()
+{
+    TCanvas canv;
+    std::vector<double> zeroes(100, 0.0);
+    // ********************* Start of Data ********************* //
+
+    // Beam energy [MeV]
+    std::vector<double> energy = {{ energy }};
+
+    std::vector<double> xsec = {{ xsec }}; // nb
+
+    std::vector<double> xsec_err = {{ xsec_err }}; // nb
+    
+    // Spread in c.m.s [MeV]
+    std::vector<double> energy_spread = {{ energy_spread }}; //
+
+    // ********************* End of Data ********************* //
+
+    TFile vcs("Results/vcs/vcs.root", "recreate");
+    for(auto &el : energy) 
+    { el = el * 2 * 1e-3; }
+    for(auto &el : energy_spread) 
+    { el = el * 1e-3; }
+
+    TGraphErrors xsec_vs_energy(energy.size(), energy.data(), xsec.data(), energy_spread.data(), xsec_err.data());
+    xsec_vs_energy.SetName("xsec_vs_energy");
+    xsec_vs_energy.GetXaxis()->SetTitle("E_{beam}, MeV");
+    xsec_vs_energy.GetYaxis()->SetTitle("#sigma_{e^{+}e^{-} #rightarrow p#bar{p}}, nb");
+    xsec_vs_energy.SetTitle("Both types of events");
+
+    xsec_vs_energy.DrawClone("AP");
+
+    xsec_vs_energy.SetName("vcs");
+    xsec_vs_energy.Write();
+    vcs.Save();
+
+    canv.DrawClone();
+    return 0;
+}

@@ -4,35 +4,45 @@
         "nominal_energy": 920,
         "energy": 919.966,
         "visible cross section": 0.0041,
-        "visible cross section error": 0.0006
+        "visible cross section error": 0.0006,
+        "cross section": 0.0041,
+        "cross section error": 0.0006
     },
     "930_122370": {
         "season": "HIGH2022",
         "nominal_energy": 930,
         "energy": 929.985,
         "visible cross section": 0.003,
-        "visible cross section error": 0.0005
+        "visible cross section error": 0.0005,
+        "cross section": 0.003,
+        "cross section error": 0.0005
     },
     "935_89976": {
         "season": "HIGH2020",
         "nominal_energy": 935,
         "energy": 934.705,
         "visible cross section": 0.0022,
-        "visible cross section error": 0.0005
+        "visible cross section error": 0.0005,
+        "cross section": 0.0022,
+        "cross section error": 0.0005
     },
     "936_79212": {
         "season": "HIGH2019",
         "nominal_energy": 936,
         "energy": 936.305,
         "visible cross section": 0.0052,
-        "visible cross section error": 0.0017
+        "visible cross section error": 0.0017,
+        "cross section": 0.0052,
+        "cross section error": 0.0017
     },
     "937.5_108538": {
         "season": "HIGH2022",
         "nominal_energy": 937.5,
         "energy": 937.505,
         "visible cross section": 0.0032,
-        "visible cross section error": 0.0006
+        "visible cross section error": 0.0006,
+        "cross section": 0.0032,
+        "cross section error": 0.0006
     },
     "938.3_109615": {
         "season": "HIGH2022",
@@ -124,8 +134,8 @@
         "energy": 949.995,
         "visible cross section": 0.0034,
         "visible cross section error": 0.0008,
-        "cross section": 48.2519,
-        "cross section error": 17.0823
+        "cross section": 48.9151,
+        "cross section error": 11.5101
     },
     "950_79625": {
         "season": "HIGH2019",
@@ -133,8 +143,8 @@
         "energy": 950.15,
         "visible cross section": 0.0025,
         "visible cross section error": 0.0011,
-        "cross section": 5.9777,
-        "cross section error": 2.6308
+        "cross section": 7.2206,
+        "cross section error": 3.1771
     },
     "950_93145": {
         "season": "HIGH2020",
@@ -142,8 +152,8 @@
         "energy": 950.29,
         "visible cross section": 0.0035,
         "visible cross section error": 0.0006,
-        "cross section": 2.9087,
-        "cross section error": 0.7561
+        "cross section": 3.1314,
+        "cross section error": 0.5369
     },
     "951_119974": {
         "season": "HIGH2022",
@@ -277,7 +287,7 @@
         "energy": 1003.5,
         "visible cross section": 0.5299,
         "visible cross section error": 0.005,
-        "cross section": 0.7604,
-        "cross section error": 0.0298
+        "cross section": 0.7389,
+        "cross section error": 0.007
     }
 }

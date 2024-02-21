@@ -1,332 +1,128 @@
 {
     "1003.5_103608": {
-        "status": true,
-        "ERROR MATRIX UNCERTAINTY": "P         FIRST",
-        "fit prob": 0.0463327,
-        "fit chi2 / ndf": "53.7846 / 38",
-        "Ge2": [
-            1.24377,
-            0.0950358
-        ],
-        "Gm2": [
-            1.0,
-            0.0
-        ],
-        "fit prob raw": "0.0463327",
-        "Ge2_raw": "1.24377 +/- 0.0950358",
-        "Gm2_raw": "1 +/- 0",
-        "chi2_val": 53.7846,
-        "ndf_val": 38.0
+        "Error": [
+            "SysError in <TFile::TFile>: file C:/work/Science/BINP/PbarP/EvalScripts/tracks_eff/results/season_HIGH2021_elabel1003.5_103608_track_eff_res.root can not be opened No such file or directory",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (eff_103608) has not been written.",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (ratio_103608) has not been written."
+        ]
     },
     "950_119028": {
-        "status": true,
-        "ERROR MATRIX UNCERTAINTY": "P         FIRST",
-        "fit prob": 6.89947e-145,
-        "fit chi2 / ndf": "807.202 / 38",
-        "Ge2": [
-            4.16002,
-            2.36259
-        ],
-        "Gm2": [
-            1.0,
-            0.0
-        ],
-        "fit prob raw": "6.89947e-145",
-        "Ge2_raw": "4.16002 +/- 2.36259",
-        "Gm2_raw": "1 +/- 0",
-        "chi2_val": 807.202,
-        "ndf_val": 38.0
+        "Error": [
+            "SysError in <TFile::TFile>: file C:/work/Science/BINP/PbarP/EvalScripts/tracks_eff/results/season_HIGH2022_elabel950_119028_track_eff_res.root can not be opened No such file or directory",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (eff_119028) has not been written.",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (ratio_119028) has not been written."
+        ]
     },
     "950_79625": {
-        "status": true,
-        "ERROR MATRIX UNCERTAINTY": "P         FIRST",
-        "fit prob": 0.0,
-        "fit chi2 / ndf": "4542.26 / 38",
-        "Ge2": [
-            100.0,
-            50.7155
-        ],
-        "Gm2": [
-            1.0,
-            0.0
-        ],
-        "fit prob raw": "0",
-        "Ge2_raw": "100 +/- 50.7155",
-        "Gm2_raw": "1 +/- 0",
-        "chi2_val": 4542.26,
-        "ndf_val": 38.0
+        "Error": [
+            "SysError in <TFile::TFile>: file C:/work/Science/BINP/PbarP/EvalScripts/tracks_eff/results/season_HIGH2019_elabel950_79625_track_eff_res.root can not be opened No such file or directory",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (eff_79625) has not been written.",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (ratio_79625) has not been written."
+        ]
     },
     "950_93145": {
-        "status": true,
-        "ERROR MATRIX UNCERTAINTY": "P         FIRST",
-        "fit prob": 0.0,
-        "fit chi2 / ndf": "12095.5 / 38",
-        "Ge2": [
-            1.79591,
-            1.0225
-        ],
-        "Gm2": [
-            1.0,
-            0.0
-        ],
-        "fit prob raw": "0",
-        "Ge2_raw": "1.79591 +/- 1.0225",
-        "Gm2_raw": "1 +/- 0",
-        "chi2_val": 12095.5,
-        "ndf_val": 38.0
+        "Error": [
+            "SysError in <TFile::TFile>: file C:/work/Science/BINP/PbarP/EvalScripts/tracks_eff/results/season_HIGH2020_elabel950_93145_track_eff_res.root can not be opened No such file or directory",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (eff_93145) has not been written.",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (ratio_93145) has not been written."
+        ]
     },
     "951_119974": {
         "Error": [
-            "Warning in <ROOT::Fit::FillData>: fit range is outside histogram range, no fit data for xaxis",
-            "Warning in <Fit>: Fit data is empty ",
-            "Error in <TFitResultPtr>: TFitResult is empty - use the fit option S"
+            "SysError in <TFile::TFile>: file C:/work/Science/BINP/PbarP/EvalScripts/tracks_eff/results/season_HIGH2022_elabel951_119974_track_eff_res.root can not be opened No such file or directory",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (eff_119974) has not been written.",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (ratio_119974) has not been written."
         ]
     },
     "952_118137": {
-        "status": true,
-        "ERROR MATRIX UNCERTAINTY": "P         FIRST",
-        "fit prob": 2.24486e-170,
-        "fit chi2 / ndf": "929.649 / 38",
-        "Ge2": [
-            9.84594e-08,
-            0.125609
-        ],
-        "Gm2": [
-            1.0,
-            0.0
-        ],
-        "fit prob raw": "2.24486e-170",
-        "Ge2_raw": "9.84594e-08 +/- 0.125609",
-        "Gm2_raw": "1 +/- 0",
-        "chi2_val": 929.649,
-        "ndf_val": 38.0
+        "Error": [
+            "SysError in <TFile::TFile>: file C:/work/Science/BINP/PbarP/EvalScripts/tracks_eff/results/season_HIGH2022_elabel952_118137_track_eff_res.root can not be opened No such file or directory",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (eff_118137) has not been written.",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (ratio_118137) has not been written."
+        ]
     },
     "953_118524": {
-        "status": true,
-        "ERROR MATRIX UNCERTAINTY": "P         FIRST",
-        "fit prob": 1.15199e-12,
-        "fit chi2 / ndf": "134.229 / 38",
-        "Ge2": [
-            0.0312495,
-            0.193874
-        ],
-        "Gm2": [
-            1.0,
-            0.0
-        ],
-        "fit prob raw": "1.15199e-12",
-        "Ge2_raw": "0.0312495 +/- 0.193874",
-        "Gm2_raw": "1 +/- 0",
-        "chi2_val": 134.229,
-        "ndf_val": 38.0
+        "Error": [
+            "SysError in <TFile::TFile>: file C:/work/Science/BINP/PbarP/EvalScripts/tracks_eff/results/season_HIGH2022_elabel953_118524_track_eff_res.root can not be opened No such file or directory",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (eff_118524) has not been written.",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (ratio_118524) has not been written."
+        ]
     },
     "954_119518": {
-        "status": true,
-        "ERROR MATRIX UNCERTAINTY": "P         FIRST",
-        "fit prob": 2.05273e-33,
-        "fit chi2 / ndf": "252.178 / 38",
-        "Ge2": [
-            1.16107e-07,
-            0.414926
-        ],
-        "Gm2": [
-            1.0,
-            0.0
-        ],
-        "fit prob raw": "2.05273e-33",
-        "Ge2_raw": "1.16107e-07 +/- 0.414926",
-        "Gm2_raw": "1 +/- 0",
-        "chi2_val": 252.178,
-        "ndf_val": 38.0
+        "Error": [
+            "SysError in <TFile::TFile>: file C:/work/Science/BINP/PbarP/EvalScripts/tracks_eff/results/season_HIGH2022_elabel954_119518_track_eff_res.root can not be opened No such file or directory",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (eff_119518) has not been written.",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (ratio_119518) has not been written."
+        ]
     },
     "955_81775": {
-        "status": true,
-        "ERROR MATRIX UNCERTAINTY": "P         FIRST",
-        "fit prob": 0.659595,
-        "fit chi2 / ndf": "33.8979 / 38",
-        "Ge2": [
-            5.48867,
-            4.9872
-        ],
-        "Gm2": [
-            1.0,
-            0.0
-        ],
-        "fit prob raw": "0.659595",
-        "Ge2_raw": "5.48867 +/- 4.9872",
-        "Gm2_raw": "1 +/- 0",
-        "chi2_val": 33.8979,
-        "ndf_val": 38.0
+        "Error": [
+            "SysError in <TFile::TFile>: file C:/work/Science/BINP/PbarP/EvalScripts/tracks_eff/results/season_HIGH2019_elabel955_81775_track_eff_res.root can not be opened No such file or directory",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (eff_81775) has not been written.",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (ratio_81775) has not been written."
+        ]
     },
     "960_94254": {
-        "status": true,
-        "ERROR MATRIX UNCERTAINTY": "P         FIRST",
-        "fit prob": 0.212185,
-        "fit chi2 / ndf": "44.6596 / 38",
-        "Ge2": [
-            1.43733,
-            0.212651
-        ],
-        "Gm2": [
-            1.0,
-            0.0
-        ],
-        "fit prob raw": "0.212185",
-        "Ge2_raw": "1.43733 +/- 0.212651",
-        "Gm2_raw": "1 +/- 0",
-        "chi2_val": 44.6596,
-        "ndf_val": 38.0
+        "Error": [
+            "SysError in <TFile::TFile>: file C:/work/Science/BINP/PbarP/EvalScripts/tracks_eff/results/season_HIGH2020_elabel960_94254_track_eff_res.root can not be opened No such file or directory",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (eff_94254) has not been written.",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (ratio_94254) has not been written."
+        ]
     },
     "962.5_80068": {
-        "status": true,
-        "ERROR MATRIX UNCERTAINTY": "P         FIRST",
-        "fit prob": 0.858562,
-        "fit chi2 / ndf": "28.8209 / 38",
-        "Ge2": [
-            2.36414e-09,
-            0.28391
-        ],
-        "Gm2": [
-            1.0,
-            0.0
-        ],
-        "fit prob raw": "0.858562",
-        "Ge2_raw": "2.36414e-09 +/- 0.28391",
-        "Gm2_raw": "1 +/- 0",
-        "chi2_val": 28.8209,
-        "ndf_val": 38.0
+        "Error": [
+            "SysError in <TFile::TFile>: file C:/work/Science/BINP/PbarP/EvalScripts/tracks_eff/results/season_HIGH2019_elabel962.5_80068_track_eff_res.root can not be opened No such file or directory",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (eff_80068) has not been written.",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (ratio_80068) has not been written."
+        ]
     },
     "970_95392": {
-        "status": true,
-        "ERROR MATRIX UNCERTAINTY": "P         FIRST",
-        "fit prob": 0.979834,
-        "fit chi2 / ndf": "22.3247 / 38",
-        "Ge2": [
-            1.42509,
-            0.194758
-        ],
-        "Gm2": [
-            1.0,
-            0.0
-        ],
-        "fit prob raw": "0.979834",
-        "Ge2_raw": "1.42509 +/- 0.194758",
-        "Gm2_raw": "1 +/- 0",
-        "chi2_val": 22.3247,
-        "ndf_val": 38.0
+        "Error": [
+            "SysError in <TFile::TFile>: file C:/work/Science/BINP/PbarP/EvalScripts/tracks_eff/results/season_HIGH2020_elabel970_95392_track_eff_res.root can not be opened No such file or directory",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (eff_95392) has not been written.",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (ratio_95392) has not been written."
+        ]
     },
     "970_98116": {
-        "status": true,
-        "ERROR MATRIX UNCERTAINTY": "P         FIRST",
-        "fit prob": 0.0638923,
-        "fit chi2 / ndf": "52.063 / 38",
-        "Ge2": [
-            1.00783,
-            0.175158
-        ],
-        "Gm2": [
-            1.0,
-            0.0
-        ],
-        "fit prob raw": "0.0638923",
-        "Ge2_raw": "1.00783 +/- 0.175158",
-        "Gm2_raw": "1 +/- 0",
-        "chi2_val": 52.063,
-        "ndf_val": 38.0
+        "Error": [
+            "SysError in <TFile::TFile>: file C:/work/Science/BINP/PbarP/EvalScripts/tracks_eff/results/season_HIGH2021_elabel970_98116_track_eff_res.root can not be opened No such file or directory",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (eff_98116) has not been written.",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (ratio_98116) has not been written."
+        ]
     },
     "975_80603": {
-        "status": true,
-        "ERROR MATRIX UNCERTAINTY": "P         FIRST",
-        "fit prob": 0.661184,
-        "fit chi2 / ndf": "33.8628 / 38",
-        "Ge2": [
-            0.969815,
-            0.203704
-        ],
-        "Gm2": [
-            1.0,
-            0.0
-        ],
-        "fit prob raw": "0.661184",
-        "Ge2_raw": "0.969815 +/- 0.203704",
-        "Gm2_raw": "1 +/- 0",
-        "chi2_val": 33.8628,
-        "ndf_val": 38.0
+        "Error": [
+            "SysError in <TFile::TFile>: file C:/work/Science/BINP/PbarP/EvalScripts/tracks_eff/results/season_HIGH2019_elabel975_80603_track_eff_res.root can not be opened No such file or directory",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (eff_80603) has not been written.",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (ratio_80603) has not been written."
+        ]
     },
     "978_80506": {
-        "status": true,
-        "ERROR MATRIX UNCERTAINTY": "P         FIRST",
-        "fit prob": 0.050236,
-        "fit chi2 / ndf": "53.3586 / 38",
-        "Ge2": [
-            0.0135815,
-            0.7734
-        ],
-        "Gm2": [
-            1.0,
-            0.0
-        ],
-        "fit prob raw": "0.050236",
-        "Ge2_raw": "0.0135815 +/- 0.7734",
-        "Gm2_raw": "1 +/- 0",
-        "chi2_val": 53.3586,
-        "ndf_val": 38.0
+        "Error": [
+            "SysError in <TFile::TFile>: file C:/work/Science/BINP/PbarP/EvalScripts/tracks_eff/results/season_HIGH2019_elabel978_80506_track_eff_res.root can not be opened No such file or directory",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (eff_80506) has not been written.",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (ratio_80506) has not been written."
+        ]
     },
     "980_99550": {
-        "status": true,
-        "ERROR MATRIX UNCERTAINTY": "P         FIRST",
-        "fit prob": 0.483464,
-        "fit chi2 / ndf": "37.6943 / 38",
-        "Ge2": [
-            1.5361,
-            0.17302
-        ],
-        "Gm2": [
-            1.0,
-            0.0
-        ],
-        "fit prob raw": "0.483464",
-        "Ge2_raw": "1.5361 +/- 0.17302",
-        "Gm2_raw": "1 +/- 0",
-        "chi2_val": 37.6943,
-        "ndf_val": 38.0
+        "Error": [
+            "SysError in <TFile::TFile>: file C:/work/Science/BINP/PbarP/EvalScripts/tracks_eff/results/season_HIGH2021_elabel980_99550_track_eff_res.root can not be opened No such file or directory",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (eff_99550) has not been written.",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (ratio_99550) has not been written."
+        ]
     },
     "987.5_81313": {
-        "status": true,
-        "ERROR MATRIX UNCERTAINTY": "P         FIRST",
-        "fit prob": 0.951731,
-        "fit chi2 / ndf": "24.7726 / 38",
-        "Ge2": [
-            1.4232,
-            0.347865
-        ],
-        "Gm2": [
-            1.0,
-            0.0
-        ],
-        "fit prob raw": "0.951731",
-        "Ge2_raw": "1.4232 +/- 0.347865",
-        "Gm2_raw": "1 +/- 0",
-        "chi2_val": 24.7726,
-        "ndf_val": 38.0
+        "Error": [
+            "SysError in <TFile::TFile>: file C:/work/Science/BINP/PbarP/EvalScripts/tracks_eff/results/season_HIGH2019_elabel987.5_81313_track_eff_res.root can not be opened No such file or directory",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (eff_81313) has not been written.",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (ratio_81313) has not been written."
+        ]
     },
     "990_101920": {
-        "status": true,
-        "ERROR MATRIX UNCERTAINTY": "P         FIRST",
-        "fit prob": 0.412635,
-        "fit chi2 / ndf": "39.2729 / 38",
-        "Ge2": [
-            1.12111,
-            0.126266
-        ],
-        "Gm2": [
-            1.0,
-            0.0
-        ],
-        "fit prob raw": "0.412635",
-        "Ge2_raw": "1.12111 +/- 0.126266",
-        "Gm2_raw": "1 +/- 0",
-        "chi2_val": 39.2729,
-        "ndf_val": 38.0
+        "Error": [
+            "SysError in <TFile::TFile>: file C:/work/Science/BINP/PbarP/EvalScripts/tracks_eff/results/season_HIGH2021_elabel990_101920_track_eff_res.root can not be opened No such file or directory",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (eff_101920) has not been written.",
+            "Error in <TROOT::WriteTObject>: The current directory (Rint) is not associated with a file. The object (ratio_101920) has not been written."
+        ]
     }
 }

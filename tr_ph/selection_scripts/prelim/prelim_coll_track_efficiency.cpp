@@ -29,10 +29,13 @@ void prelim_coll_track_efficiency::Loop(std::string new_file_name)
     const double max_chi2_z = 10.;
 
     const double max_coll_pbarp_vertex_rho = 1.; // cm
-    const double max_track_z = 6;              // cm
-    const double max_track_rho = 0.8;              // cm
+    // For negatively charged tracks:
+    const double max_track_z_neg = 4;            // cm
+    // For positively charged tracks:
+    const double max_track_z_pos = 6;            // cm
+    const double max_track_rho = 0.8;            // cm
 
-    const double min_de_dx = 6e3;
+    const double min_de_dx = 5e3;
     const double max_de_dx = 3e4;
 
     const double min_energy_depo_for_coll_pbarp = 200; // MeV
@@ -63,6 +66,7 @@ void prelim_coll_track_efficiency::Loop(std::string new_file_name)
     new_tree->Branch("ecalneu", &ecalneu);
     new_tree->Branch("nt", &nt);
     int beam_tracks = 0;
+    float min_delta_theta = -1;
     new_tree->Branch("beam_tracks", &beam_tracks);
  
     int antiproton_candidates_number = 0;
@@ -84,6 +88,7 @@ void prelim_coll_track_efficiency::Loop(std::string new_file_name)
     std::vector<float> antiproton_tt0_vec = {};
     std::vector<float> antiproton_tant_vec = {};
     std::vector<float> antiproton_ten_vec = {};
+    std::vector<float> antiproton_min_delta_theta_vec = {};
 
     std::vector<int> proton_tnhit_vec = {};
     std::vector<float> proton_tlength_vec = {};
@@ -139,15 +144,17 @@ void prelim_coll_track_efficiency::Loop(std::string new_file_name)
     new_tree->Branch("antiproton_tt0", &antiproton_tt0_vec);
     new_tree->Branch("antiproton_tant", &antiproton_tant_vec);
     new_tree->Branch("antiproton_ten", &antiproton_ten_vec);
+    new_tree->Branch("antiproton_min_delta_theta", &antiproton_min_delta_theta_vec);
     }
     
     // [(neg_track_id, pos_track_id)]
 
-    auto check_dedx = [&min_de_dx, &max_de_dx](double dedx, double mom)
+    auto check_dedx = [&min_de_dx, &max_de_dx, this](double dedx, double mom)
     { 
         return  max_de_dx > dedx && 
+                // dedx > 3800 && mom > 70; // For MC
                 dedx > min_de_dx &&
-                dedx > 1.38906e6/(mom - 41.1525) + 2106.22; 
+                (this->emeas > 985? dedx > 1.38906e6/(mom - 41.1525) + 1500 : dedx > 1.38906e6/(mom - 41.1525) + 2106.22); 
     };
 
     auto is_collinear = [&](int track1, int track2)
@@ -161,7 +168,10 @@ void prelim_coll_track_efficiency::Loop(std::string new_file_name)
         return (delta_phi < max_delta_phi) && (delta_theta < max_delta_theta) && vec1.Dot(vec2) < 0;
     };
 
-    auto is_full_collinear = [&](int track1, int track2)
+    auto delta_theta = [&](int track1, int track2)
+    { return fabs(tth[track1] + tth[track2] - pi); };
+
+    auto is_full_collinear = [&](int track1, int track2, float cut = 1)
     {
         TVector3 vec1(1, 1, 1);
         TVector3 vec2(1, 1, 1);
@@ -208,6 +218,7 @@ void prelim_coll_track_efficiency::Loop(std::string new_file_name)
         antiproton_tt0_vec.push_back(tt0[track_id]);
         antiproton_tant_vec.push_back(tant[track_id]);
         antiproton_ten_vec.push_back(ten[track_id]);
+        antiproton_min_delta_theta_vec.push_back(min_delta_theta);
     };
 
     auto clear_vecs = [&]()
@@ -245,6 +256,7 @@ void prelim_coll_track_efficiency::Loop(std::string new_file_name)
         antiproton_tt0_vec.clear();
         antiproton_tant_vec.clear();
         antiproton_ten_vec.clear();
+        antiproton_min_delta_theta_vec.clear();
     };
 
     auto clear_everything = [&]()
@@ -253,6 +265,7 @@ void prelim_coll_track_efficiency::Loop(std::string new_file_name)
         clear_vecs();
         antiproton_candidates_number = 0;
         beam_tracks = 0;
+        min_delta_theta = -1;
     };
 
     auto track_goodness = [&](int track_id)
@@ -261,7 +274,7 @@ void prelim_coll_track_efficiency::Loop(std::string new_file_name)
         return tnhit[track_id] >= min_n_hit &&
                tchi2r[track_id] < max_chi2_r && 
                tchi2z[track_id] < max_chi2_z &&
-               fabs(tz[track_id]) < max_track_z &&
+               fabs(tz[track_id]) < (tcharge[track_id] < 0? max_track_z_neg : max_track_z_pos) &&
                fabs(trho[track_id]) < max_track_rho &&
                check_dedx(tdedx[track_id], tptot[track_id]) &&
                fabs(tptot[track_id] - nominal_avg_momentum) < 100;
@@ -298,10 +311,14 @@ void prelim_coll_track_efficiency::Loop(std::string new_file_name)
         bool break_flag = false;
         for(const auto& antiproton_candidate_track :  antiproton_candidates)
         {
-            fill_antiproton_track_vecs(antiproton_candidate_track);
             for (int i = 0; i < nt; i++)
             {          
-                if (antiproton_candidate_track != i && is_full_collinear(antiproton_candidate_track, i))
+                if(antiproton_candidate_track == i)
+                { continue; }
+                if(auto dTheta = delta_theta(antiproton_candidate_track, i); ((min_delta_theta > 0)? dTheta < min_delta_theta : true) && is_full_collinear(antiproton_candidate_track, i, 2.5))
+                { min_delta_theta = dTheta; }
+                
+                if (is_full_collinear(antiproton_candidate_track, i))
                 { 
                     break_flag = true;
                     break;
@@ -310,6 +327,8 @@ void prelim_coll_track_efficiency::Loop(std::string new_file_name)
                 if (antiproton_candidate_track != i && track_goodness(i) && tcharge[i] > 0 && is_collinear(antiproton_candidate_track, i))
                 { proton_candidates.insert(i); }
             }
+            fill_antiproton_track_vecs(antiproton_candidate_track);
+
             if(break_flag)
             { break; }
         }

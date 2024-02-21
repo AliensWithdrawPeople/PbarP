@@ -19,8 +19,9 @@ def make_if_not_exists(path: os.PathLike):
             
 @dataclass
 class Select_config:
-    max_z: float = 6
-    max_track_rho: float = 0.2
+    max_z: float = 6 # cm
+    max_track_rho: float = 0.2 # cm
+    max_beam_tracks: float = 3
 
 class Select_collinear_track_eff:            
     def __init__(self, prelim_file: os.PathLike, filename_pattern: str, select_config: Select_config = Select_config(), is_MC: bool = False):
@@ -33,7 +34,8 @@ class Select_collinear_track_eff:
         self.energy_point_num = float(matched.group(2)) if matched is not None else 0.
         prelim_tree_cols = ['event_id', 'energy', 'run',
                             'tot_neutral_cal_deposition', 'tot_cal_deposition',
-                            'beam_tracks', 'nt',
+                            'n_tracks', 'n_beam_tracks', 'min_delta_theta',
+                            'proton_t0', 'antiproton_t0',
                             'proton_hits', 'proton_dedx', 'proton_z', 'proton_cal_deposition', 'proton_rho',
                             'proton_phi', 'proton_theta', 'proton_mom',
                             'proton_phi_v', 'proton_theta_v', 'proton_mom_v',
@@ -43,13 +45,16 @@ class Select_collinear_track_eff:
                             'antiproton_phi_v', 'antiproton_theta_v', 'antiproton_mom_v']
         tree_cols_aliases = dict({'event_id' : 'evnum', 'energy' : 'emeas', 'run' : 'runnum',
                                 'tot_neutral_cal_deposition' : 'ecalneu', 'tot_cal_deposition' : 'ecaltot',
+                                'n_tracks' : 'nt', 'n_beam_tracks' : 'beam_tracks', 'min_delta_theta' : 'antiproton_min_delta_theta',
                                 
                                 'proton_hits' : 'proton_tnhit', 'proton_dedx' : 'proton_tdedx', 'proton_z' : 'proton_tz',
                                 'proton_rho' : 'proton_trho', 'proton_cal_deposition' : 'proton_ten', 
                                 'proton_phi' : 'proton_tphi', 'proton_theta' : 'proton_tth', 'proton_mom' : 'proton_tptot',
+                                'proton_t0' : 'proton_tt0',
                                 'proton_phi_v' : 'proton_tphiv', 'proton_theta_v' : 'proton_tthv', 'proton_mom_v' : 'proton_tptotv',
                                 
                                 'antiproton_hits' : 'antiproton_tnhit', 'antiproton_dedx' : 'antiproton_tdedx', 'antiproton_z' : 'antiproton_tz',
+                                'antiproton_t0' : 'antiproton_tt0',
                                 'antiproton_rho' : 'antiproton_trho', 'antiproton_cal_deposition' : 'antiproton_ten', 
                                 'antiproton_phi' : 'antiproton_tphi', 'antiproton_theta' : 'antiproton_tth', 'antiproton_mom' : 'antiproton_tptot',
                                 'antiproton_phi_v' : 'antiproton_tphiv', 'antiproton_theta_v' : 'antiproton_tthv', 'antiproton_mom_v' : 'antiproton_tptotv',
@@ -65,7 +70,8 @@ class Select_collinear_track_eff:
     def preprocess(self):
         self.raw['season'] = self.season_num
         self.raw['energy_point'] = self.energy_point_num
-        self.raw['found_both'] = self.raw[['proton_z', 'antiproton_z']].apply(lambda row: len(row['antiproton_z']) > 0 and len(row['proton_z']) > 0, axis=1, result_type='reduce')
+        self.raw['found_both'] = np.array(self.raw['proton_z'].apply(lambda z: len(z) != 0)) & np.array(self.raw['antiproton_z'].apply(lambda z: len(z) != 0))
+        # self.raw['found_both'] = self.raw[['proton_z', 'antiproton_z']].apply(lambda row: (len(row['proton_z']) > 0) and len(row['antiproton_z']) > 0, axis=1, result_type='reduce')
 
     @property
     def selected_entries_num(self)->int:
@@ -74,7 +80,8 @@ class Select_collinear_track_eff:
     def filter(self):
         # z_filter = self.raw['antiproton_z'].apply(lambda z: bool(np.all(np.abs(z) < self.config.max_z)))
         track_rho_filter = self.raw['antiproton_rho'].apply(lambda rho: bool(np.all(np.abs(rho) < self.config.max_track_rho)))
-        filter_mask = track_rho_filter
+        beam_track_filter = self.raw['n_beam_tracks'].apply(lambda beam_tracks: bool(np.all(beam_tracks < self.config.max_beam_tracks)))
+        filter_mask = np.array(track_rho_filter) & beam_track_filter
         return filter_mask
 
     def save(self, processed: os.PathLike, recreate: bool) -> bool:

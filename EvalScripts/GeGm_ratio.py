@@ -5,7 +5,7 @@ from multiprocessing.pool import Pool
 import re
 import sys
 sys.path.append('C:/work/Science/BINP/PbarP')
-from tr_ph.config import MC_info_path, exp_info_path, GeGm_Fit_Results_dir, GeGm_Fit_Result_json, GeGm_Fit_Result_json_eff_corrected
+from tr_ph.config import MC_info_path, exp_info_path, GeGm_Fit_Results_dir, GeGm_Fit_Result_json, GeGm_Fit_Result_json_eff_corrected, root_folder
 
 with open(MC_info_path) as f:
     MC_info: dict[str, dict] = json.load(f)
@@ -13,9 +13,11 @@ with open(MC_info_path) as f:
 with open(exp_info_path) as f:
     exp_info: dict[str, dict] = json.load(f)
     
-def eval_ratio(elabel: str, dist_path: str, exp_path: str, MC: list[str], exp_track_eff: str, MC_track_eff: list[str], is_TFractionFitter=False):
+def eval_ratio(elabel: str, dist_path: str, exp_path: str, MC: list[str], exp_track_eff: str, MC_track_eff: list[str], tr_eff_res_file, is_TFractionFitter=False):
     aux1, aux2 = "\"", "\\"
     script_name = "eval_GeGm_ratio_TFractionFitter" if is_TFractionFitter else "eval_GeGm_ratio"
+    tr_eff_res_name = elabel.split('_')[1]
+    tr_eff_res_file = pathlib.Path(root_folder, 'EvalScripts/tracks_eff/results', tr_eff_res_file).as_posix()
     command = f"root -l -q \"C:/work/Science/BINP/PbarP/EvalScripts/{script_name}.cpp(" \
                 + f'\\{aux1 + dist_path + aux2}\",' \
                 + f'\\{aux1 + exp_path + aux2}\",' \
@@ -23,7 +25,10 @@ def eval_ratio(elabel: str, dist_path: str, exp_path: str, MC: list[str], exp_tr
                 + f'\\{aux1 + MC[1] + aux2}\",' \
                 + f'\\{aux1 + exp_track_eff + aux2}\",' \
                 + f'\\{aux1 + MC_track_eff[0] + aux2}\",' \
-                + f'\\{aux1 + MC_track_eff[1] + aux2}\")\"'
+                + f'\\{aux1 + MC_track_eff[1] + aux2}\",' \
+                + f'\\{aux1 + tr_eff_res_file + aux2}\",' \
+                + f'\\{aux1 + tr_eff_res_name + aux2}\",' \
+                + f'\\{aux1 + elabel + aux2}\")\"'
     res = sub.run(command, capture_output=True, shell=True)
     output = res.stderr if res.stderr else res.stdout
     output = output.decode().splitlines()
@@ -65,9 +70,9 @@ for elabel, point_info in exp_info.items():
     if point_info['location'] is None or any([x is None for x in MC]):
         continue
     params.append((elabel, pathlib.Path(GeGm_Fit_Results_dir, 'Corrected track efficiency', f'season_{point_info["season"]}_elabel{elabel}_GeGm_Ratio_Res_cosTheta_cut0.8.root').as_posix(), 
-                   point_info['location']['coll'], MC, point_info['location']['coll_tr_eff'], MC_track_eff, False))
+                   point_info['location']['coll'], MC, point_info['location']['coll_tr_eff'], MC_track_eff, f'season_{point_info["season"]}_elabel{elabel}_track_eff_res.root', False))
 
-eval_ratio(*params[0])
+# eval_ratio(*params[0])
 if __name__ == '__main__':
     with Pool(4) as pool:
         res = pool.starmap(eval_ratio, params)

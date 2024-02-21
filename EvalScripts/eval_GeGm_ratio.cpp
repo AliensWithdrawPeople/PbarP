@@ -15,14 +15,15 @@
 
 // int eval_GeGm_ratio()
 int eval_GeGm_ratio(std::string dist, std::string exp_filename, std::string MC_filename_Ge, std::string MC_filename_Gm,
-                    std::string exp_tr_eff_filename, std::string MC_tr_eff_filename_Ge, std::string MC_tr_eff_filename_Gm)
+                    std::string exp_tr_eff_filename, std::string MC_tr_eff_filename_Ge, std::string MC_tr_eff_filename_Gm,
+                    std::string track_eff_result_file, std::string tracks_eff_result_name, std::string elabel)
 { 
     // std::string dist = "C:/work/Science/BINP/PbarP/tr_ph/GeGmResults/season_HIGH2021_elabel980_99550_GeGm_Ratio_Res.root";
     // std::string exp_filename = "C:/work/Science/BINP/PbarP/tr_ph/root_files/Exp/final/energy_980MeV/season2021_coll.root";
     // std::string MC_filename_Ge = "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_980.25MeV/season2021_coll_Ge0_Ge1_run000217.root";
     // std::string MC_filename_Gm = "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_980.25MeV/season2021_coll_Ge1_Ge0_run000117.root";
     
-    auto eff = get_track_eff(exp_tr_eff_filename, MC_tr_eff_filename_Ge, MC_tr_eff_filename_Gm);
+    auto eff = get_track_eff(exp_tr_eff_filename, MC_tr_eff_filename_Ge, MC_tr_eff_filename_Gm, track_eff_result_file, tracks_eff_result_name, elabel);
 
     auto file = new TFile(dist.c_str(), "recreate");
     TCanvas canv("canv");

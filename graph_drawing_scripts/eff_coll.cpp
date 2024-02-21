@@ -37,38 +37,46 @@ int eff_coll()
     //HIGH2019
     TGraphErrors eff_vs_energy_HIGH2019(energy_HIGH2019.size(), energy_HIGH2019.data(), eff_HIGH2019.data(), 
                                             zeroes.data(), eff_err_HIGH2019.data());
+    eff_vs_energy_HIGH2019.GetXaxis()->SetLimits(915, 1010);
+    eff_vs_energy_HIGH2019.GetYaxis()->SetLimits(-0.1, 5);
     eff_vs_energy_HIGH2019.SetMarkerColor(1);
     eff_vs_energy_HIGH2019.SetName("eff_vs_energy_HIGH2019");
     eff_vs_energy_HIGH2019.GetXaxis()->SetTitle("E_{beam}, MeV");
     eff_vs_energy_HIGH2019.GetYaxis()->SetTitle("#varepsilon, nb");
-    eff_vs_energy_HIGH2019.SetTitle("Efficiency for e^{+}e^{-} #rightarrow p#bar{p}collinearevents");
+    eff_vs_energy_HIGH2019.SetTitle("Efficiency for e^{+}e^{-} #rightarrow p#bar{p} collinear events");
 
     //HIGH2020
     TGraphErrors eff_vs_energy_HIGH2020(energy_HIGH2020.size(), energy_HIGH2020.data(), eff_HIGH2020.data(), 
                                             zeroes.data(), eff_err_HIGH2020.data());
+    eff_vs_energy_HIGH2020.GetXaxis()->SetLimits(915, 1010);
+    eff_vs_energy_HIGH2020.GetYaxis()->SetLimits(-0.1, 5);
     eff_vs_energy_HIGH2020.SetMarkerColor(2);
     eff_vs_energy_HIGH2020.SetName("eff_vs_energy_HIGH2020");
     eff_vs_energy_HIGH2020.GetXaxis()->SetTitle("E_{beam}, MeV");
     eff_vs_energy_HIGH2020.GetYaxis()->SetTitle("#varepsilon, nb");
-    eff_vs_energy_HIGH2020.SetTitle("Efficiency for e^{+}e^{-} #rightarrow p#bar{p}collinearevents");
+    eff_vs_energy_HIGH2020.SetTitle("Efficiency for e^{+}e^{-} #rightarrow p#bar{p} collinear events");
 
     //HIGH2021
     TGraphErrors eff_vs_energy_HIGH2021(energy_HIGH2021.size(), energy_HIGH2021.data(), eff_HIGH2021.data(), 
                                             zeroes.data(), eff_err_HIGH2021.data());
+    eff_vs_energy_HIGH2021.GetXaxis()->SetLimits(915, 1010);
+    eff_vs_energy_HIGH2021.GetYaxis()->SetLimits(-0.1, 5);
     eff_vs_energy_HIGH2021.SetMarkerColor(3);
     eff_vs_energy_HIGH2021.SetName("eff_vs_energy_HIGH2021");
     eff_vs_energy_HIGH2021.GetXaxis()->SetTitle("E_{beam}, MeV");
     eff_vs_energy_HIGH2021.GetYaxis()->SetTitle("#varepsilon, nb");
-    eff_vs_energy_HIGH2021.SetTitle("Efficiency for e^{+}e^{-} #rightarrow p#bar{p}collinearevents");
+    eff_vs_energy_HIGH2021.SetTitle("Efficiency for e^{+}e^{-} #rightarrow p#bar{p} collinear events");
 
     //NNbar2022
     TGraphErrors eff_vs_energy_NNbar2022(energy_NNbar2022.size(), energy_NNbar2022.data(), eff_NNbar2022.data(), 
                                             zeroes.data(), eff_err_NNbar2022.data());
+    eff_vs_energy_NNbar2022.GetXaxis()->SetLimits(915, 1010);
+    eff_vs_energy_NNbar2022.GetYaxis()->SetLimits(-0.1, 5);
     eff_vs_energy_NNbar2022.SetMarkerColor(4);
     eff_vs_energy_NNbar2022.SetName("eff_vs_energy_NNbar2022");
     eff_vs_energy_NNbar2022.GetXaxis()->SetTitle("E_{beam}, MeV");
     eff_vs_energy_NNbar2022.GetYaxis()->SetTitle("#varepsilon, nb");
-    eff_vs_energy_NNbar2022.SetTitle("Efficiency for e^{+}e^{-} #rightarrow p#bar{p}collinearevents");
+    eff_vs_energy_NNbar2022.SetTitle("Efficiency for e^{+}e^{-} #rightarrow p#bar{p} collinear events");
 
 
     eff_vs_energy_HIGH2019.DrawClone("AP");

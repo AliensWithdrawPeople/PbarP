@@ -37,38 +37,46 @@ int xsec_coll()
     //HIGH2019
     TGraphErrors xsec_vs_energy_HIGH2019(energy_HIGH2019.size(), energy_HIGH2019.data(), xsec_HIGH2019.data(), 
                                             zeroes.data(), xsec_err_HIGH2019.data());
+    xsec_vs_energy_HIGH2019.GetXaxis()->SetLimits(915, 1010);
+    xsec_vs_energy_HIGH2019.GetYaxis()->SetLimits(-0.1, 5);
     xsec_vs_energy_HIGH2019.SetMarkerColor(1);
     xsec_vs_energy_HIGH2019.SetName("xsec_vs_energy_HIGH2019");
     xsec_vs_energy_HIGH2019.GetXaxis()->SetTitle("E_{beam}, MeV");
     xsec_vs_energy_HIGH2019.GetYaxis()->SetTitle("#sigma_{e^{+}e^{-} #rightarrow p#bar{p}}, nb");
-    xsec_vs_energy_HIGH2019.SetTitle("e^{+}e^{-} #rightarrow p#bar{p}collinearevents");
+    xsec_vs_energy_HIGH2019.SetTitle("e^{+}e^{-} #rightarrow p#bar{p} collinear events");
 
     //HIGH2020
     TGraphErrors xsec_vs_energy_HIGH2020(energy_HIGH2020.size(), energy_HIGH2020.data(), xsec_HIGH2020.data(), 
                                             zeroes.data(), xsec_err_HIGH2020.data());
+    xsec_vs_energy_HIGH2020.GetXaxis()->SetLimits(915, 1010);
+    xsec_vs_energy_HIGH2020.GetYaxis()->SetLimits(-0.1, 5);
     xsec_vs_energy_HIGH2020.SetMarkerColor(2);
     xsec_vs_energy_HIGH2020.SetName("xsec_vs_energy_HIGH2020");
     xsec_vs_energy_HIGH2020.GetXaxis()->SetTitle("E_{beam}, MeV");
     xsec_vs_energy_HIGH2020.GetYaxis()->SetTitle("#sigma_{e^{+}e^{-} #rightarrow p#bar{p}}, nb");
-    xsec_vs_energy_HIGH2020.SetTitle("e^{+}e^{-} #rightarrow p#bar{p}collinearevents");
+    xsec_vs_energy_HIGH2020.SetTitle("e^{+}e^{-} #rightarrow p#bar{p} collinear events");
 
     //HIGH2021
     TGraphErrors xsec_vs_energy_HIGH2021(energy_HIGH2021.size(), energy_HIGH2021.data(), xsec_HIGH2021.data(), 
                                             zeroes.data(), xsec_err_HIGH2021.data());
+    xsec_vs_energy_HIGH2021.GetXaxis()->SetLimits(915, 1010);
+    xsec_vs_energy_HIGH2021.GetYaxis()->SetLimits(-0.1, 5);
     xsec_vs_energy_HIGH2021.SetMarkerColor(3);
     xsec_vs_energy_HIGH2021.SetName("xsec_vs_energy_HIGH2021");
     xsec_vs_energy_HIGH2021.GetXaxis()->SetTitle("E_{beam}, MeV");
     xsec_vs_energy_HIGH2021.GetYaxis()->SetTitle("#sigma_{e^{+}e^{-} #rightarrow p#bar{p}}, nb");
-    xsec_vs_energy_HIGH2021.SetTitle("e^{+}e^{-} #rightarrow p#bar{p}collinearevents");
+    xsec_vs_energy_HIGH2021.SetTitle("e^{+}e^{-} #rightarrow p#bar{p} collinear events");
 
     //NNbar2022
     TGraphErrors xsec_vs_energy_NNbar2022(energy_NNbar2022.size(), energy_NNbar2022.data(), xsec_NNbar2022.data(), 
                                             zeroes.data(), xsec_err_NNbar2022.data());
+    xsec_vs_energy_NNbar2022.GetXaxis()->SetLimits(915, 1010);
+    xsec_vs_energy_NNbar2022.GetYaxis()->SetLimits(-0.1, 5);
     xsec_vs_energy_NNbar2022.SetMarkerColor(4);
     xsec_vs_energy_NNbar2022.SetName("xsec_vs_energy_NNbar2022");
     xsec_vs_energy_NNbar2022.GetXaxis()->SetTitle("E_{beam}, MeV");
     xsec_vs_energy_NNbar2022.GetYaxis()->SetTitle("#sigma_{e^{+}e^{-} #rightarrow p#bar{p}}, nb");
-    xsec_vs_energy_NNbar2022.SetTitle("e^{+}e^{-} #rightarrow p#bar{p}collinearevents");
+    xsec_vs_energy_NNbar2022.SetTitle("e^{+}e^{-} #rightarrow p#bar{p} collinear events");
 
 
     xsec_vs_energy_HIGH2019.DrawClone("AP");

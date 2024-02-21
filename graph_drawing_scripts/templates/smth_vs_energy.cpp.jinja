@@ -24,7 +24,7 @@ int {{ script_name }}()
                                             zeroes.data(), {{ val_name }}_err_{{season['name']}}.data());
     {{ val_name }}_vs_energy_{{season['name']}}.GetXaxis()->SetLimits(915, 1010);
     {{ val_name }}_vs_energy_{{season['name']}}.GetYaxis()->SetLimits(-0.1, 5);
-    {{ val_name }}_vs_energy_{{season['name']}}.SetMarkerColor({{loop.index + (40 if loop.index in [5, 7] else 0 )}});
+    {{ val_name }}_vs_energy_{{season['name']}}.SetMarkerColor({{loop.index + (60 if loop.index in [5, 7] else 0 )}});
     {{ val_name }}_vs_energy_{{season['name']}}.SetName("{{ val_name }}_vs_energy_{{season['name']}}");
     {{ val_name }}_vs_energy_{{season['name']}}.GetXaxis()->SetTitle("E_{beam}, MeV");
     {{ val_name }}_vs_energy_{{season['name']}}.GetYaxis()->SetTitle("{{ y_axis_title }}");

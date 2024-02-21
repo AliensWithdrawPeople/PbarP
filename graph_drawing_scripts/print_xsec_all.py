@@ -66,7 +66,7 @@ def render(template_filename, output_filename, **data):
 template_filename = pathlib.Path(templates, 'smth_vs_energy.cpp.jinja')
 
 output_filename = pathlib.Path(root_folder, f'graph_drawing_scripts/tot_sigma_vs_E_by_seasons.cpp')
-
+print(output_filename.as_posix())
 render(template_filename, output_filename, seasons = season_list, script_name = f'tot_sigma_vs_E_by_seasons', val_name = 'xsec', 
         title = 'e^{+}e^{-} #rightarrow p#bar{p} both types of events', y_axis_title = '#sigma_{e^{+}e^{-} #rightarrow p#bar{p}}, nb')
 
@@ -77,7 +77,7 @@ energy_spread = "{" + ', '.join(total['energy_spread']) + "}"
 
 template_filename = pathlib.Path(templates, 'tot_sigma_vs_energy.cpp.jinja')
 output_filename = pathlib.Path(root_folder, f'graph_drawing_scripts/tot_sigma_vs_E.cpp')
-
+print(output_filename.as_posix())
 render(template_filename, output_filename, 
        energy=energy,
        xsec=xsec,

@@ -50,8 +50,8 @@ class EventType(Enum):
     annihilation = member(get_events_annihilation)
     bkg_annihilation = member(get_events_bkg_annihilation)
     
-def get_entries(event_type: EventType, vertex_rho: pd.DataFrame)-> tuple[float, float]:
-    return event_type.value(vertex_rho) # type: ignore
+def get_entries(event_type: EventType, vertex_rho: pd.DataFrame, filename: Path)-> tuple[float, float]:
+    return event_type.value(vertex_rho, filename) # type: ignore
 
 def render(data, template_filename, output_filename):
     with open(template_filename) as file_:

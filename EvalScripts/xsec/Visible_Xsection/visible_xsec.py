@@ -29,7 +29,7 @@ def get_xsection(season_name: str, root_file_pattern: Patterns, event_type: Even
             with up.open(f'{file}:{final_tree_name}') as events:  # type: ignore
                 tree = events.arrays(['vrho', 'proton_index'], library='pd') # type: ignore
                 
-            entries = get_entries(event_type, tree)
+            entries = get_entries(event_type, tree, file)
             
             season = file.name.split('_')[0]
             luminosity, luminosity_err = lumi_data[season][str(energy_point)][1]

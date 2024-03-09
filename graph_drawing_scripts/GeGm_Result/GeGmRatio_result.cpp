@@ -20,27 +20,27 @@ int GeGmRatio_result()
 
     //HIGH2021
     std::vector<double> energy_HIGH2021 = { 1003.5, 968.805, 980.248, 990.293 }; // MeV
-    std::vector<double> gegm_HIGH2021 = { 1.1152, 1.0039, 1.2394, 1.0588 };
-    std::vector<double> gegm_err_HIGH2021 = { 0.0426, 0.0872, 0.0698, 0.0596 };
-    std::vector<double> chi2_HIGH2021 = { 1.4154, 1.3701, 0.992, 1.0335 };
+    std::vector<double> gegm_HIGH2021 = { 1.0291, 1.0976, 1.3251, 1.1215 };
+    std::vector<double> gegm_err_HIGH2021 = { 0.0446, 0.1023, 0.0813, 0.0688 };
+    std::vector<double> chi2_HIGH2021 = { 1.1434, 1.1742, 1.032, 0.868 };
 
     //HIGH2022
-    std::vector<double> energy_HIGH2022 = { 949.995, 952.012, 953.003, 953.997 }; // MeV
-    std::vector<double> gegm_HIGH2022 = { 2.0396, 0, 0.1768, 0 };
-    std::vector<double> gegm_err_HIGH2022 = { 0.5792, 0, 0.0, 0 };
-    std::vector<double> chi2_HIGH2022 = { 21.2422, 24.4644, 3.5323, 6.6363 };
+    std::vector<double> energy_HIGH2022 = { 949.995, 950.945, 952.012, 953.003, 953.997 }; // MeV
+    std::vector<double> gegm_HIGH2022 = { 0.6002, 1.3046, 0, 0, 0.98 };
+    std::vector<double> gegm_err_HIGH2022 = { 0.3401, 0.5665, 0, 0, 0.8457 };
+    std::vector<double> chi2_HIGH2022 = { 0.2798, 4.8397, 3.069, 3.8031, 9.9887 };
 
     //HIGH2019
     std::vector<double> energy_HIGH2019 = { 950.15, 956.084, 962.687, 972.917, 977.158, 987.81 }; // MeV
-    std::vector<double> gegm_HIGH2019 = { 0, 2.3428, 0, 0.9848, 0.1165, 1.193 };
-    std::vector<double> gegm_err_HIGH2019 = { 0, 1.0644, 0, 0.1034, 0.0, 0.1458 };
-    std::vector<double> chi2_HIGH2019 = { 119.5332, 0.8921, 0.7584, 0.8911, 1.4042, 0.6519 };
+    std::vector<double> gegm_HIGH2019 = { 0, 0, 0.2438, 1.0321, 0.8943, 1.0943 };
+    std::vector<double> gegm_err_HIGH2019 = { 0, 0, 0.2853, 0.1184, 0.3194, 0.1541 };
+    std::vector<double> chi2_HIGH2019 = { 0.063, 0.9584, 0.6542, 0.6459, 0.6433, 0.5679 };
 
     //HIGH2020
     std::vector<double> energy_HIGH2020 = { 950.29, 960.252, 970.583 }; // MeV
-    std::vector<double> gegm_HIGH2020 = { 1.3401, 1.1989, 1.1938 };
-    std::vector<double> gegm_err_HIGH2020 = { 0.3815, 0.0887, 0.0816 };
-    std::vector<double> chi2_HIGH2020 = { 318.3026, 1.1753, 0.5875 };
+    std::vector<double> gegm_HIGH2020 = { 1.3397, 1.2439, 1.12 };
+    std::vector<double> gegm_err_HIGH2020 = { 0.5292, 0.099, 0.0859 };
+    std::vector<double> chi2_HIGH2020 = { 302.8368, 1.0584, 0.489 };
 
     // ********************* End of Data ********************* //
         

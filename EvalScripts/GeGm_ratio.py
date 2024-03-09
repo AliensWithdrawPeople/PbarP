@@ -17,7 +17,7 @@ def eval_ratio(elabel: str, dist_path: str, exp_path: str, MC: list[str], exp_tr
     aux1, aux2 = "\"", "\\"
     script_name = "eval_GeGm_ratio_TFractionFitter" if is_TFractionFitter else "eval_GeGm_ratio"
     tr_eff_res_name = elabel.split('_')[1]
-    tr_eff_res_file = pathlib.Path(root_folder, 'EvalScripts/tracks_eff/results', tr_eff_res_file).as_posix()
+    tr_eff_res_file = pathlib.Path(root_folder, 'EvalScripts/track_eff/results', tr_eff_res_file).as_posix()
     command = f"root -l -q \"C:/work/Science/BINP/PbarP/EvalScripts/{script_name}.cpp(" \
                 + f'\\{aux1 + dist_path + aux2}\",' \
                 + f'\\{aux1 + exp_path + aux2}\",' \
@@ -65,12 +65,12 @@ params = []
 for elabel, point_info in exp_info.items():
     if float(elabel.split('_')[0]) < 950 or 'coll' not in point_info['location'].keys():
         continue
-    MC = [MC_point_info['processed_file_location'] for _, MC_point_info in MC_info.items() if MC_point_info['elabel'] == elabel and 'processed_file_location' in MC_point_info.keys()] 
+    MC = [MC_point_info['processed_file_location GeGm'] for _, MC_point_info in MC_info.items() if MC_point_info['elabel'] == elabel and 'processed_file_location GeGm' in MC_point_info.keys()] 
     MC_track_eff = [MC_point_info['tr_eff processed_file_location'] for _, MC_point_info in MC_info.items() if MC_point_info['elabel'] == elabel and 'tr_eff processed_file_location' in MC_point_info.keys()] 
     if point_info['location'] is None or any([x is None for x in MC]):
         continue
     params.append((elabel, pathlib.Path(GeGm_Fit_Results_dir, 'Corrected track efficiency', f'season_{point_info["season"]}_elabel{elabel}_GeGm_Ratio_Res_cosTheta_cut0.8.root').as_posix(), 
-                   point_info['location']['coll'], MC, point_info['location']['coll_tr_eff'], MC_track_eff, f'season_{point_info["season"]}_elabel{elabel}_track_eff_res.root', False))
+                   point_info['location']['coll_GeGm'], MC, point_info['location']['coll_tr_eff'], MC_track_eff, f'season_{point_info["season"]}_elabel{elabel}_track_eff_res.root', False))
 
 # eval_ratio(*params[0])
 if __name__ == '__main__':

@@ -20,7 +20,8 @@
         "eff_stars": 0.0677,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.36MeV/season2017_stars_Ge1_Ge0_run000100.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.36MeV/season2017_coll_tr_eff_Ge1_Ge0_run000100.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.36MeV/season2017_coll_GeGm_Ge1_Ge0_run000100.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.36MeV/season2017_coll_GeGm_Ge1_Ge0_run000100.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000101": {
         "gen": "pp_gen",
@@ -43,7 +44,8 @@
         "eff_stars": 0.00761,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_960.62MeV/season2017_stars_Ge1_Ge0_run000101.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_960.62MeV/season2017_coll_tr_eff_Ge1_Ge0_run000101.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_960.62MeV/season2017_coll_GeGm_Ge1_Ge0_run000101.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_960.62MeV/season2017_coll_GeGm_Ge1_Ge0_run000101.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000102": {
         "gen": "pp_gen",
@@ -66,7 +68,8 @@
         "eff_stars": 0.00399,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_971.25MeV/season2017_stars_Ge1_Ge0_run000102.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_971.25MeV/season2017_coll_tr_eff_Ge1_Ge0_run000102.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_971.25MeV/season2017_coll_GeGm_Ge1_Ge0_run000102.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_971.25MeV/season2017_coll_GeGm_Ge1_Ge0_run000102.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000103": {
         "gen": "pp_gen",
@@ -89,7 +92,8 @@
         "eff_stars": 0.00266,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_981.95MeV/season2017_stars_Ge1_Ge0_run000103.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_981.95MeV/season2017_coll_tr_eff_Ge1_Ge0_run000103.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_981.95MeV/season2017_coll_GeGm_Ge1_Ge0_run000103.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_981.95MeV/season2017_coll_GeGm_Ge1_Ge0_run000103.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000104": {
         "gen": "pp_gen",
@@ -112,7 +116,8 @@
         "eff_stars": 0.00204,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_991.23MeV/season2017_stars_Ge1_Ge0_run000104.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_991.23MeV/season2017_coll_tr_eff_Ge1_Ge0_run000104.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_991.23MeV/season2017_coll_GeGm_Ge1_Ge0_run000104.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_991.23MeV/season2017_coll_GeGm_Ge1_Ge0_run000104.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000105": {
         "gen": "pp_gen",
@@ -135,7 +140,8 @@
         "eff_stars": 0.00175,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_1003.31MeV/season2017_stars_Ge1_Ge0_run000105.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_1003.31MeV/season2017_coll_tr_eff_Ge1_Ge0_run000105.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_1003.31MeV/season2017_coll_GeGm_Ge1_Ge0_run000105.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_1003.31MeV/season2017_coll_GeGm_Ge1_Ge0_run000105.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000106": {
         "gen": "pp_gen",
@@ -158,7 +164,8 @@
         "eff_stars": 0.07923,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.15MeV/season2019_stars_Ge1_Ge0_run000106.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.15MeV/season2019_coll_tr_eff_Ge1_Ge0_run000106.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.15MeV/season2019_coll_GeGm_Ge1_Ge0_run000106.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.15MeV/season2019_coll_GeGm_Ge1_Ge0_run000106.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000107": {
         "gen": "pp_gen",
@@ -181,7 +188,8 @@
         "eff_stars": 0.00689,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_962.69MeV/season2019_stars_Ge1_Ge0_run000107.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_962.69MeV/season2019_coll_tr_eff_Ge1_Ge0_run000107.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_962.69MeV/season2019_coll_GeGm_Ge1_Ge0_run000107.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_962.69MeV/season2019_coll_GeGm_Ge1_Ge0_run000107.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000108": {
         "gen": "pp_gen",
@@ -204,7 +212,8 @@
         "eff_stars": 0.00324,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_977.16MeV/season2019_stars_Ge1_Ge0_run000108.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_977.16MeV/season2019_coll_tr_eff_Ge1_Ge0_run000108.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_977.16MeV/season2019_coll_GeGm_Ge1_Ge0_run000108.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_977.16MeV/season2019_coll_GeGm_Ge1_Ge0_run000108.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000109": {
         "gen": "pp_gen",
@@ -227,7 +236,8 @@
         "eff_stars": 0.00394,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_972.92MeV/season2019_stars_Ge1_Ge0_run000109.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_972.92MeV/season2019_coll_tr_eff_Ge1_Ge0_run000109.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_972.92MeV/season2019_coll_GeGm_Ge1_Ge0_run000109.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_972.92MeV/season2019_coll_GeGm_Ge1_Ge0_run000109.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000110": {
         "gen": "pp_gen",
@@ -250,7 +260,8 @@
         "eff_stars": 0.00287,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_987.81MeV/season2019_stars_Ge1_Ge0_run000110.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_987.81MeV/season2019_coll_tr_eff_Ge1_Ge0_run000110.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_987.81MeV/season2019_coll_GeGm_Ge1_Ge0_run000110.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_987.81MeV/season2019_coll_GeGm_Ge1_Ge0_run000110.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000111": {
         "gen": "pp_gen",
@@ -273,7 +284,8 @@
         "eff_stars": 0.01378,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_956.08MeV/season2019_stars_Ge1_Ge0_run000111.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_956.08MeV/season2019_coll_tr_eff_Ge1_Ge0_run000111.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_956.08MeV/season2019_coll_GeGm_Ge1_Ge0_run000111.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_956.08MeV/season2019_coll_GeGm_Ge1_Ge0_run000111.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000112": {
         "gen": "pp_gen",
@@ -296,7 +308,8 @@
         "eff_stars": 0.05529,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_951.05MeV/season2019_stars_Ge1_Ge0_run000112.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_951.05MeV/season2019_coll_tr_eff_Ge1_Ge0_run000112.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_951.05MeV/season2019_coll_GeGm_Ge1_Ge0_run000112.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_951.05MeV/season2019_coll_GeGm_Ge1_Ge0_run000112.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000113": {
         "gen": "pp_gen",
@@ -319,7 +332,8 @@
         "eff_stars": 0.07741,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.29MeV/season2020_stars_Ge1_Ge0_run000113.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.29MeV/season2020_coll_tr_eff_Ge1_Ge0_run000113.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.29MeV/season2020_coll_GeGm_Ge1_Ge0_run000113.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.29MeV/season2020_coll_GeGm_Ge1_Ge0_run000113.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000114": {
         "gen": "pp_gen",
@@ -342,7 +356,8 @@
         "eff_stars": 0.00775,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_960.25MeV/season2020_stars_Ge1_Ge0_run000114.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_960.25MeV/season2020_coll_tr_eff_Ge1_Ge0_run000114.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_960.25MeV/season2020_coll_GeGm_Ge1_Ge0_run000114.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_960.25MeV/season2020_coll_GeGm_Ge1_Ge0_run000114.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000115": {
         "gen": "pp_gen",
@@ -365,7 +380,8 @@
         "eff_stars": 0.00398,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_970.58MeV/season2020_stars_Ge1_Ge0_run000115.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_970.58MeV/season2020_coll_tr_eff_Ge1_Ge0_run000115.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_970.58MeV/season2020_coll_GeGm_Ge1_Ge0_run000115.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_970.58MeV/season2020_coll_GeGm_Ge1_Ge0_run000115.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000116": {
         "gen": "pp_gen",
@@ -388,7 +404,8 @@
         "eff_stars": 0.00442,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_968.8MeV/season2021_stars_Ge1_Ge0_run000116.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_968.8MeV/season2021_coll_tr_eff_Ge1_Ge0_run000116.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_968.8MeV/season2021_coll_GeGm_Ge1_Ge0_run000116.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_968.8MeV/season2021_coll_GeGm_Ge1_Ge0_run000116.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000117": {
         "gen": "pp_gen",
@@ -411,7 +428,8 @@
         "eff_stars": 0.00258,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_980.25MeV/season2021_stars_Ge1_Ge0_run000117.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_980.25MeV/season2021_coll_tr_eff_Ge1_Ge0_run000117.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_980.25MeV/season2021_coll_GeGm_Ge1_Ge0_run000117.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_980.25MeV/season2021_coll_GeGm_Ge1_Ge0_run000117.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000118": {
         "gen": "pp_gen",
@@ -434,7 +452,8 @@
         "eff_stars": 0.00246,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_990.29MeV/season2021_stars_Ge1_Ge0_run000118.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_990.29MeV/season2021_coll_tr_eff_Ge1_Ge0_run000118.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_990.29MeV/season2021_coll_GeGm_Ge1_Ge0_run000118.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_990.29MeV/season2021_coll_GeGm_Ge1_Ge0_run000118.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000119": {
         "gen": "pp_gen",
@@ -457,7 +476,8 @@
         "eff_stars": 0.0019,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_1003.5MeV/season2021_stars_Ge1_Ge0_run000119.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_1003.5MeV/season2021_coll_tr_eff_Ge1_Ge0_run000119.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_1003.5MeV/season2021_coll_GeGm_Ge1_Ge0_run000119.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_1003.5MeV/season2021_coll_GeGm_Ge1_Ge0_run000119.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000120": {
         "gen": "pp_gen",
@@ -480,7 +500,8 @@
         "eff_stars": 0.03356,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_952.01MeV/season2022_stars_Ge1_Ge0_run000120.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_952.01MeV/season2022_coll_tr_eff_Ge1_Ge0_run000120.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_952.01MeV/season2022_coll_GeGm_Ge1_Ge0_run000120.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_952.01MeV/season2022_coll_GeGm_Ge1_Ge0_run000120.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000121": {
         "gen": "pp_gen",
@@ -503,7 +524,8 @@
         "eff_stars": 0.02351,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_953.0MeV/season2022_stars_Ge1_Ge0_run000121.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_953.0MeV/season2022_coll_tr_eff_Ge1_Ge0_run000121.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_953.0MeV/season2022_coll_GeGm_Ge1_Ge0_run000121.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_953.0MeV/season2022_coll_GeGm_Ge1_Ge0_run000121.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000122": {
         "gen": "pp_gen",
@@ -526,7 +548,8 @@
         "eff_stars": 0.08617,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.0MeV/season2022_stars_Ge1_Ge0_run000122.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.0MeV/season2022_coll_tr_eff_Ge1_Ge0_run000122.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.0MeV/season2022_coll_GeGm_Ge1_Ge0_run000122.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.0MeV/season2022_coll_GeGm_Ge1_Ge0_run000122.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000123": {
         "gen": "pp_gen",
@@ -549,7 +572,8 @@
         "eff_stars": 0.01771,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_954.0MeV/season2022_stars_Ge1_Ge0_run000123.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_954.0MeV/season2022_coll_tr_eff_Ge1_Ge0_run000123.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_954.0MeV/season2022_coll_GeGm_Ge1_Ge0_run000123.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_954.0MeV/season2022_coll_GeGm_Ge1_Ge0_run000123.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000124": {
         "gen": "pp_gen",
@@ -572,7 +596,8 @@
         "eff_stars": 0.05272,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.94MeV/season2022_stars_Ge1_Ge0_run000124.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.94MeV/season2022_coll_tr_eff_Ge1_Ge0_run000124.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.94MeV/season2022_coll_GeGm_Ge1_Ge0_run000124.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.94MeV/season2022_coll_GeGm_Ge1_Ge0_run000124.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000125": {
         "gen": "pp_gen",
@@ -594,7 +619,8 @@
         "selected_events_stars": 17183,
         "eff_stars": 0.17183,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_948.73MeV/season2022_stars_Ge1_Ge0_run000125.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_948.73MeV/season2022_coll_GeGm_Ge1_Ge0_run000125.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_948.73MeV/season2022_coll_GeGm_Ge1_Ge0_run000125.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000127": {
         "gen": "pp_gen",
@@ -612,7 +638,8 @@
         "season": "HIGH2017",
         "selected_events_stars": 18109,
         "eff_stars": 0.18109,
-        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_941.882MeV/season2017_stars_Ge1_Ge0_run000127.root"
+        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_941.882MeV/season2017_stars_Ge1_Ge0_run000127.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000128": {
         "gen": "pp_gen",
@@ -630,7 +657,8 @@
         "season": "HIGH2017",
         "selected_events_stars": 17465,
         "eff_stars": 0.17465,
-        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_940.166MeV/season2017_stars_Ge1_Ge0_run000128.root"
+        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_940.166MeV/season2017_stars_Ge1_Ge0_run000128.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000129": {
         "gen": "pp_gen",
@@ -648,7 +676,8 @@
         "season": "HIGH2017",
         "selected_events_stars": 17408,
         "eff_stars": 0.17408,
-        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_938.723MeV/season2017_stars_Ge1_Ge0_run000129.root"
+        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_938.723MeV/season2017_stars_Ge1_Ge0_run000129.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000130": {
         "gen": "pp_gen",
@@ -666,7 +695,8 @@
         "season": "HIGH2017",
         "selected_events_stars": 18172,
         "eff_stars": 0.18172,
-        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_939.467MeV/season2017_stars_Ge1_Ge0_run000130.root"
+        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_939.467MeV/season2017_stars_Ge1_Ge0_run000130.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000133": {
         "gen": "pp_gen",
@@ -684,7 +714,8 @@
         "season": "HIGH2017",
         "selected_events_stars": 18384,
         "eff_stars": 0.18384,
-        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_940.608MeV/season2017_stars_Ge1_Ge0_run000133.root"
+        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_940.608MeV/season2017_stars_Ge1_Ge0_run000133.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000136": {
         "gen": "pp_gen",
@@ -702,7 +733,8 @@
         "season": "HIGH2019",
         "selected_events_stars": 19590,
         "eff_stars": 0.1959,
-        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_944.817MeV/season2019_stars_Ge1_Ge0_run000136.root"
+        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_944.817MeV/season2019_stars_Ge1_Ge0_run000136.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000138": {
         "gen": "pp_gen",
@@ -720,7 +752,8 @@
         "season": "HIGH2020",
         "selected_events_stars": 19066,
         "eff_stars": 0.19066,
-        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_945.461MeV/season2020_stars_Ge1_Ge0_run000138.root"
+        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_945.461MeV/season2020_stars_Ge1_Ge0_run000138.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000141": {
         "gen": "pp_gen",
@@ -738,7 +771,8 @@
         "season": "HIGH2022",
         "selected_events_stars": 6925,
         "eff_stars": 0.06925,
-        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_938.323MeV/season2022_stars_Ge1_Ge0_run000141.root"
+        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_938.323MeV/season2022_stars_Ge1_Ge0_run000141.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000142": {
         "gen": "pp_gen",
@@ -756,7 +790,8 @@
         "season": "HIGH2022",
         "selected_events_stars": 18092,
         "eff_stars": 0.18092,
-        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_938.887MeV/season2022_stars_Ge1_Ge0_run000142.root"
+        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_938.887MeV/season2022_stars_Ge1_Ge0_run000142.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000143": {
         "gen": "pp_gen",
@@ -774,7 +809,8 @@
         "season": "HIGH2022",
         "selected_events_stars": 18280,
         "eff_stars": 0.1828,
-        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_939.594MeV/season2022_stars_Ge1_Ge0_run000143.root"
+        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_939.594MeV/season2022_stars_Ge1_Ge0_run000143.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000144": {
         "gen": "pp_gen",
@@ -792,7 +828,8 @@
         "season": "HIGH2022",
         "selected_events_stars": 18570,
         "eff_stars": 0.1857,
-        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_940.207MeV/season2022_stars_Ge1_Ge0_run000144.root"
+        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_940.207MeV/season2022_stars_Ge1_Ge0_run000144.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000145": {
         "gen": "pp_gen",
@@ -810,7 +847,8 @@
         "season": "HIGH2022",
         "selected_events_stars": 18294,
         "eff_stars": 0.18294,
-        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_940.96MeV/season2022_stars_Ge1_Ge0_run000145.root"
+        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_940.96MeV/season2022_stars_Ge1_Ge0_run000145.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000146": {
         "gen": "pp_gen",
@@ -828,7 +866,8 @@
         "season": "HIGH2022",
         "selected_events_stars": 18387,
         "eff_stars": 0.18387,
-        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_941.995MeV/season2022_stars_Ge1_Ge0_run000146.root"
+        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_941.995MeV/season2022_stars_Ge1_Ge0_run000146.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000147": {
         "gen": "pp_gen",
@@ -846,7 +885,8 @@
         "season": "HIGH2022",
         "selected_events_stars": 18630,
         "eff_stars": 0.1863,
-        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_943.495MeV/season2022_stars_Ge1_Ge0_run000147.root"
+        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_943.495MeV/season2022_stars_Ge1_Ge0_run000147.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000148": {
         "gen": "pp_gen",
@@ -864,7 +904,8 @@
         "season": "HIGH2022",
         "selected_events_stars": 17569,
         "eff_stars": 0.17569,
-        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_944.993MeV/season2022_stars_Ge1_Ge0_run000148.root"
+        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_944.993MeV/season2022_stars_Ge1_Ge0_run000148.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000149": {
         "gen": "pp_gen",
@@ -882,7 +923,8 @@
         "season": "HIGH2022",
         "selected_events_stars": 17275,
         "eff_stars": 0.17275,
-        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_947.5MeV/season2022_stars_Ge1_Ge0_run000149.root"
+        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_947.5MeV/season2022_stars_Ge1_Ge0_run000149.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000150": {
         "gen": "pp_gen",
@@ -900,7 +942,8 @@
         "season": "HIGH2022",
         "selected_events_stars": 17263,
         "eff_stars": 0.17263,
-        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_948.727MeV/season2022_stars_Ge1_Ge0_run000150.root"
+        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_948.727MeV/season2022_stars_Ge1_Ge0_run000150.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000200": {
         "gen": "pp_gen",
@@ -923,7 +966,8 @@
         "eff_stars": 0.09692,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.36MeV/season2017_stars_Ge0_Ge1_run000200.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.36MeV/season2017_coll_tr_eff_Ge0_Ge1_run000200.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.36MeV/season2017_coll_GeGm_Ge0_Ge1_run000200.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.36MeV/season2017_coll_GeGm_Ge0_Ge1_run000200.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000201": {
         "gen": "pp_gen",
@@ -946,7 +990,8 @@
         "eff_stars": 0.01108,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_960.62MeV/season2017_stars_Ge0_Ge1_run000201.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_960.62MeV/season2017_coll_tr_eff_Ge0_Ge1_run000201.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_960.62MeV/season2017_coll_GeGm_Ge0_Ge1_run000201.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_960.62MeV/season2017_coll_GeGm_Ge0_Ge1_run000201.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000202": {
         "gen": "pp_gen",
@@ -969,7 +1014,8 @@
         "eff_stars": 0.00458,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_971.25MeV/season2017_stars_Ge0_Ge1_run000202.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_971.25MeV/season2017_coll_tr_eff_Ge0_Ge1_run000202.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_971.25MeV/season2017_coll_GeGm_Ge0_Ge1_run000202.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_971.25MeV/season2017_coll_GeGm_Ge0_Ge1_run000202.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000203": {
         "gen": "pp_gen",
@@ -992,7 +1038,8 @@
         "eff_stars": 0.00296,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_981.95MeV/season2017_stars_Ge0_Ge1_run000203.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_981.95MeV/season2017_coll_tr_eff_Ge0_Ge1_run000203.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_981.95MeV/season2017_coll_GeGm_Ge0_Ge1_run000203.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_981.95MeV/season2017_coll_GeGm_Ge0_Ge1_run000203.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000204": {
         "gen": "pp_gen",
@@ -1015,7 +1062,8 @@
         "eff_stars": 0.00225,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_991.23MeV/season2017_stars_Ge0_Ge1_run000204.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_991.23MeV/season2017_coll_tr_eff_Ge0_Ge1_run000204.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_991.23MeV/season2017_coll_GeGm_Ge0_Ge1_run000204.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_991.23MeV/season2017_coll_GeGm_Ge0_Ge1_run000204.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000205": {
         "gen": "pp_gen",
@@ -1038,7 +1086,8 @@
         "eff_stars": 0.00181,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_1003.31MeV/season2017_stars_Ge0_Ge1_run000205.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_1003.31MeV/season2017_coll_tr_eff_Ge0_Ge1_run000205.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_1003.31MeV/season2017_coll_GeGm_Ge0_Ge1_run000205.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_1003.31MeV/season2017_coll_GeGm_Ge0_Ge1_run000205.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000206": {
         "gen": "pp_gen",
@@ -1061,7 +1110,8 @@
         "eff_stars": 0.11232,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.15MeV/season2019_stars_Ge0_Ge1_run000206.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.15MeV/season2019_coll_tr_eff_Ge0_Ge1_run000206.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.15MeV/season2019_coll_GeGm_Ge0_Ge1_run000206.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.15MeV/season2019_coll_GeGm_Ge0_Ge1_run000206.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000207": {
         "gen": "pp_gen",
@@ -1084,7 +1134,8 @@
         "eff_stars": 0.00893,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_962.69MeV/season2019_stars_Ge0_Ge1_run000207.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_962.69MeV/season2019_coll_tr_eff_Ge0_Ge1_run000207.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_962.69MeV/season2019_coll_GeGm_Ge0_Ge1_run000207.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_962.69MeV/season2019_coll_GeGm_Ge0_Ge1_run000207.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000208": {
         "gen": "pp_gen",
@@ -1107,7 +1158,8 @@
         "eff_stars": 0.00378,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_977.16MeV/season2019_stars_Ge0_Ge1_run000208.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_977.16MeV/season2019_coll_tr_eff_Ge0_Ge1_run000208.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_977.16MeV/season2019_coll_GeGm_Ge0_Ge1_run000208.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_977.16MeV/season2019_coll_GeGm_Ge0_Ge1_run000208.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000209": {
         "gen": "pp_gen",
@@ -1130,7 +1182,8 @@
         "eff_stars": 0.00453,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_972.92MeV/season2019_stars_Ge0_Ge1_run000209.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_972.92MeV/season2019_coll_tr_eff_Ge0_Ge1_run000209.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_972.92MeV/season2019_coll_GeGm_Ge0_Ge1_run000209.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_972.92MeV/season2019_coll_GeGm_Ge0_Ge1_run000209.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000210": {
         "gen": "pp_gen",
@@ -1153,7 +1206,8 @@
         "eff_stars": 0.00284,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_987.81MeV/season2019_stars_Ge0_Ge1_run000210.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_987.81MeV/season2019_coll_tr_eff_Ge0_Ge1_run000210.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_987.81MeV/season2019_coll_GeGm_Ge0_Ge1_run000210.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_987.81MeV/season2019_coll_GeGm_Ge0_Ge1_run000210.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000211": {
         "gen": "pp_gen",
@@ -1176,7 +1230,8 @@
         "eff_stars": 0.02729,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_956.08MeV/season2019_stars_Ge0_Ge1_run000211.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_956.08MeV/season2019_coll_tr_eff_Ge0_Ge1_run000211.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_956.08MeV/season2019_coll_GeGm_Ge0_Ge1_run000211.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_956.08MeV/season2019_coll_GeGm_Ge0_Ge1_run000211.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000212": {
         "gen": "pp_gen",
@@ -1199,7 +1254,8 @@
         "eff_stars": 0.09068,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_951.05MeV/season2019_stars_Ge0_Ge1_run000212.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_951.05MeV/season2019_coll_tr_eff_Ge0_Ge1_run000212.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_951.05MeV/season2019_coll_GeGm_Ge0_Ge1_run000212.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_951.05MeV/season2019_coll_GeGm_Ge0_Ge1_run000212.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000213": {
         "gen": "pp_gen",
@@ -1222,7 +1278,8 @@
         "eff_stars": 0.11253,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.29MeV/season2020_stars_Ge0_Ge1_run000213.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.29MeV/season2020_coll_tr_eff_Ge0_Ge1_run000213.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.29MeV/season2020_coll_GeGm_Ge0_Ge1_run000213.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.29MeV/season2020_coll_GeGm_Ge0_Ge1_run000213.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000214": {
         "gen": "pp_gen",
@@ -1245,7 +1302,8 @@
         "eff_stars": 0.01233,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_960.25MeV/season2020_stars_Ge0_Ge1_run000214.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_960.25MeV/season2020_coll_tr_eff_Ge0_Ge1_run000214.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_960.25MeV/season2020_coll_GeGm_Ge0_Ge1_run000214.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_960.25MeV/season2020_coll_GeGm_Ge0_Ge1_run000214.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000215": {
         "gen": "pp_gen",
@@ -1268,7 +1326,8 @@
         "eff_stars": 0.00509,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_970.58MeV/season2020_stars_Ge0_Ge1_run000215.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_970.58MeV/season2020_coll_tr_eff_Ge0_Ge1_run000215.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_970.58MeV/season2020_coll_GeGm_Ge0_Ge1_run000215.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_970.58MeV/season2020_coll_GeGm_Ge0_Ge1_run000215.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000216": {
         "gen": "pp_gen",
@@ -1291,7 +1350,8 @@
         "eff_stars": 0.00533,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_968.8MeV/season2021_stars_Ge0_Ge1_run000216.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_968.8MeV/season2021_coll_tr_eff_Ge0_Ge1_run000216.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_968.8MeV/season2021_coll_GeGm_Ge0_Ge1_run000216.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_968.8MeV/season2021_coll_GeGm_Ge0_Ge1_run000216.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000217": {
         "gen": "pp_gen",
@@ -1314,7 +1374,8 @@
         "eff_stars": 0.00375,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_980.25MeV/season2021_stars_Ge0_Ge1_run000217.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_980.25MeV/season2021_coll_tr_eff_Ge0_Ge1_run000217.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_980.25MeV/season2021_coll_GeGm_Ge0_Ge1_run000217.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_980.25MeV/season2021_coll_GeGm_Ge0_Ge1_run000217.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000218": {
         "gen": "pp_gen",
@@ -1337,7 +1398,8 @@
         "eff_stars": 0.00279,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_990.29MeV/season2021_stars_Ge0_Ge1_run000218.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_990.29MeV/season2021_coll_tr_eff_Ge0_Ge1_run000218.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_990.29MeV/season2021_coll_GeGm_Ge0_Ge1_run000218.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_990.29MeV/season2021_coll_GeGm_Ge0_Ge1_run000218.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000219": {
         "gen": "pp_gen",
@@ -1360,7 +1422,8 @@
         "eff_stars": 0.00202,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_1003.5MeV/season2021_stars_Ge0_Ge1_run000219.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_1003.5MeV/season2021_coll_tr_eff_Ge0_Ge1_run000219.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_1003.5MeV/season2021_coll_GeGm_Ge0_Ge1_run000219.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_1003.5MeV/season2021_coll_GeGm_Ge0_Ge1_run000219.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000220": {
         "gen": "pp_gen",
@@ -1383,7 +1446,8 @@
         "eff_stars": 0.06569,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_952.01MeV/season2022_stars_Ge0_Ge1_run000220.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_952.01MeV/season2022_coll_tr_eff_Ge0_Ge1_run000220.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_952.01MeV/season2022_coll_GeGm_Ge0_Ge1_run000220.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_952.01MeV/season2022_coll_GeGm_Ge0_Ge1_run000220.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000221": {
         "gen": "pp_gen",
@@ -1406,7 +1470,8 @@
         "eff_stars": 0.04901,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_953.0MeV/season2022_stars_Ge0_Ge1_run000221.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_953.0MeV/season2022_coll_tr_eff_Ge0_Ge1_run000221.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_953.0MeV/season2022_coll_GeGm_Ge0_Ge1_run000221.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_953.0MeV/season2022_coll_GeGm_Ge0_Ge1_run000221.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000222": {
         "gen": "pp_gen",
@@ -1429,7 +1494,8 @@
         "eff_stars": 0.11566,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.0MeV/season2022_stars_Ge0_Ge1_run000222.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.0MeV/season2022_coll_tr_eff_Ge0_Ge1_run000222.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.0MeV/season2022_coll_GeGm_Ge0_Ge1_run000222.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.0MeV/season2022_coll_GeGm_Ge0_Ge1_run000222.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000223": {
         "gen": "pp_gen",
@@ -1452,7 +1518,8 @@
         "eff_stars": 0.03663,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_954.0MeV/season2022_stars_Ge0_Ge1_run000223.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_954.0MeV/season2022_coll_tr_eff_Ge0_Ge1_run000223.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_954.0MeV/season2022_coll_GeGm_Ge0_Ge1_run000223.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_954.0MeV/season2022_coll_GeGm_Ge0_Ge1_run000223.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000224": {
         "gen": "pp_gen",
@@ -1475,7 +1542,8 @@
         "eff_stars": 0.0881,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.94MeV/season2022_stars_Ge0_Ge1_run000224.root",
         "tr_eff processed_file_location": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.94MeV/season2022_coll_tr_eff_Ge0_Ge1_run000224.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.94MeV/season2022_coll_GeGm_Ge0_Ge1_run000224.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_950.94MeV/season2022_coll_GeGm_Ge0_Ge1_run000224.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000225": {
         "gen": "pp_gen",
@@ -1497,7 +1565,8 @@
         "selected_events_stars": 16489,
         "eff_stars": 0.16489,
         "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_948.73MeV/season2022_stars_Ge0_Ge1_run000225.root",
-        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_948.73MeV/season2022_coll_GeGm_Ge0_Ge1_run000225.root"
+        "processed_file_location GeGm": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_948.73MeV/season2022_coll_GeGm_Ge0_Ge1_run000225.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000227": {
         "gen": "pp_gen",
@@ -1515,7 +1584,8 @@
         "season": "HIGH2017",
         "selected_events_stars": 16875,
         "eff_stars": 0.16875,
-        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_941.882MeV/season2017_stars_Ge0_Ge1_run000227.root"
+        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_941.882MeV/season2017_stars_Ge0_Ge1_run000227.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000228": {
         "gen": "pp_gen",
@@ -1533,7 +1603,8 @@
         "season": "HIGH2017",
         "selected_events_stars": 16129,
         "eff_stars": 0.16129,
-        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_940.166MeV/season2017_stars_Ge0_Ge1_run000228.root"
+        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_940.166MeV/season2017_stars_Ge0_Ge1_run000228.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000229": {
         "gen": "pp_gen",
@@ -1551,7 +1622,8 @@
         "season": "HIGH2017",
         "selected_events_stars": 15196,
         "eff_stars": 0.15196,
-        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_938.723MeV/season2017_stars_Ge0_Ge1_run000229.root"
+        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_938.723MeV/season2017_stars_Ge0_Ge1_run000229.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000230": {
         "gen": "pp_gen",
@@ -1569,7 +1641,8 @@
         "season": "HIGH2017",
         "selected_events_stars": 16467,
         "eff_stars": 0.16467,
-        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_939.467MeV/season2017_stars_Ge0_Ge1_run000230.root"
+        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_939.467MeV/season2017_stars_Ge0_Ge1_run000230.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000233": {
         "gen": "pp_gen",
@@ -1587,7 +1660,8 @@
         "season": "HIGH2017",
         "selected_events_stars": 17083,
         "eff_stars": 0.17083,
-        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_940.608MeV/season2017_stars_Ge0_Ge1_run000233.root"
+        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_940.608MeV/season2017_stars_Ge0_Ge1_run000233.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000236": {
         "gen": "pp_gen",
@@ -1605,7 +1679,8 @@
         "season": "HIGH2019",
         "selected_events_stars": 18607,
         "eff_stars": 0.18607,
-        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_944.817MeV/season2019_stars_Ge0_Ge1_run000236.root"
+        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_944.817MeV/season2019_stars_Ge0_Ge1_run000236.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000238": {
         "gen": "pp_gen",
@@ -1623,7 +1698,8 @@
         "season": "HIGH2020",
         "selected_events_stars": 18084,
         "eff_stars": 0.18084,
-        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_945.461MeV/season2020_stars_Ge0_Ge1_run000238.root"
+        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_945.461MeV/season2020_stars_Ge0_Ge1_run000238.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000241": {
         "gen": "pp_gen",
@@ -1641,7 +1717,8 @@
         "season": "HIGH2022",
         "selected_events_stars": 6096,
         "eff_stars": 0.06096,
-        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_938.323MeV/season2022_stars_Ge0_Ge1_run000241.root"
+        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_938.323MeV/season2022_stars_Ge0_Ge1_run000241.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000242": {
         "gen": "pp_gen",
@@ -1659,7 +1736,8 @@
         "season": "HIGH2022",
         "selected_events_stars": 15860,
         "eff_stars": 0.1586,
-        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_938.887MeV/season2022_stars_Ge0_Ge1_run000242.root"
+        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_938.887MeV/season2022_stars_Ge0_Ge1_run000242.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000243": {
         "gen": "pp_gen",
@@ -1677,7 +1755,8 @@
         "season": "HIGH2022",
         "selected_events_stars": 16786,
         "eff_stars": 0.16786,
-        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_939.594MeV/season2022_stars_Ge0_Ge1_run000243.root"
+        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_939.594MeV/season2022_stars_Ge0_Ge1_run000243.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000244": {
         "gen": "pp_gen",
@@ -1695,7 +1774,8 @@
         "season": "HIGH2022",
         "selected_events_stars": 17489,
         "eff_stars": 0.17489,
-        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_940.207MeV/season2022_stars_Ge0_Ge1_run000244.root"
+        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_940.207MeV/season2022_stars_Ge0_Ge1_run000244.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000245": {
         "gen": "pp_gen",
@@ -1713,7 +1793,8 @@
         "season": "HIGH2022",
         "selected_events_stars": 16972,
         "eff_stars": 0.16972,
-        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_940.96MeV/season2022_stars_Ge0_Ge1_run000245.root"
+        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_940.96MeV/season2022_stars_Ge0_Ge1_run000245.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000246": {
         "gen": "pp_gen",
@@ -1731,7 +1812,8 @@
         "season": "HIGH2022",
         "selected_events_stars": 17450,
         "eff_stars": 0.1745,
-        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_941.995MeV/season2022_stars_Ge0_Ge1_run000246.root"
+        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_941.995MeV/season2022_stars_Ge0_Ge1_run000246.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000247": {
         "gen": "pp_gen",
@@ -1749,7 +1831,8 @@
         "season": "HIGH2022",
         "selected_events_stars": 17545,
         "eff_stars": 0.17545,
-        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_943.495MeV/season2022_stars_Ge0_Ge1_run000247.root"
+        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_943.495MeV/season2022_stars_Ge0_Ge1_run000247.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000248": {
         "gen": "pp_gen",
@@ -1767,7 +1850,8 @@
         "season": "HIGH2022",
         "selected_events_stars": 17094,
         "eff_stars": 0.17094,
-        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_944.993MeV/season2022_stars_Ge0_Ge1_run000248.root"
+        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_944.993MeV/season2022_stars_Ge0_Ge1_run000248.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000249": {
         "gen": "pp_gen",
@@ -1785,7 +1869,8 @@
         "season": "HIGH2022",
         "selected_events_stars": 16622,
         "eff_stars": 0.16622,
-        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_947.5MeV/season2022_stars_Ge0_Ge1_run000249.root"
+        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_947.5MeV/season2022_stars_Ge0_Ge1_run000249.root",
+        "Physics list": "FTFP_BERT"
     },
     "run000250": {
         "gen": "pp_gen",
@@ -1803,6 +1888,7 @@
         "season": "HIGH2022",
         "selected_events_stars": 16361,
         "eff_stars": 0.16361,
-        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_948.727MeV/season2022_stars_Ge0_Ge1_run000250.root"
+        "processed_file_location_stars": "C:/work/Science/BINP/PbarP/tr_ph/root_files/MC/final/energy_948.727MeV/season2022_stars_Ge0_Ge1_run000250.root",
+        "Physics list": "FTFP_BERT"
     }
 }

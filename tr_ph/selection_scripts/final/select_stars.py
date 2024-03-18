@@ -43,7 +43,7 @@ class Select_stars:
         self.config = select_config
         raw_file = PurePath(prelim_file)
         # pattern = r'scan(\d+)_e([-+]?(?:\d*\.*\d+))_stars_prelim.root'
-        matched = re.fullmatch(filename_pattern, raw_file.name)
+        matched = re.search(filename_pattern, raw_file.name)
         self.season = f'season{matched.group(1)}' if matched is not None else 'error_during_matching'
         self.energy_point = str(matched.group(2)) if matched is not None else 'error_during_matching'
         self.season_num = int(matched.group(1)) if matched is not None else 0

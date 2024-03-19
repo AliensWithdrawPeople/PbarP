@@ -10,14 +10,10 @@ import itertools
 
 import sys
 # caution: path[0] is reserved for script path (or '' in REPL)
-sys.path.insert(1, 'C:/work/Science/BINP/PbarP/tr_ph')
+sys.path.append('C:/work/Science/BINP/PbarP/tr_ph/')
 from config import final_tree_name
 
 
-def make_if_not_exists(path: os.PathLike):
-    if not os.path.isdir(path):
-        os.mkdir(path)
-            
 @dataclass
 class Select_config_stars:
     max_delta_phi: float = 0.15 # rad 
@@ -39,7 +35,7 @@ class Select_config_stars:
     
 
 class Select_stars:            
-    def __init__(self, prelim_file: os.PathLike, filename_pattern: str, select_config: Select_config_stars = Select_config_stars()):
+    def __init__(self, prelim_file: os.PathLike, filename_pattern: str, select_config: Select_config_stars = Select_config_stars(), is_MC: bool = False):
         self.config = select_config
         raw_file = PurePath(prelim_file)
         # pattern = r'scan(\d+)_e([-+]?(?:\d*\.*\d+))_stars_prelim.root'
@@ -95,7 +91,7 @@ class Select_stars:
         self.raw['season'] = self.season_num
         self.raw['energy_point'] = self.energy_point_num
     
-    def get_selected_entries_num(self)->int:
+    def selected_entries_num(self)->int:
         return len(self.selected)
     
     def filter(self):
@@ -120,7 +116,7 @@ class Select_stars:
                     self.raw['vertex_track_min_rho_filter']
         return filter_mask
 
-    def save(self, processed: os.PathLike, recreate: bool) -> bool:
+    def save(self, processed: os.PathLike, recreate: bool, make_if_not_exists) -> bool:
         """save processed and filtered tree
 
         Parameters

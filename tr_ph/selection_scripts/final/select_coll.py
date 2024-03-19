@@ -12,15 +12,11 @@ import sys
 sys.path.append('C:/work/Science/BINP/PbarP/tr_ph/')
 from config import final_tree_name
 
-
-def make_if_not_exists(path: os.PathLike):
-    if not os.path.isdir(path):
-        os.mkdir(path)
             
 @dataclass
 class Select_config:
-    max_delta_phi: float = 0.15
-    max_delta_theta: float = 0.2
+    max_delta_phi: float = 0.2 # Changed
+    max_delta_theta: float = 0.25 # Changed
     max_z: float = 8
     max_track_rho: float = 0.2
     max_mom_ratio: float = 0.1
@@ -81,7 +77,7 @@ class Select_collinear:
         filter_mask = delta_phi_filter & delta_theta_filter & z_filter & track_rho_filter & mom_ratio_filter
         return filter_mask
 
-    def save(self, processed: os.PathLike, recreate: bool) -> bool:
+    def save(self, processed: os.PathLike, recreate: bool, make_if_not_exists) -> bool:
         """save processed and filtered tree
 
         Parameters

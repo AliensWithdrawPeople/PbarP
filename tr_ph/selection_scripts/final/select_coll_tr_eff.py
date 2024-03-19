@@ -11,11 +11,6 @@ import numpy as np
 import sys
 sys.path.append('C:/work/Science/BINP/PbarP/tr_ph/')
 from config import final_tree_name
-
-
-def make_if_not_exists(path: os.PathLike):
-    if not os.path.isdir(path):
-        os.mkdir(path)
             
 @dataclass
 class Select_config:
@@ -84,7 +79,7 @@ class Select_collinear_track_eff:
         filter_mask = np.array(track_rho_filter) & beam_track_filter
         return filter_mask
 
-    def save(self, processed: os.PathLike, recreate: bool) -> bool:
+    def save(self, processed: os.PathLike, recreate: bool, make_if_not_exists) -> bool:
         """save processed and filtered tree
 
         Parameters

@@ -25,7 +25,7 @@ class PrelimRootFilesFolder_Stars(Enum):
     exp = pathlib.Path(PrelimRootFilesFolder.exp.value, 'stars')
     MC = pathlib.Path(PrelimRootFilesFolder.MC.value, 'stars')
 
-class PrelimRootFilesFolder_Coll_Track_Eff(Enum):
+class PrelimRootFilesFolder_Coll_Tr_Eff(Enum):
     exp = pathlib.Path(PrelimRootFilesFolder.exp.value, 'collinear_track_efficiency')
     MC = pathlib.Path(PrelimRootFilesFolder.MC.value, 'collinear_track_efficiency')
     

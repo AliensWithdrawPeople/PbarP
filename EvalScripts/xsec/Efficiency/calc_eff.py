@@ -6,14 +6,19 @@ import sys
 sys.path.append('C:/work/Science/BINP/PbarP')
 from tr_ph.config import MC_info_path, collinear_results_data, stars_results_data, GeGm_Fit_Result_json, templates, root_folder
 
-# type = "coll"
-type = "stars"
+type = "coll"
+# type = "stars"
 
 type_name_official = 'collinear' if type == "coll" else 'annihilation'
 results_data = collinear_results_data if type == "coll" else stars_results_data
 eff_key_name = 'eff' if type == "coll" else 'eff_stars'
 eff_scale = (1, 0) if type == "coll" else (0.515, 0.0129)
-eff_scale = (1, 0) if type == "coll" else (1, 0)
+# from Gribanov's vcs fit, where
+# sigma_{born} = sigma^{(0)} * (\varepsilon_{scale} * theta(E - E_thrs) theta(955 MeV - E)*(1 - exp(-slope*(E - E_thrs))) + theta(E - 955 MeV))
+eff_scale = (1, 0) if type == "coll" else (0.63298, 0.0429)
+# from vis sigma fit, where
+# sigma = sigma^{(0)} * (\varepsilon_{scale} * theta(E - E_thrs) theta(955 MeV - E)*(1 - exp(-slope*(E - E_thrs))) + theta(E - 955 MeV))
+eff_scale = (1, 0) if type == "coll" else (0.5133, 0.) 
 
 GeGm = json.loads(GeGm_Fit_Result_json.read_text())
 MC_info = json.loads(MC_info_path.read_text())
@@ -60,8 +65,8 @@ def eval_eff(elabel: str, ge: float, ge_error: float, gm: float, gm_error: float
     """
     ge_frac = ge / (ge + gm)
     gm_frac = gm / (ge + gm)
-    
-    mc = list(filter(lambda run: run[1]['elabel'] == elabel, MC_info.items()))
+
+    mc = list(filter(lambda run: run[1]['elabel'] == elabel and run[1]['Physics list'] == 'FTFP_BERT', MC_info.items()))
     if len(mc) == 0:
         if int(elabel[:3]) < 939:
             return 1, 0
@@ -82,20 +87,17 @@ def eval_eff(elabel: str, ge: float, ge_error: float, gm: float, gm_error: float
                  gm_frac**2 * (eff_gm * (1 - eff_gm) / (mc[gm_mc_num][1]['events'])**0.5)**2 )**0.5
     # eff = eff_gm     
     # eff_error = (eff_gm * (1 - eff_gm) / (mc[gm_mc_num][1]['events']))**0.5
-    return eff * eff_scale[0], (eff_error**2 + eff_scale[1]**2)**0.5
+    return eff * eff_scale[0], (eff_error**2 * eff_scale[0]**2 + eff**2 * eff_scale[1]**2)**0.5
 
 
 res = []
 for elabel, xsec in vis_xsec_data.items():
-    # if xsec['nominal_energy'] < 950 or xsec['season'][-4:] == '2017':
-        # continue
     ge, ge_error, gm, gm_error = 1.44, 0.0, 1, 0.0
     if int(elabel[:3]) > 950:
         try:
             ge, ge_error, gm, gm_error = load_MC_info(elabel)
         except Exception as e:
-            # print(elabel, ":", e)
-            pass
+            print(f'Cant load MC info for elabel = {elabel}; Exc = {e}')
         
     try:    
         eff, eff_err = eval_eff(elabel, ge, ge_error, gm, gm_error, eff_scale)

@@ -37,7 +37,7 @@ for elabel, vals in vis_xsec_data_stars.items():
     total['energy_spread'].append(str(points[points['elabel'] == elabel]['mean_spread'].values[-1]))
 
 for elabel, vals in vis_xsec_data_coll.items():
-    if vals['energy'] < 955 or 'cross section' not in vals.keys():
+    if vals['energy'] < 962 or 'cross section' not in vals.keys():
         continue
     seasons[vals['season']]['energy'].append(str(vals['energy']))
     seasons[vals['season']]['xsec'].append(str(vals['cross section']))

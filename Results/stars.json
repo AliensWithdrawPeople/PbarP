@@ -77,8 +77,8 @@
         "energy": 938.323,
         "visible cross section": 0.0158,
         "visible cross section error": 0.0017,
-        "cross section": 0.0893,
-        "cross section error": 0.0097
+        "cross section": 0.1739,
+        "cross section error": 0.0194
     },
     "938.9_43659": {
         "season": "HIGH2017",
@@ -86,8 +86,8 @@
         "energy": 938.723,
         "visible cross section": 0.025,
         "visible cross section error": 0.0051,
-        "cross section": 0.1515,
-        "cross section error": 0.0309
+        "cross section": 0.2952,
+        "cross section error": 0.0602
     },
     "938.9_111115": {
         "season": "HIGH2022",
@@ -95,8 +95,8 @@
         "energy": 938.887,
         "visible cross section": 0.0325,
         "visible cross section error": 0.0025,
-        "cross section": 0.1892,
-        "cross section error": 0.0146
+        "cross section": 0.3686,
+        "cross section error": 0.0284
     },
     "939.6_44030": {
         "season": "HIGH2017",
@@ -104,8 +104,8 @@
         "energy": 939.467,
         "visible cross section": 0.0404,
         "visible cross section error": 0.0062,
-        "cross section": 0.2312,
-        "cross section error": 0.0355
+        "cross section": 0.4504,
+        "cross section error": 0.0691
     },
     "939.6_112147": {
         "season": "HIGH2022",
@@ -113,8 +113,8 @@
         "energy": 939.594,
         "visible cross section": 0.0435,
         "visible cross section error": 0.0028,
-        "cross section": 0.2462,
-        "cross section error": 0.0159
+        "cross section": 0.4797,
+        "cross section error": 0.0309
     },
     "940.2_43643": {
         "season": "HIGH2017",
@@ -122,8 +122,8 @@
         "energy": 940.166,
         "visible cross section": 0.0452,
         "visible cross section error": 0.0063,
-        "cross section": 0.2672,
-        "cross section error": 0.0372
+        "cross section": 0.5205,
+        "cross section error": 0.0726
     },
     "940.2_113201": {
         "season": "HIGH2022",
@@ -131,8 +131,8 @@
         "energy": 940.207,
         "visible cross section": 0.048,
         "visible cross section error": 0.0029,
-        "cross section": 0.2648,
-        "cross section error": 0.016
+        "cross section": 0.5159,
+        "cross section error": 0.0312
     },
     "940.8_44932": {
         "season": "HIGH2017",
@@ -140,8 +140,8 @@
         "energy": 940.608,
         "visible cross section": 0.0525,
         "visible cross section error": 0.007,
-        "cross section": 0.2941,
-        "cross section error": 0.0392
+        "cross section": 0.573,
+        "cross section error": 0.0764
     },
     "941_114098": {
         "season": "HIGH2022",
@@ -149,8 +149,8 @@
         "energy": 940.96,
         "visible cross section": 0.05,
         "visible cross section error": 0.003,
-        "cross section": 0.2817,
-        "cross section error": 0.0169
+        "cross section": 0.5487,
+        "cross section error": 0.0329
     },
     "942_41812": {
         "season": "HIGH2017",
@@ -158,8 +158,8 @@
         "energy": 941.882,
         "visible cross section": 0.0534,
         "visible cross section error": 0.0085,
-        "cross section": 0.3034,
-        "cross section error": 0.0483
+        "cross section": 0.591,
+        "cross section error": 0.0941
     },
     "942_114841": {
         "season": "HIGH2022",
@@ -167,8 +167,8 @@
         "energy": 941.995,
         "visible cross section": 0.057,
         "visible cross section error": 0.0032,
-        "cross section": 0.3166,
-        "cross section error": 0.0178
+        "cross section": 0.6168,
+        "cross section error": 0.0346
     },
     "943.5_115534": {
         "season": "HIGH2022",
@@ -176,8 +176,8 @@
         "energy": 943.495,
         "visible cross section": 0.0592,
         "visible cross section error": 0.0032,
-        "cross section": 0.3255,
-        "cross section error": 0.0176
+        "cross section": 0.6342,
+        "cross section error": 0.0343
     },
     "945_82528": {
         "season": "HIGH2019",
@@ -185,8 +185,8 @@
         "energy": 944.817,
         "visible cross section": 0.0756,
         "visible cross section error": 0.0075,
-        "cross section": 0.394,
-        "cross section error": 0.0391
+        "cross section": 0.7676,
+        "cross section error": 0.0762
     },
     "945_116237": {
         "season": "HIGH2022",
@@ -194,8 +194,8 @@
         "energy": 944.993,
         "visible cross section": 0.0592,
         "visible cross section error": 0.003,
-        "cross section": 0.3407,
-        "cross section error": 0.0173
+        "cross section": 0.6638,
+        "cross section error": 0.0337
     },
     "945_91878": {
         "season": "HIGH2020",
@@ -203,8 +203,8 @@
         "energy": 945.461,
         "visible cross section": 0.071,
         "visible cross section error": 0.0037,
-        "cross section": 0.3804,
-        "cross section error": 0.0198
+        "cross section": 0.7411,
+        "cross section error": 0.0386
     },
     "947.5_117323": {
         "season": "HIGH2022",
@@ -212,8 +212,8 @@
         "energy": 947.5,
         "visible cross section": 0.0671,
         "visible cross section error": 0.0031,
-        "cross section": 0.3945,
-        "cross section error": 0.0182
+        "cross section": 0.7686,
+        "cross section error": 0.0355
     },
     "948.75_120634": {
         "season": "HIGH2022",
@@ -228,8 +228,8 @@
         "energy": 949.995,
         "visible cross section": 0.0386,
         "visible cross section error": 0.0038,
-        "cross section": 0.3929,
-        "cross section error": 0.0387
+        "cross section": 0.7653,
+        "cross section error": 0.0754
     },
     "950_79625": {
         "season": "HIGH2019",
@@ -237,8 +237,8 @@
         "energy": 950.15,
         "visible cross section": 0.0453,
         "visible cross section error": 0.0071,
-        "cross section": 0.4882,
-        "cross section error": 0.0765
+        "cross section": 0.9511,
+        "cross section error": 0.1491
     },
     "950_93145": {
         "season": "HIGH2020",
@@ -246,8 +246,8 @@
         "energy": 950.29,
         "visible cross section": 0.0408,
         "visible cross section error": 0.0029,
-        "cross section": 0.4444,
-        "cross section error": 0.0316
+        "cross section": 0.8658,
+        "cross section error": 0.0616
     },
     "950_42150": {
         "season": "HIGH2017",
@@ -255,8 +255,8 @@
         "energy": 950.359,
         "visible cross section": 0.0436,
         "visible cross section error": 0.0078,
-        "cross section": 0.5472,
-        "cross section error": 0.0979
+        "cross section": 1.0661,
+        "cross section error": 0.1907
     },
     "951_119974": {
         "season": "HIGH2022",
@@ -264,8 +264,8 @@
         "energy": 950.945,
         "visible cross section": 0.0251,
         "visible cross section error": 0.0032,
-        "cross section": 0.4123,
-        "cross section error": 0.1618
+        "cross section": 0.8032,
+        "cross section error": 0.3152
     },
     "952_118137": {
         "season": "HIGH2022",
@@ -273,8 +273,8 @@
         "energy": 952.012,
         "visible cross section": 0.0256,
         "visible cross section error": 0.0033,
-        "cross section": 0.3897,
-        "cross section error": 0.052
+        "cross section": 0.7592,
+        "cross section error": 0.1013
     },
     "953_118524": {
         "season": "HIGH2022",
@@ -282,8 +282,8 @@
         "energy": 953.003,
         "visible cross section": 0.0185,
         "visible cross section error": 0.0028,
-        "cross section": 0.4093,
-        "cross section error": 0.1054
+        "cross section": 0.7973,
+        "cross section error": 0.2054
     },
     "954_119518": {
         "season": "HIGH2022",
@@ -291,8 +291,8 @@
         "energy": 953.997,
         "visible cross section": 0.012,
         "visible cross section error": 0.0028,
-        "cross section": 0.3276,
-        "cross section error": 0.0856
+        "cross section": 0.6382,
+        "cross section error": 0.1667
     },
     "955_81775": {
         "season": "HIGH2019",
@@ -300,8 +300,8 @@
         "energy": 956.084,
         "visible cross section": 0.0109,
         "visible cross section error": 0.0051,
-        "cross section": 0.7834,
-        "cross section error": 0.3669
+        "cross section": 1.5262,
+        "cross section error": 0.7147
     },
     "960_94254": {
         "season": "HIGH2020",
@@ -309,8 +309,8 @@
         "energy": 960.252,
         "visible cross section": 0.0076,
         "visible cross section error": 0.0016,
-        "cross section": 0.7972,
-        "cross section error": 0.1783
+        "cross section": 1.553,
+        "cross section error": 0.3474
     },
     "960_42406": {
         "season": "HIGH2017",
@@ -318,8 +318,8 @@
         "energy": 960.625,
         "visible cross section": 0.0079,
         "visible cross section error": 0.005,
-        "cross section": 0.8747,
-        "cross section error": 0.5536
+        "cross section": 1.704,
+        "cross section error": 1.0785
     },
     "962.5_80068": {
         "season": "HIGH2019",
@@ -327,8 +327,8 @@
         "energy": 962.687,
         "visible cross section": 0.012,
         "visible cross section error": 0.0041,
-        "cross section": 1.3466,
-        "cross section error": 1.0003
+        "cross section": 2.6233,
+        "cross section error": 1.9488
     },
     "970_98116": {
         "season": "HIGH2021",
@@ -336,8 +336,8 @@
         "energy": 968.805,
         "visible cross section": 0.0094,
         "visible cross section error": 0.0023,
-        "cross section": 1.9988,
-        "cross section error": 0.5163
+        "cross section": 3.8941,
+        "cross section error": 1.0057
     },
     "970_95392": {
         "season": "HIGH2020",
@@ -345,8 +345,8 @@
         "energy": 970.583,
         "visible cross section": 0.0066,
         "visible cross section error": 0.0016,
-        "cross section": 1.4929,
-        "cross section error": 0.3759
+        "cross section": 2.9084,
+        "cross section error": 0.7323
     },
     "971_42651": {
         "season": "HIGH2017",
@@ -354,8 +354,8 @@
         "energy": 971.253,
         "visible cross section": 0.0044,
         "visible cross section error": 0.0034,
-        "cross section": 1.0397,
-        "cross section error": 0.8034
+        "cross section": 2.0256,
+        "cross section error": 1.5653
     },
     "975_80603": {
         "season": "HIGH2019",
@@ -363,8 +363,8 @@
         "energy": 972.917,
         "visible cross section": 0.0039,
         "visible cross section error": 0.0023,
-        "cross section": 0.9103,
-        "cross section error": 0.5459
+        "cross section": 1.7735,
+        "cross section error": 1.0634
     },
     "978_80506": {
         "season": "HIGH2019",
@@ -372,8 +372,8 @@
         "energy": 977.158,
         "visible cross section": 0.0048,
         "visible cross section error": 0.0062,
-        "cross section": 1.3054,
-        "cross section error": 1.7501
+        "cross section": 2.5431,
+        "cross section error": 3.4095
     },
     "980_99550": {
         "season": "HIGH2021",
@@ -381,8 +381,8 @@
         "energy": 980.248,
         "visible cross section": 0.0082,
         "visible cross section error": 0.0016,
-        "cross section": 2.7556,
-        "cross section error": 0.5594
+        "cross section": 5.3684,
+        "cross section error": 1.0898
     },
     "981_42875": {
         "season": "HIGH2017",
@@ -390,8 +390,8 @@
         "energy": 981.947,
         "visible cross section": 0.0066,
         "visible cross section error": 0.0038,
-        "cross section": 2.3716,
-        "cross section error": 1.3655
+        "cross section": 4.6203,
+        "cross section error": 2.6602
     },
     "987.5_81313": {
         "season": "HIGH2019",
@@ -399,8 +399,8 @@
         "energy": 987.81,
         "visible cross section": 0.0014,
         "visible cross section error": 0.0027,
-        "cross section": 0.49,
-        "cross section error": 0.9469
+        "cross section": 0.9546,
+        "cross section error": 1.8447
     },
     "990_101920": {
         "season": "HIGH2021",
@@ -408,8 +408,8 @@
         "energy": 990.293,
         "visible cross section": 0.0046,
         "visible cross section error": 0.0014,
-        "cross section": 1.7772,
-        "cross section error": 0.5498
+        "cross section": 3.4623,
+        "cross section error": 1.0711
     },
     "1003.5_103608": {
         "season": "HIGH2021",
@@ -417,7 +417,7 @@
         "energy": 1003.5,
         "visible cross section": 0.0038,
         "visible cross section error": 0.0009,
-        "cross section": 1.9495,
-        "cross section error": 0.4618
+        "cross section": 3.798,
+        "cross section error": 0.8996
     }
 }

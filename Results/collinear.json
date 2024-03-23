@@ -161,8 +161,8 @@
         "energy": 950.945,
         "visible cross section": 0.0098,
         "visible cross section error": 0.0013,
-        "cross section": 1.4853,
-        "cross section error": 0.4465
+        "cross section": 1.6191,
+        "cross section error": 0.6379
     },
     "952_118137": {
         "season": "HIGH2022",
@@ -171,7 +171,7 @@
         "visible cross section": 0.0438,
         "visible cross section error": 0.0028,
         "cross section": 3.4112,
-        "cross section error": 0.3195
+        "cross section error": 22.4386
     },
     "953_118524": {
         "season": "HIGH2022",
@@ -179,8 +179,8 @@
         "energy": 953.003,
         "visible cross section": 0.0785,
         "visible cross section error": 0.0036,
-        "cross section": 2.1058,
-        "cross section error": 0.7074
+        "cross section": 2.3911,
+        "cross section error": 18.6482
     },
     "954_119518": {
         "season": "HIGH2022",
@@ -188,8 +188,8 @@
         "energy": 953.997,
         "visible cross section": 0.0955,
         "visible cross section error": 0.0042,
-        "cross section": 1.5605,
-        "cross section error": 0.3582
+        "cross section": 1.1026,
+        "cross section error": 0.958
     },
     "955_81775": {
         "season": "HIGH2019",
@@ -198,7 +198,7 @@
         "visible cross section": 0.2614,
         "visible cross section error": 0.0144,
         "cross section": 0.9989,
-        "cross section error": 0.0561
+        "cross section error": 0.0569
     },
     "960_94254": {
         "season": "HIGH2020",
@@ -206,8 +206,8 @@
         "energy": 960.252,
         "visible cross section": 0.3924,
         "visible cross section error": 0.0063,
-        "cross section": 0.8564,
-        "cross section error": 0.0605
+        "cross section": 0.8574,
+        "cross section error": 0.064
     },
     "962.5_80068": {
         "season": "HIGH2019",
@@ -215,8 +215,8 @@
         "energy": 962.687,
         "visible cross section": 0.4046,
         "visible cross section error": 0.0139,
-        "cross section": 1.1865,
-        "cross section error": 1.0839
+        "cross section": 1.1611,
+        "cross section error": 0.3483
     },
     "970_98116": {
         "season": "HIGH2021",
@@ -224,8 +224,8 @@
         "energy": 968.805,
         "visible cross section": 0.4524,
         "visible cross section error": 0.0091,
-        "cross section": 0.7173,
-        "cross section error": 0.0555
+        "cross section": 0.7528,
+        "cross section error": 0.0701
     },
     "970_95392": {
         "season": "HIGH2020",
@@ -233,8 +233,8 @@
         "energy": 970.583,
         "visible cross section": 0.4637,
         "visible cross section error": 0.0073,
-        "cross section": 0.7517,
-        "cross section error": 0.0495
+        "cross section": 0.7638,
+        "cross section error": 0.058
     },
     "975_80603": {
         "season": "HIGH2019",
@@ -242,8 +242,8 @@
         "energy": 972.917,
         "visible cross section": 0.4806,
         "visible cross section error": 0.011,
-        "cross section": 0.8842,
-        "cross section error": 0.102
+        "cross section": 0.8524,
+        "cross section error": 0.0991
     },
     "978_80506": {
         "season": "HIGH2019",
@@ -251,8 +251,8 @@
         "energy": 977.158,
         "visible cross section": 0.4837,
         "visible cross section error": 0.0327,
-        "cross section": 0.9152,
-        "cross section error": 0.3919
+        "cross section": 0.8309,
+        "cross section error": 0.3042
     },
     "980_99550": {
         "season": "HIGH2021",
@@ -260,8 +260,8 @@
         "energy": 980.248,
         "visible cross section": 0.493,
         "visible cross section error": 0.0067,
-        "cross section": 0.7023,
-        "cross section error": 0.0363
+        "cross section": 0.7078,
+        "cross section error": 0.0396
     },
     "987.5_81313": {
         "season": "HIGH2019",
@@ -269,8 +269,8 @@
         "energy": 987.81,
         "visible cross section": 0.5096,
         "visible cross section error": 0.015,
-        "cross section": 0.7781,
-        "cross section error": 0.0955
+        "cross section": 0.7851,
+        "cross section error": 0.1105
     },
     "990_101920": {
         "season": "HIGH2021",
@@ -278,8 +278,8 @@
         "energy": 990.293,
         "visible cross section": 0.5064,
         "visible cross section error": 0.0071,
-        "cross section": 0.7077,
-        "cross section error": 0.0386
+        "cross section": 0.7198,
+        "cross section error": 0.044
     },
     "1003.5_103608": {
         "season": "HIGH2021",
